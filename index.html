@@ -766,7 +766,7 @@
         }
 
         /* ==========================================================================
-           14. MASTER RESPONSIVENESS
+           14. MASTER RESPONSIVENESS (PERFECTLY FIXED FOR MOBILE)
            ========================================================================== */
         @media (max-width: 1024px) {
             .hero-title {
@@ -825,19 +825,31 @@
                 border-radius: 0;
             }
 
+            /* --- FIXED: SLIM DOWN THE TOP GREEN BAR --- */
+            .top-bar { 
+                padding: 4px 10px !important;
+                font-size: 11px !important;
+                line-height: 1.2 !important;
+            }
+
             .top-bar-content {
                 flex-direction: column;
                 text-align: center;
                 gap: 5px;
             }
 
+            /* Adjusted Navbar position so it doesn't overlap the new smaller top bar */
             .navbar {
-                top: 60px;
+                top: 45px;
                 height: 70px;
+                padding: 8px 15px !important;
             }
 
+            /* --- FIXED: MAKE LOGO BIGGER ON MOBILE --- */
             .nav-logo {
-                height: 60px;
+                height: 55px !important; 
+                max-height: none !important;
+                width: auto !important;
             }
 
             .hero-section {
@@ -852,9 +864,19 @@
                 grid-template-columns: 1fr;
             }
 
+            /* --- FIXED: SQUISHED BEFORE/AFTER PICTURES --- */
             .project-images {
-                grid-template-columns: 1fr;
-                height: 350px;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 15px !important; 
+                height: auto !important; 
+            }
+
+            .ba-image-wrapper img {
+                width: 100% !important;
+                height: 220px !important; 
+                object-fit: cover !important; 
+                border-radius: 10px !important;
             }
 
             .footer-grid {
