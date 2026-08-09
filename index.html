@@ -7,13 +7,11 @@
     <title>Niko Junk Removal LLC | Master Hauling Template</title>
 
     <!-- ==========================================================================
-         BULLETPROOF FONT LOADING (Forces the browser to load the vibrant fonts)
+         BULLETPROOF FONT LOADING (Fun & Rockish "Lilita One" Font)
          ========================================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Epilogue:wght@600;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lilita+One&display=swap" rel="stylesheet">
 
     <!-- ==========================================================================
          EXTERNAL LIBRARIES (AWWWARDS-LEVEL)
@@ -32,17 +30,43 @@
     <style>
         /* --- 1. GLOBAL VARIABLES & RESETS (VIBRANT BRAND PALETTE) --- */
         :root {
-            --primary: #113f28;
-            /* Niko Dark Green */
+            --primary: #113f28; 
             --primary-light: #1e5c3e;
-            --accent: #22c55e;
-            /* Niko Bright Neon Green */
-            --bg-canvas: #F9F8F4;
-            /* Warmer, premium cream color to make the green pop */
+            --accent: #22c55e; 
+            --bg-canvas: #F9F8F4; 
             --text-dark: #0f172a;
             --text-gray: #475569;
             --white: #ffffff;
             --nav-height: 90px;
+        }
+
+        /* --- AWWWARDS CUSTOM CURSOR --- */
+        @media (pointer: fine) {
+            body, a, button, input, textarea {
+                cursor: none !important;
+            }
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
+            mix-blend-mode: difference; /* Creates the color-inversion effect over dark/light areas */
+        }
+
+        .custom-cursor.hovered {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            mix-blend-mode: difference;
         }
 
         * {
@@ -52,8 +76,7 @@
         }
 
         html {
-            font-family: 'DM Sans', sans-serif;
-            /* Super clean, readable body font */
+            font-family: 'DM Sans', sans-serif; 
             scroll-behavior: smooth;
             scroll-padding-top: 110px;
             background-color: var(--bg-canvas);
@@ -61,29 +84,13 @@
         }
 
         /* VIBRANT CHUNKY FONT FOR ALL HEADINGS AND BUTTONS */
-        h1,
-        h2,
-        h3,
-        h4,
-        .nav-links a,
-        .hero-btn-primary,
-        .hero-btn-secondary,
-        .section-title,
-        .price-amount,
-        .price-label,
-        .card-title,
-        .hero-tag,
-        .nav-btn,
-        .submit-btn,
-        .secondary-btn,
-        .dark-btn {
-            font-family: 'Epilogue', sans-serif;
-            letter-spacing: -0.5px;
+        h1, h2, h3, h4, .nav-links a, .hero-btn-primary, .hero-btn-secondary, .section-title, .price-amount, .price-label, .card-title, .hero-tag, .nav-btn, .submit-btn, .secondary-btn, .dark-btn {
+            font-family: 'Lilita One', sans-serif;
+            font-weight: 400; 
+            letter-spacing: 1px; 
         }
 
-        body {
-            overflow-x: hidden;
-        }
+        body { overflow-x: hidden; }
 
         section {
             padding: 100px 5%;
@@ -93,273 +100,123 @@
         /* --- 1.5 LIGHT MESH AMBIENT BACKGROUND --- */
         .ambient-background {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -999;
             background-color: var(--bg-canvas);
             background-image:
                 radial-gradient(circle at 15% 15%, rgba(34, 197, 94, 0.12) 0%, transparent 55%),
                 radial-gradient(circle at 85% 75%, rgba(17, 63, 40, 0.08) 0%, transparent 60%),
                 radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
-            overflow: hidden;
-            pointer-events: none;
+            overflow: hidden; pointer-events: none;
         }
 
         .grain-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -998;
-            pointer-events: none;
-            opacity: 0.25;
-            mix-blend-mode: multiply;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -998; pointer-events: none; opacity: 0.25; mix-blend-mode: multiply;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* --- 2. TYPOGRAPHY & UTILITIES --- */
-        .text-green-light {
-            color: var(--accent);
-        }
-
-        .text-green {
-            color: var(--primary);
-        }
-
-        .text-dark {
-            color: var(--text-dark);
-        }
-
-        .text-white {
-            color: var(--white);
-        }
-
-        .text-gray-light {
-            color: #64748b;
-        }
-
-        .text-dark-gray {
-            color: var(--text-gray);
-        }
+        .text-green-light { color: var(--accent); }
+        .text-green { color: var(--primary); }
+        .text-dark { color: var(--text-dark); }
+        .text-white { color: var(--white); }
+        .text-gray-light { color: #64748b; }
+        .text-dark-gray { color: var(--text-gray); }
 
         .section-title {
-            font-size: 3.8rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            line-height: 1.1;
-            color: var(--primary);
-            letter-spacing: -1.5px;
+            font-size: 3.8rem; line-height: 1.1; color: var(--primary); letter-spacing: 1px;
+            margin-bottom: 0.5rem; text-align: center;
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 3rem auto;
-            line-height: 1.6;
-            color: var(--text-gray);
+            font-size: 1.25rem; text-align: center; max-width: 650px; margin: 0 auto 3rem auto;
+            line-height: 1.6; color: var(--text-gray);
         }
 
-        .text-left {
-            text-align: left;
-            margin-left: 0;
-        }
+        .text-left { text-align: left; margin-left: 0; }
 
-        /* --- 3. BACKGROUND ORB --- */
         .interactive-bg-orb {
-            position: fixed;
-            top: -20vw;
-            left: -20vw;
-            width: 40vw;
-            height: 40vw;
+            position: fixed; top: -20vw; left: -20vw; width: 40vw; height: 40vw;
             background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -997;
-            filter: blur(60px);
-            will-change: transform;
+            border-radius: 50%; pointer-events: none; z-index: -997; filter: blur(60px);
         }
 
         /* --- 4. NAVIGATION & TOP BAR --- */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--nav-height);
-            background: transparent;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            transition: all 0.4s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+            background: transparent; z-index: 1000; display: flex; justify-content: space-between;
+            align-items: center; padding: 0 5%; transition: all 0.4s ease;
         }
 
-        /* Active Glass State applied via Javascript */
         .navbar.glass-active {
-            background: rgba(244, 247, 245, 0.95);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(17, 63, 40, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            background: rgba(244, 247, 245, 0.95); backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(17, 63, 40, 0.08); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
         }
 
-        /* The Custom Logo Pill Hack */
         .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--white);
-            padding: 2px 20px;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: flex; align-items: center; justify-content: center; background: var(--white);
+            padding: 2px 20px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .nav-logo {
-            height: 75px;
-            /* Large scale */
-            width: auto;
-            object-fit: contain;
-            transition: all 0.4s ease;
-            transform: scale(1.1);
+            height: 75px; width: auto; object-fit: contain; transition: all 0.4s ease; transform: scale(1.1);
         }
 
-        .navbar.glass-active .nav-logo {
-            height: 55px;
+        .navbar.glass-active .nav-logo { height: 55px; }
+
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--white); font-size: 1.1rem; transition: color 0.3s; }
+        .navbar.glass-active .nav-links a { color: var(--text-dark); }
+        .nav-links a:hover { color: var(--accent) !important; }
+
+        .nav-btn, .primary-cta, .submit-btn {
+            background: var(--accent); color: var(--text-dark); padding: 1rem 2rem; border-radius: 8px;
+            text-decoration: none; font-size: 1.1rem; border: none; display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--white);
-            /* White over the video initially */
-            font-weight: 800;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        .navbar.glass-active .nav-links a {
-            color: var(--text-dark);
-            /* Turns dark when scrolling */
-        }
-
-        .nav-links a:hover {
-            color: var(--accent) !important;
-        }
-
-        .nav-btn,
-        .primary-cta,
-        .submit-btn {
-            background: var(--accent);
-            /* Vibrant Green Button */
-            color: var(--text-dark);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            border: none;
-            display: inline-block;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
-            cursor: pointer;
-        }
-
-        .nav-btn:hover,
-        .primary-cta:hover,
-        .submit-btn:hover {
-            background: var(--primary);
-            color: var(--white);
-            transform: translateY(-2px);
+        .nav-btn:hover, .primary-cta:hover, .submit-btn:hover {
+            background: var(--primary); color: var(--white); transform: translateY(-2px);
             box-shadow: 0 15px 25px rgba(17, 63, 40, 0.3);
         }
 
         /* --- 5. ASYMMETRIC HERO SECTION --- */
         .hero-section {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: left;
-            color: var(--white);
-            overflow: hidden;
-            margin-top: 0;
-            padding-top: 90px;
-            padding-left: 5%;
-            padding-right: 5%;
+            height: 100vh; position: relative; display: flex; align-items: center; justify-content: flex-start;
+            text-align: left; color: var(--white); overflow: hidden; margin-top: 0; padding-top: 90px;
+            padding-left: 5%; padding-right: 5%;
         }
 
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-        }
-
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
         .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.1) 100%);
             z-index: -1;
         }
 
-        .hero-content {
-            z-index: 1;
-            max-width: 850px;
-            padding: 0;
-        }
+        .hero-content { z-index: 1; max-width: 850px; padding: 0; }
 
         .hero-tag {
-            color: var(--accent);
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            display: block;
+            color: var(--accent); font-size: 1.1rem; margin-bottom: 1.5rem; display: block;
         }
 
         .hero-title {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--white);
-            font-weight: 900;
-            letter-spacing: -2px;
+            font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.05; margin-bottom: 20px;
+            color: var(--white); letter-spacing: 1px;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            color: #e2e8f0;
-            line-height: 1.6;
-            max-width: 700px;
+            font-size: 1.25rem; margin-bottom: 40px; color: #e2e8f0; line-height: 1.6; max-width: 700px;
         }
 
         .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            display: flex; gap: 1.5rem; flex-wrap: wrap; position: relative;
+            z-index: 50; /* Protects from the trust bar */
+            margin-bottom: 100px; /* THE BUTTON RESCUE MARGIN */
         }
 
-        .hero-btn-primary {
+      .hero-btn-primary {
             background: var(--accent);
             color: var(--text-dark);
             padding: 1.2rem 2.5rem;
@@ -371,14 +228,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            /* Swapped 'all' to specific traits so it doesn't break GSAP physics */
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; 
             box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
         }
 
         .hero-btn-primary:hover {
             background: var(--primary);
             color: var(--white);
-            transform: translateY(-2px);
         }
 
         .hero-btn-secondary {
@@ -393,986 +250,185 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .hero-btn-secondary:hover {
             background: var(--bg-canvas);
-            transform: translateY(-2px);
         }
-
         /* --- HERO TRUST BAR (ANCHORED TO BOTTOM) --- */
         .hero-trust-bar {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 95%;
-            max-width: 1200px;
-            background: rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 1.2rem 2%;
-            z-index: 10;
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1200px;
+            background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px; display: flex; justify-content: space-around; align-items: center;
+            padding: 1.2rem 2%; z-index: 10;
         }
 
         .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 0.95rem;
+            display: flex; align-items: center; gap: 0.6rem; color: var(--white); font-weight: 700; font-size: 1rem;
         }
 
-        .trust-item svg {
-            width: 22px;
-            height: 22px;
-            color: var(--accent);
-        }
-
-        .trust-item.stars {
-            color: #f59e0b;
-        }
+        .trust-item svg { width: 22px; height: 22px; color: var(--accent); }
+        .trust-item.stars { color: #f59e0b; }
+        .star { display: inline-block; } /* Required for GSAP rotation */
 
         /* --- 6. MARQUEE BANNER --- */
         .marquee-section {
-            background: var(--primary);
-            color: var(--white);
-            padding: 15px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            font-weight: 800;
-            letter-spacing: 2px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: var(--primary); color: var(--white); padding: 15px 0; overflow: hidden;
+            white-space: nowrap; font-size: 1.2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
-
-        .marquee-content {
-            display: inline-block;
-        }
-
-        .marquee-content span {
-            padding-right: 50px;
-        }
+        .marquee-content { display: inline-block; }
+        .marquee-content span { padding-right: 50px; }
 
         /* --- GLOBAL VIBRANT CARDS --- */
         .premium-glass-card {
-            background: var(--white);
-            border: 2px solid rgba(34, 197, 94, 0.15);
-            box-shadow: 0 15px 35px rgba(17, 63, 40, 0.05);
-            border-radius: 24px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--white); border: 2px solid rgba(34, 197, 94, 0.15);
+            box-shadow: 0 15px 35px rgba(17, 63, 40, 0.05); border-radius: 24px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .premium-glass-card:hover {
-            box-shadow: 0 25px 50px rgba(34, 197, 94, 0.15);
-            transform: translateY(-8px);
-            border-color: var(--accent);
+            box-shadow: 0 25px 50px rgba(34, 197, 94, 0.15); transform: translateY(-8px); border-color: var(--accent);
         }
 
         /* --- 7. SERVICES GRID (6 CARDS) --- */
-        .services-section {
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-        }
+        .services-section { background: transparent; position: relative; overflow: hidden; }
+        #particles-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .section-content-relative { position: relative; z-index: 2; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; max-width: 1400px; margin-left: auto; margin-right: auto; }
+        .service-card { padding: 2.5rem; display: flex; flex-direction: column; justify-content: flex-start; }
+        .service-icon { width: 45px; height: 45px; margin-bottom: 1.5rem; color: var(--accent); }
+        .card-title { font-size: 1.8rem; margin-bottom: 0.75rem; color: var(--text-dark); }
+        .service-card p { color: var(--text-gray); line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; flex-grow: 1; }
+        .learn-more-link { color: var(--accent); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: color 0.3s; }
+        .learn-more-link:hover { color: var(--primary); }
+        .centered-btn-wrapper { text-align: center; margin-top: 3rem; }
+        .secondary-btn { background: var(--accent); color: var(--text-dark); padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; display: inline-block; transition: all 0.3s; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2); }
+        .secondary-btn:hover { background: var(--primary); color: var(--white); box-shadow: 0 15px 25px rgba(17, 63, 40, 0.3); transform: translateY(-2px); }
 
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+        /* --- 8. PRICING SECTION --- */
+        .pricing-section { background: transparent; position: relative; z-index: 2; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; max-width: 1400px; margin-left: auto; margin-right: auto; }
+        .price-card { padding: 2.5rem 2rem; display: flex; flex-direction: column; }
+        .price-label { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .price-amount { font-size: 4rem; color: var(--accent); margin-bottom: 1rem; line-height: 1; }
+        .price-desc { color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+        .dark-btn { background: var(--text-dark); color: var(--white); padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; display: inline-block; margin-top: 3rem; transition: background 0.3s; }
+        .dark-btn:hover { background: var(--primary); }
 
-        .section-content-relative {
-            position: relative;
-            z-index: 2;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .service-card {
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .service-icon {
-            width: 45px;
-            height: 45px;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-            letter-spacing: -0.5px;
-        }
-
-        .service-card p {
-            color: var(--text-gray);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            flex-grow: 1;
-        }
-
-        .learn-more-link {
-            color: var(--accent);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s;
-        }
-
-        .learn-more-link:hover {
-            color: var(--primary);
-        }
-
-        .centered-btn-wrapper {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .secondary-btn {
-            background: var(--accent);
-            color: var(--text-dark);
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            display: inline-block;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
-        }
-
-        .secondary-btn:hover {
-            background: var(--primary);
-            color: var(--white);
-            box-shadow: 0 15px 25px rgba(17, 63, 40, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* --- 8. PRICING SECTION (4 CARDS) --- */
-        .pricing-section {
-            background: transparent;
-            position: relative;
-            z-index: 2;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .price-card {
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-label {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .price-amount {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            line-height: 1;
-            letter-spacing: -2px;
-        }
-
-        .price-desc {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .dark-btn {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-top: 3rem;
-            transition: background 0.3s;
-        }
-
-        .dark-btn:hover {
-            background: var(--primary);
-        }
-
-        /* --- 9. ECO-CONSCIOUS (WHERE YOUR STUFF GOES) SECTION --- */
-        .eco-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #081c10 100%);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-            border-radius: 40px;
-            margin: 0 2vw;
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), 0 30px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .eco-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .eco-text-side h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin: 1rem 0 1.5rem 0;
-            color: var(--white);
-            letter-spacing: -1.5px;
-        }
-
-        .eco-text-side p {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: #cbd5e1;
-        }
-
-        .eco-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
-            padding: 3rem;
-            color: var(--text-dark);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .eco-card h3 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-        }
-
-        .eco-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .eco-item:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .eco-item-icon {
-            width: 32px;
-            height: 32px;
-            color: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .eco-item-text h4 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 0.3rem;
-            color: var(--text-dark);
-        }
-
-        .eco-item-text p {
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            line-height: 1.5;
-        }
-
-        .eco-stat-box {
-            background: var(--bg-canvas);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 2rem;
-            border: 1px solid rgba(17, 63, 40, 0.05);
-        }
-
-        .eco-stat-box h4 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            letter-spacing: -2px;
-        }
-
-        .eco-stat-box p {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: var(--text-gray);
-        }
+        /* --- 9. ECO-CONSCIOUS --- */
+        .eco-section { background: linear-gradient(135deg, var(--primary) 0%, #081c10 100%); color: var(--white); position: relative; overflow: hidden; border-radius: 40px; margin: 0 2vw; box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), 0 30px 60px rgba(0, 0, 0, 0.1); }
+        .eco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1400px; margin: 0 auto; }
+        .eco-text-side h2 { font-size: 3.5rem; line-height: 1.1; margin: 1rem 0 1.5rem 0; color: var(--white); }
+        .eco-text-side p { font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; }
+        .eco-card { background: rgba(255, 255, 255, 0.95); border-radius: 24px; padding: 3rem; color: var(--text-dark); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3); }
+        .eco-card h3 { font-size: 2rem; margin-bottom: 2rem; color: var(--primary); }
+        .eco-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+        .eco-item:last-of-type { margin-bottom: 0; }
+        .eco-item-icon { width: 32px; height: 32px; color: var(--accent); flex-shrink: 0; }
+        .eco-item-text h4 { font-size: 1.3rem; margin-bottom: 0.3rem; color: var(--text-dark); }
+        .eco-item-text p { font-size: 0.95rem; color: var(--text-gray); line-height: 1.5; }
+        .eco-stat-box { background: var(--bg-canvas); border-radius: 12px; padding: 2rem; text-align: center; margin-top: 2rem; border: 1px solid rgba(17, 63, 40, 0.05); }
+        .eco-stat-box h4 { font-size: 4rem; color: var(--primary); line-height: 1; margin-bottom: 0.5rem; }
+        .eco-stat-box p { font-size: 1rem; color: var(--text-gray); }
 
         /* --- 10. BEFORE/AFTER SLIDER --- */
-        .ba-section {
-            background: transparent;
-        }
+        .ba-section { background: transparent; }
+        .ba-swiper { width: 100%; padding-bottom: 4rem; overflow: visible; }
+        .project-card { width: 100%; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; border: 2px solid rgba(34, 197, 94, 0.15); border-radius: 32px; padding: 40px; background: var(--white); }
+        .project-header { text-align: left; padding: 0; }
+        .project-header h3 { font-size: 2.8rem; margin-bottom: 1rem; color: var(--primary); line-height: 1.1; }
+        .project-header h3 span { color: var(--accent); display: block; font-size: 2rem; margin-top: 0.5rem; }
+        .project-desc { color: var(--text-gray); font-size: 1.05rem; line-height: 1.7; margin: 0; }
+        .project-images { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; height: 500px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border: 1px solid rgba(17, 63, 40, 0.1); }
+        .ba-image-wrapper { position: relative; width: 100%; height: 100%; }
+        .ba-image-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .ba-label { position: absolute; top: 20px; left: 20px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); color: var(--primary); padding: 8px 24px; border-radius: 30px; font-size: 1rem; z-index: 5; border: 1px solid rgba(17, 63, 40, 0.1); }
+        .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; background: var(--white); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); width: 60px; height: 60px; border-radius: 50%; border: 1px solid rgba(17, 63, 40, 0.1); transition: background 0.3s, transform 0.2s; }
+        .swiper-button-next:hover, .swiper-button-prev:hover { background: var(--accent); color: var(--white) !important; border-color: var(--accent); transform: scale(1.1); }
 
-        .ba-swiper {
-            width: 100%;
-            padding-bottom: 4rem;
-            overflow: visible;
-        }
+        /* --- 11. CRITICAL DETAILS --- */
+        .sticky-details-section { background: transparent; }
+        .sticky-layout-container { display: flex; gap: 5rem; align-items: flex-start; }
+        .sticky-sidebar { flex: 0 0 40%; position: sticky; top: 130px; border-left: 4px solid var(--accent); padding-left: 2rem; }
+        .sidebar-media { margin-top: 2rem; height: 400px; width: 100%; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); border: 1px solid rgba(17, 63, 40, 0.1); }
+        .sidebar-video { width: 100%; height: 100%; object-fit: cover; }
+        .scrolling-cards { flex: 1; display: flex; flex-direction: column; gap: 2rem; }
+        .detail-row-card { padding: 3rem; display: flex; gap: 2rem; align-items: flex-start; transition: transform 0.3s; }
+        .detail-row-card:hover { transform: translateY(-5px); }
+        .detail-number { font-size: 4rem; color: var(--accent); opacity: 0.5; line-height: 0.8; }
+        .detail-content h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; }
+        .detail-content p { color: var(--text-gray); line-height: 1.6; }
 
-        .project-card {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            align-items: center;
-            border: 2px solid rgba(34, 197, 94, 0.15);
-            border-radius: 32px;
-            padding: 40px;
-            background: var(--white);
-        }
+        /* --- 12. MAP SECTION --- */
+        .service-area-section { background: transparent; position: relative; }
+        .service-area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1400px; margin: 0 auto; }
+        .sa-text-side h2 { font-size: 3.8rem; color: var(--primary); margin: 0.5rem 0 1.5rem 0; line-height: 1.1; }
+        .sa-text-side p.desc { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.6; }
+        .city-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; list-style: none; margin-bottom: 2rem; }
+        .city-list li { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); }
+        .city-list svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+        .sa-map-container { position: relative; height: 500px; border-radius: 24px; padding: 10px; background: var(--white); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08); border: 2px solid rgba(34, 197, 94, 0.15); }
+        .sa-map-wrapper { width: 100%; height: 100%; border-radius: 16px; overflow: hidden; position: relative; }
+        .sa-map-wrapper iframe { width: 100%; height: 100%; border: 0; filter: grayscale(20%) contrast(110%); }
+        .sa-map-badge { position: absolute; bottom: 20px; left: 20px; background: var(--white); padding: 10px 20px; border-radius: 8px; font-size: 1rem; color: var(--primary); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); border: 1px solid rgba(17, 63, 40, 0.05); display: flex; align-items: center; gap: 10px; z-index: 10; }
+        .sa-map-badge::before { content: ''; display: block; width: 12px; height: 12px; background: var(--accent); border-radius: 2px; }
 
-        .project-header {
-            text-align: left;
-            padding: 0;
-        }
-
-        .project-header h3 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .project-header h3 span {
-            color: var(--accent);
-            display: block;
-            font-size: 1.8rem;
-            margin-top: 0.5rem;
-        }
-
-        .project-desc {
-            color: var(--text-gray);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        .project-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(17, 63, 40, 0.1);
-        }
-
-        .ba-image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .ba-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .ba-label {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            color: var(--primary);
-            padding: 8px 24px;
-            border-radius: 30px;
-            font-weight: 900;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 5;
-            border: 1px solid rgba(17, 63, 40, 0.1);
-        }
-
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: var(--primary) !important;
-            background: var(--white);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 1px solid rgba(17, 63, 40, 0.1);
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .swiper-button-next:hover,
-        .swiper-button-prev:hover {
-            background: var(--accent);
-            color: var(--white) !important;
-            border-color: var(--accent);
-            transform: scale(1.1);
-        }
-
-        /* --- 11. CRITICAL DETAILS (Sticky Layout) --- */
-        .sticky-details-section {
-            background: transparent;
-        }
-
-        .sticky-layout-container {
-            display: flex;
-            gap: 5rem;
-            align-items: flex-start;
-        }
-
-        .sticky-sidebar {
-            flex: 0 0 40%;
-            position: sticky;
-            top: 130px;
-            border-left: 4px solid var(--accent);
-            /* Popped the accent color */
-            padding-left: 2rem;
-        }
-
-        .sidebar-media {
-            margin-top: 2rem;
-            height: 400px;
-            width: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(17, 63, 40, 0.1);
-        }
-
-        .sidebar-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .scrolling-cards {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .detail-row-card {
-            padding: 3rem;
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            transition: transform 0.3s;
-        }
-
-        .detail-row-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .detail-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--accent);
-            /* Accent color */
-            opacity: 0.5;
-            line-height: 0.8;
-            letter-spacing: -2px;
-        }
-
-        .detail-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .detail-content p {
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        /* --- 12. SERVICE AREA MAP SECTION --- */
-        .service-area-section {
-            background: transparent;
-            position: relative;
-        }
-
-        .service-area-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .sa-text-side h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin: 0.5rem 0 1.5rem 0;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-        }
-
-        .sa-text-side p.desc {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .city-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .city-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .city-list svg {
-            width: 20px;
-            height: 20px;
-            color: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .sa-map-container {
-            position: relative;
-            height: 500px;
-            border-radius: 24px;
-            padding: 10px;
-            background: var(--white);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-            border: 2px solid rgba(34, 197, 94, 0.15);
-            /* Vibrant Border */
-        }
-
-        .sa-map-wrapper {
-            width: 100%;
-            height: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .sa-map-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            filter: grayscale(20%) contrast(110%);
-        }
-
-        .sa-map-badge {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: var(--white);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 900;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(17, 63, 40, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .sa-map-badge::before {
-            content: '';
-            display: block;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* --- 13. DEDICATED QUOTE FORM BANNER --- */
-        .quote-banner-section {
-            background: var(--primary);
-            padding: 100px 5%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 40px;
-            margin: 0 2vw 4vw 2vw;
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), 0 30px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .quote-banner-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .quote-banner-text h2 {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            letter-spacing: -2px;
-        }
-
-        .quote-banner-text p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .form-side {
-            padding: 3.5rem;
-            background: var(--white);
-            color: var(--text-dark);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-group label {
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: var(--primary);
-        }
-
-        .input-group input,
-        .input-group textarea {
-            padding: 1.2rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            background: #f8fafc;
-            color: var(--text-dark);
-            outline: none;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .input-group input:focus,
-        .input-group textarea:focus {
-            border-color: var(--accent);
-            /* Vibrant Focus */
-        }
-
-        .submit-btn {
-            width: 100%;
-            margin-top: 1rem;
-            padding: 1.2rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
+        /* --- 13. QUOTE FORM --- */
+        .quote-banner-section { background: var(--primary); padding: 100px 5%; position: relative; overflow: hidden; border-radius: 40px; margin: 0 2vw 4vw 2vw; box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), 0 30px 60px rgba(0, 0, 0, 0.2); }
+        .quote-banner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1400px; margin: 0 auto; }
+        .quote-banner-text h2 { font-size: 4rem; color: var(--white); margin-bottom: 1.5rem; line-height: 1.1; }
+        .quote-banner-text p { font-size: 1.2rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 2rem; }
+        .form-side { padding: 3.5rem; background: var(--white); color: var(--text-dark); border-radius: 24px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); }
+        .input-group { margin-bottom: 1.5rem; display: flex; flex-direction: column; }
+        .input-group label { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .input-group input, .input-group textarea { padding: 1.2rem; border: 2px solid #e2e8f0; border-radius: 8px; background: #f8fafc; color: var(--text-dark); outline: none; font-family: inherit; font-size: 1rem; transition: border-color 0.3s; }
+        .input-group input:focus, .input-group textarea:focus { border-color: var(--accent); }
 
         /* --- 14. ENTERPRISE FOOTER --- */
-        .enterprise-footer {
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 5rem 5% 2rem 5%;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            color: var(--white);
-        }
-
-        .footer-col p {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-logo {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            background: var(--white);
-            padding: 12px 20px;
-            border-radius: 50px;
-            /* Matched the Pill Shape */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.5;
-        }
+        .enterprise-footer { background: #0f172a; color: #94a3b8; padding: 5rem 5% 2rem 5%; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 3rem; }
+        .footer-col h4 { margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--white); }
+        .footer-logo { max-width: 180px; height: auto; margin-bottom: 1.5rem; background: var(--white); padding: 12px 20px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+        .footer-bottom { text-align: center; padding-top: 2rem; font-size: 0.9rem; opacity: 0.5; }
 
         /* ==========================================================================
            15. MASTER RESPONSIVENESS
            ========================================================================== */
         @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .eco-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .eco-text-side {
-                text-align: center;
-            }
-
-            .service-area-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .sa-text-side {
-                text-align: center;
-            }
-
-            .city-list {
-                text-align: left;
-            }
-
-            .quote-banner-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .quote-banner-text {
-                text-align: center;
-            }
-
-            .sticky-layout-container {
-                flex-direction: column;
-                gap: 3rem;
-            }
-
-            .sticky-sidebar {
-                position: relative;
-                top: 0;
-                width: 100%;
-                border-left: none;
-                padding-left: 0;
-                text-align: center;
-            }
-
-            .sticky-sidebar .section-subtitle {
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-            }
-
-            .sidebar-media {
-                height: 300px;
-            }
-
-            .project-card {
-                grid-template-columns: 1fr;
-                padding: 30px;
-            }
-
-            .project-header {
-                text-align: center;
-            }
-
-            .hero-trust-bar {
-                overflow-x: auto;
-                justify-content: flex-start;
-                bottom: 15px;
-            }
+            .hero-title { font-size: 4rem; }
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .eco-grid, .service-area-grid, .quote-banner-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .city-list { text-align: left; }
+            .sticky-layout-container { flex-direction: column; gap: 3rem; }
+            .sticky-sidebar { position: relative; top: 0; width: 100%; border-left: none; padding-left: 0; text-align: center; }
+            .project-card { grid-template-columns: 1fr; padding: 30px; }
+            .hero-trust-bar { overflow-x: auto; justify-content: flex-start; bottom: 15px; }
         }
 
         @media (max-width: 768px) {
-            section {
-                padding: 60px 5%;
-            }
-
-            .eco-section,
-            .quote-banner-section {
-                margin: 0;
-                border-radius: 0;
-                padding: 60px 5%;
-            }
-
-            .navbar {
-                top: 0;
-                height: 70px;
-                padding: 8px 15px !important;
-            }
-
-            .nav-logo {
-                height: 55px !important;
-                max-height: none !important;
-                width: auto !important;
-            }
-
-            .hero-section {
-                padding-top: 100px;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .hero-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-top: -5vh;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-                text-align: center;
-            }
-
-            .hero-subtitle {
-                text-align: center;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                width: 100%;
-                gap: 1rem;
-            }
-
-            .hero-btn-primary,
-            .hero-btn-secondary {
-                width: 100%;
-            }
-
-            .hero-trust-bar {
-                padding: 1rem 5%;
-                gap: 1.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .city-list {
-                grid-template-columns: 1fr;
-            }
-
-            .sa-map-container {
-                height: 350px;
-            }
-
-            .project-images {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 15px !important;
-                height: auto !important;
-            }
-
-            .ba-image-wrapper img {
-                width: 100% !important;
-                height: 220px !important;
-                object-fit: cover !important;
-                border-radius: 10px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .detail-row-card {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 2rem;
-            }
+            section { padding: 60px 5%; }
+            .eco-section, .quote-banner-section { margin: 0; border-radius: 0; padding: 60px 5%; }
+            .navbar { top: 0; height: 70px; padding: 8px 15px !important; }
+            .nav-logo { height: 55px !important; }
+            .hero-section { padding-top: 100px; text-align: center; justify-content: center; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .hero-title { font-size: 3rem; }
+            .hero-buttons { flex-direction: column; width: 100%; gap: 1rem; margin-bottom: 80px; }
+            .hero-btn-primary, .hero-btn-secondary { width: 100%; }
+            .hero-trust-bar { padding: 1rem 5%; gap: 1.5rem; }
+            .services-grid, .pricing-grid, .city-list, .footer-grid { grid-template-columns: 1fr; }
+            .project-images { display: flex !important; flex-direction: column !important; gap: 15px !important; height: auto !important; }
+            .ba-image-wrapper img { width: 100% !important; height: 220px !important; border-radius: 10px !important; }
+            .detail-row-card { flex-direction: column; gap: 1rem; padding: 2rem; }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- AWWWARDS CUSTOM CURSOR HTML -->
+    <div class="custom-cursor"></div>
 
     <!-- Light Awwwards Mesh Background Layer -->
     <div class="ambient-background"></div>
@@ -1404,11 +460,9 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-tag fade-up">Denver Metro Junk Removal</span>
-            <h1 class="hero-title split-text">Denver's Premier <br><span class="text-green-light">Hauling Crew.</span>
-            </h1>
-            <p class="hero-subtitle fade-up">Clear, upfront pricing. Same-day service. A professional team that respects
-                your property.</p>
-
+            <h1 class="hero-title split-text">Denver's Premier <br><span class="text-green-light">Hauling Crew.</span></h1>
+            <p class="hero-subtitle fade-up">Clear, upfront pricing. Same-day service. A professional team that respects your property.</p>
+            
             <div class="hero-buttons fade-up">
                 <a href="#quote" class="hero-btn-primary magnetic">Get My Free Estimate</a>
                 <a href="tel:7207727684" class="hero-btn-secondary magnetic">Call Us Now — 720-772-7684</a>
@@ -1417,41 +471,32 @@
 
         <!-- NEW BOTTOM ANCHOR TRUST BAR -->
         <div class="hero-trust-bar fade-up">
+            <!-- PERFECTLY SEGMENTED STARS FOR GSAP ANIMATION -->
             <div class="trust-item stars">
-                ★★★★★ 5.0/5 Reviews
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span> 5.0/5 Reviews
             </div>
-            <div class="trust-item">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
+            <div class="trust-item icon-reveal">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
                 </svg>
                 Denver Owned & Operated
             </div>
-            <div class="trust-item">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z">
-                    </path>
+            <div class="trust-item icon-reveal">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
                 </svg>
                 Licensed & Insured
             </div>
-            <div class="trust-item">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            <div class="trust-item icon-reveal">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 Same-Day Available
             </div>
-            <div class="trust-item">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z">
-                    </path>
+            <div class="trust-item icon-reveal">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
                 </svg>
                 Eco-Friendly Disposal
             </div>
@@ -1463,10 +508,8 @@
          ========================================================================== -->
     <div class="marquee-section">
         <div class="marquee-content">
-            <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
-                FORECLOSURE CLEANOUTS • </span>
-            <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
-                FORECLOSURE CLEANOUTS • </span>
+            <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS • FORECLOSURE CLEANOUTS • </span>
+            <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS • FORECLOSURE CLEANOUTS • </span>
         </div>
     </div>
 
@@ -1476,82 +519,55 @@
     <section class="services-section" id="services">
         <div id="particles-js"></div>
         <div class="section-content-relative">
-            <p class="text-green"
-                style="text-align: center; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">WHAT WE
-                HAUL</p>
+            <p class="text-green" style="text-align: center; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">WHAT WE HAUL</p>
             <h2 class="section-title split-text">Featured Services</h2>
             <p class="section-subtitle">From a single couch to a full estate cleanout — we've got you covered.</p>
 
             <div class="services-grid">
-                <!-- Card 1 -->
                 <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                        </path>
+                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                     </svg>
                     <h3 class="card-title">Residential Junk Removal</h3>
                     <p>Furniture, appliances, garage cleanouts — we handle it all seamlessly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <!-- Card 2 -->
                 <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                        </path>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
-                        </path>
+                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
                     <h3 class="card-title">Specialty Item Removal</h3>
-                    <p>Hot tubs, pianos, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.
-                    </p>
+                    <p>Hot tubs, pianos, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <!-- Card 3 -->
                 <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M5 3v4M3 11v6a2 2 0 002 2h14a2 2 0 002-2v-6M3 11h18M5 3h14a2 2 0 012 2v2M5 3a2 2 0 00-2 2v2">
-                        </path>
+                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 11v6a2 2 0 002 2h14a2 2 0 002-2v-6M3 11h18M5 3h14a2 2 0 012 2v2M5 3a2 2 0 00-2 2v2"></path>
                     </svg>
                     <h3 class="card-title">Furniture Removal</h3>
                     <p>Couches, beds, desks — we'll carry it out from wherever it sits and haul it away.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <!-- Card 4 -->
                 <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
-                        </path>
+                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                     </svg>
                     <h3 class="card-title">Appliance Disposal</h3>
                     <p>Fridges, washers, and dryers safely removed and disposed of responsibly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <!-- Card 5 -->
                 <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                     </svg>
                     <h3 class="card-title">Estate Cleanouts</h3>
                     <p>Full-property cleanouts handled with the utmost care, respect, and efficiency.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <!-- Card 6 -->
                 <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                        </path>
+                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                     </svg>
                     <h3 class="card-title">Construction Debris</h3>
                     <p>Drywall, lumber, concrete — we clear out messy construction and remodel sites fast.</p>
@@ -1570,10 +586,8 @@
          ========================================================================== -->
     <section class="pricing-section" id="pricing">
         <p class="text-green" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">PRICING</p>
-        <h2 class="section-title text-left split-text" style="font-size: 3.2rem;">Straightforward, Load-Based Pricing
-        </h2>
-        <p class="section-subtitle text-left" style="margin: 1rem 0 0 0; color: var(--text-dark);">You pay for the space
-            your stuff takes up in our truck — no hourly rates, no hidden fees.</p>
+        <h2 class="section-title text-left split-text" style="font-size: 3.2rem;">Straightforward, Load-Based Pricing</h2>
+        <p class="section-subtitle text-left" style="margin: 1rem 0 0 0; color: var(--text-dark);">You pay for the space your stuff takes up in our truck — no hourly rates, no hidden fees.</p>
 
         <div class="pricing-grid">
             <div class="price-card tilt-card premium-glass-card">
@@ -1607,57 +621,40 @@
     <section class="eco-section" id="eco">
         <div class="eco-grid">
             <div class="eco-text-side">
-                <p class="text-green-light" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
-                    ECO-CONSCIOUS</p>
+                <p class="text-green-light" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">ECO-CONSCIOUS</p>
                 <h2 class="split-text">Donate First.<br>Recycle Second.<br>Landfill Last.</h2>
-                <p class="fade-up">Before anything goes to the landfill, we sort for donation and recycling. We work
-                    with local Denver organizations to give your usable items a second life.</p>
+                <p class="fade-up">Before anything goes to the landfill, we sort for donation and recycling. We work with local Denver organizations to give your usable items a second life.</p>
             </div>
 
             <div class="eco-card fade-up">
                 <h3>Where Your Stuff Actually Goes</h3>
-
                 <div class="eco-item">
-                    <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z">
-                        </path>
+                    <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"></path>
                     </svg>
                     <div class="eco-item-text">
                         <h4>Donate</h4>
-                        <p>Usable items go to Habitat for Humanity ReStore, ARC Thrift Stores, and Denver Rescue
-                            Mission.</p>
+                        <p>Usable items go to Habitat for Humanity ReStore, ARC Thrift Stores, and Denver Rescue Mission.</p>
                     </div>
                 </div>
-
                 <div class="eco-item">
-                    <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3">
-                        </path>
+                    <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"></path>
                     </svg>
                     <div class="eco-item-text">
                         <h4>Recycle</h4>
-                        <p>Metal, electronics, cardboard, and yard waste are sorted and taken to local recycling
-                            facilities.</p>
+                        <p>Metal, electronics, cardboard, and yard waste are sorted and taken to local recycling facilities.</p>
                     </div>
                 </div>
-
                 <div class="eco-item">
-                    <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
-                        </path>
+                    <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path>
                     </svg>
                     <div class="eco-item-text">
                         <h4>Landfill</h4>
                         <p>Only what's genuinely left over. It costs you nothing extra — it's just how we operate.</p>
                     </div>
                 </div>
-
                 <div class="eco-stat-box">
                     <h4>150,000+</h4>
                     <p>Estimated LBS Diverted from Landfill This Year</p>
@@ -1673,39 +670,31 @@
         <div class="sticky-layout-container">
             <div class="sticky-sidebar">
                 <h2 class="section-title text-left split-text">Critical<br><span class="text-green">Details</span></h2>
-                <p class="section-subtitle text-left" style="margin-bottom: 30px;">Everything you need to know before
-                    our trucks roll up to your property.</p>
-
+                <p class="section-subtitle text-left" style="margin-bottom: 30px;">Everything you need to know before our trucks roll up to your property.</p>
                 <div class="sidebar-media">
                     <video src="niko-dddetails.mp4" autoplay loop muted playsinline class="sidebar-video"></video>
                 </div>
             </div>
-
             <div class="scrolling-cards">
                 <div class="detail-row-card gsap-card premium-glass-card">
                     <div class="detail-number">01</div>
                     <div class="detail-content">
                         <h3>Restricted Items</h3>
-                        <p>We cannot take hazardous materials, wet paint, chemicals, asbestos, or biological waste due
-                            to local disposal laws. Everything else goes.</p>
+                        <p>We cannot take hazardous materials, wet paint, chemicals, asbestos, or biological waste due to local disposal laws. Everything else goes.</p>
                     </div>
                 </div>
-
                 <div class="detail-row-card gsap-card premium-glass-card">
                     <div class="detail-number">02</div>
                     <div class="detail-content">
                         <h3>Transparent Estimates</h3>
-                        <p>Our online and over-the-phone quotes are estimates. Final pricing is always confirmed onsite
-                            before we load a single item.</p>
+                        <p>Our online and over-the-phone quotes are estimates. Final pricing is always confirmed onsite before we load a single item.</p>
                     </div>
                 </div>
-
                 <div class="detail-row-card gsap-card premium-glass-card">
                     <div class="detail-number">03</div>
                     <div class="detail-content">
                         <h3>Contactless Hauling</h3>
-                        <p>You do not need to be home! If your items are accessible outside in a driveway or curbside,
-                            we can handle the job, and text you a secure online invoice.</p>
+                        <p>You do not need to be home! If your items are accessible outside in a driveway or curbside, we can handle the job, and text you a secure online invoice.</p>
                     </div>
                 </div>
             </div>
@@ -1718,93 +707,26 @@
     <section class="service-area-section" id="service-area">
         <div class="service-area-grid">
             <div class="sa-text-side fade-up">
-                <p class="text-green" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">SERVICE
-                    AREA</p>
+                <p class="text-green" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">SERVICE AREA</p>
                 <h2>Proudly Serving Denver Metro</h2>
-                <p class="desc">We cover the entire Front Range and then some. Fast, reliable hauling anywhere on the
-                    map.</p>
-
+                <p class="desc">We cover the entire Front Range and then some. Fast, reliable hauling anywhere on the map.</p>
                 <ul class="city-list">
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Denver</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Lakewood</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Littleton</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Aurora</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Englewood</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Highlands Ranch</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Arvada</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Westminster</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Thornton</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Centennial</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Denver</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Lakewood</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Littleton</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Aurora</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Englewood</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Highlands Ranch</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Arvada</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Westminster</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Thornton</li>
+                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg> Centennial</li>
                 </ul>
-                <p style="font-size: 0.95rem; color: var(--text-gray); margin-top: 1rem;">Don't see your area? Call us
-                    at 720-772-7684 — we cover more than listed.</p>
+                <p style="font-size: 0.95rem; color: var(--text-gray); margin-top: 1rem;">Don't see your area? Call us at 720-772-7684 — we cover more than listed.</p>
             </div>
-
             <div class="sa-map-container tilt-card fade-up">
                 <div class="sa-map-wrapper">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.81530948967!2d-105.08643795277414!3d39.76451867160754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C%20CO!5e0!3m2!1sen!2sus!4v1707000000000!5m2!1sen!2sus"
-                        allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.81530948967!2d-105.08643795277414!3d39.76451867160754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C%20CO!5e0!3m2!1sen!2sus!4v1707000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="sa-map-badge">Service Region</div>
             </div>
@@ -1818,15 +740,11 @@
         <div class="quote-banner-grid">
             <div class="quote-banner-text">
                 <h2 class="split-text">Ready to get your space back?</h2>
-                <p class="fade-up">Fill out the form below or call us directly. We'll give you a fast, transparent
-                    estimate and get you on the schedule.</p>
-                <a href="tel:7207727684" class="secondary-btn magnetic fade-up"
-                    style="background: var(--white); color: var(--primary);">📞 Call 720-772-7684</a>
+                <p class="fade-up">Fill out the form below or call us directly. We'll give you a fast, transparent estimate and get you on the schedule.</p>
+                <a href="tel:7207727684" class="secondary-btn magnetic fade-up" style="background: var(--white); color: var(--primary);">📞 Call 720-772-7684</a>
             </div>
-
             <div class="form-side tilt-card fade-up">
-                <h3 class="section-title text-left text-dark" style="font-size: 2rem; margin-bottom: 2rem;">Get a Fast
-                    Quote</h3>
+                <h3 class="section-title text-left text-dark" style="font-size: 2rem; margin-bottom: 2rem;">Get a Fast Quote</h3>
                 <form id="demo-quote-form" class="premium-form">
                     <div class="input-group">
                         <label for="name">Full Name</label>
@@ -1873,8 +791,28 @@
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
 
+            // 1. GSAP Plugin Registration
             gsap.registerPlugin(ScrollTrigger);
 
+            // 2. Custom GSAP Cursor Logic
+            const cursor = document.querySelector('.custom-cursor');
+            if (cursor && window.matchMedia("(pointer: fine)").matches) {
+                const xToCursor = gsap.quickTo(cursor, "left", {duration: 0.15, ease: "power3.out"});
+                const yToCursor = gsap.quickTo(cursor, "top", {duration: 0.15, ease: "power3.out"});
+
+                window.addEventListener("mousemove", e => {
+                    xToCursor(e.clientX);
+                    yToCursor(e.clientY);
+                });
+
+                // Add magnetic expanding hover to all interactive elements
+                document.querySelectorAll('a, button, .tilt-card, .trust-item').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+                });
+            }
+
+            // 3. Background Interactive Orb
             const bgOrb = document.querySelector('.interactive-bg-orb');
             if (bgOrb) {
                 const startX = window.innerWidth / 2;
@@ -1890,6 +828,7 @@
                 });
             }
 
+            // 4. Particles.js Configuration
             try {
                 if (document.getElementById('particles-js')) {
                     particlesJS("particles-js", {
@@ -1912,6 +851,7 @@
                 }
             } catch (e) { console.error("Particles Error:", e); }
 
+            // 5. Marquee Banner Animation
             try {
                 const marqueeContent = document.querySelector('.marquee-content');
                 if (marqueeContent) {
@@ -1919,13 +859,16 @@
                 }
             } catch (e) { console.error("Marquee Error:", e); }
 
-            const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+            // 6. Upgraded Hero Reveal Timeline (Now includes stars and staggered trust items)
+           const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
             tl.from(".hero-tag", { y: 20, opacity: 0, duration: 0.8, delay: 0.2 })
                 .from(".hero-title", { y: 30, opacity: 0, duration: 1 }, "-=0.6")
                 .from(".hero-subtitle", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
-                .from(".hero-buttons a", { y: 20, opacity: 0, duration: 0.8, stagger: 0.1 }, "-=0.6")
-                .from(".hero-trust-bar", { y: 20, opacity: 0, duration: 0.8 }, "-=0.4");
-
+                .from(".hero-buttons", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6") /* Now targets the safe container */
+                .from(".hero-trust-bar", { y: 20, opacity: 0, duration: 0.8 }, "-=0.4")
+                /* Flying Stars Restored! */
+                .from(".star", { x: 50, y: -50, rotation: 180, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.5)" }, "-=0.4");
+            // 7. SplitType Text Animations
             try {
                 const splitTextElements = document.querySelectorAll('.split-text');
                 splitTextElements.forEach(text => {
@@ -1937,6 +880,7 @@
                 });
             } catch (e) { console.error("Text Animation Skipped:", e); }
 
+            // 8. Swiper Slider
             try {
                 const swiper = new Swiper('.ba-swiper', {
                     slidesPerView: 'auto',
@@ -1949,10 +893,12 @@
                 });
             } catch (e) { console.error("Swiper Skipped:", e); }
 
+            // 9. Vanilla Tilt
             try {
                 VanillaTilt.init(document.querySelectorAll(".tilt-card"), { max: 5, speed: 400, glare: true, "max-glare": 0.05 });
             } catch (e) { console.error("VanillaTilt Skipped:", e); }
 
+            // 10. Magnetic Button Hover Effect
             document.querySelectorAll('.magnetic').forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const pos = btn.getBoundingClientRect();
@@ -1961,7 +907,7 @@
                 btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.3)' }));
             });
 
-            // HEADER SCROLL LOGIC - FIXED TARGET
+            // 11. Header Glass Scroll Logic
             const navbar = document.querySelector('.navbar');
             const checkScroll = () => {
                 if (window.scrollY > 50) {
@@ -1971,7 +917,7 @@
                 }
             };
             window.addEventListener('scroll', checkScroll);
-            checkScroll();
+            checkScroll(); 
         });
     </script>
 </body>
