@@ -59,7 +59,7 @@
             z-index: 9999;
             transform: translate(-50%, -50%);
             transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
-            mix-blend-mode: difference; /* Creates the color-inversion effect over dark/light areas */
+            mix-blend-mode: difference;
         }
 
         .custom-cursor.hovered {
@@ -99,10 +99,8 @@
 
         /* --- 1.5 LIGHT MESH AMBIENT BACKGROUND --- */
         .ambient-background {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -999;
-            background-color: var(--bg-canvas);
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -999; background-color: var(--bg-canvas);
             background-image:
                 radial-gradient(circle at 15% 15%, rgba(34, 197, 94, 0.12) 0%, transparent 55%),
                 radial-gradient(circle at 85% 75%, rgba(17, 63, 40, 0.08) 0%, transparent 60%),
@@ -212,50 +210,25 @@
 
         .hero-buttons {
             display: flex; gap: 1.5rem; flex-wrap: wrap; position: relative;
-            z-index: 50; /* Protects from the trust bar */
-            margin-bottom: 100px; /* THE BUTTON RESCUE MARGIN */
+            z-index: 50; margin-bottom: 100px; 
         }
 
-      .hero-btn-primary {
-            background: var(--accent);
-            color: var(--text-dark);
-            padding: 1.2rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            /* Swapped 'all' to specific traits so it doesn't break GSAP physics */
-            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; 
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+        .hero-btn-primary {
+            background: var(--accent); color: var(--text-dark); padding: 1.2rem 2.5rem; border-radius: 8px;
+            text-decoration: none; font-size: 1.2rem; display: inline-flex; align-items: center;
+            justify-content: center; transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
         }
 
-        .hero-btn-primary:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
+        .hero-btn-primary:hover { background: var(--primary); color: var(--white); }
 
         .hero-btn-secondary {
-            background: var(--white);
-            color: var(--primary);
-            padding: 1.2rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--white); color: var(--primary); padding: 1.2rem 2.5rem; border-radius: 8px;
+            text-decoration: none; font-size: 1.2rem; display: inline-flex; align-items: center;
+            justify-content: center; transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .hero-btn-secondary:hover {
-            background: var(--bg-canvas);
-        }
+        .hero-btn-secondary:hover { background: var(--bg-canvas); }
+
         /* --- HERO TRUST BAR (ANCHORED TO BOTTOM) --- */
         .hero-trust-bar {
             position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1200px;
@@ -270,7 +243,7 @@
 
         .trust-item svg { width: 22px; height: 22px; color: var(--accent); }
         .trust-item.stars { color: #f59e0b; }
-        .star { display: inline-block; } /* Required for GSAP rotation */
+        .star { display: inline-block; }
 
         /* --- 6. MARQUEE BANNER --- */
         .marquee-section {
@@ -391,7 +364,7 @@
         .footer-bottom { text-align: center; padding-top: 2rem; font-size: 0.9rem; opacity: 0.5; }
 
         /* ==========================================================================
-           15. MASTER RESPONSIVENESS
+           15. MASTER RESPONSIVENESS (FULLY OPTIMIZED FOR MOBILE)
            ========================================================================== */
         @media (max-width: 1024px) {
             .hero-title { font-size: 4rem; }
@@ -407,17 +380,45 @@
         }
 
         @media (max-width: 768px) {
-            section { padding: 60px 5%; }
-            .eco-section, .quote-banner-section { margin: 0; border-radius: 0; padding: 60px 5%; }
+            /* Tighter Mobile Padding */
+            section { padding: 50px 5%; }
+            .eco-section, .quote-banner-section { margin: 0; border-radius: 0; padding: 50px 5%; }
+            
+            /* Typography Scaling */
+            .section-title { font-size: 2.2rem !important; text-align: center !important; letter-spacing: 0px !important; }
+            .section-subtitle { text-align: center !important; font-size: 1.05rem !important; }
+            .text-left { text-align: center !important; }
+
+            /* Navigation */
             .navbar { top: 0; height: 70px; padding: 8px 15px !important; }
             .nav-logo { height: 55px !important; }
+
+            /* Hero Fixes */
             .hero-section { padding-top: 100px; text-align: center; justify-content: center; }
             .hero-content { display: flex; flex-direction: column; align-items: center; }
             .hero-title { font-size: 3rem; }
             .hero-buttons { flex-direction: column; width: 100%; gap: 1rem; margin-bottom: 80px; }
             .hero-btn-primary, .hero-btn-secondary { width: 100%; }
             .hero-trust-bar { padding: 1rem 5%; gap: 1.5rem; }
-            .services-grid, .pricing-grid, .city-list, .footer-grid { grid-template-columns: 1fr; }
+
+            /* Grid Collapses */
+            .services-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
+            
+            /* Fixed Pricing Font Breaking */
+            .price-amount { font-size: 3rem !important; }
+
+            /* Fixed Eco Card Bleeding */
+            .eco-text-side h2 { font-size: 2.5rem !important; }
+            .eco-card { padding: 1.5rem !important; } /* Stops the card from going out of bounds */
+            .eco-stat-box h4 { font-size: 2.8rem !important; }
+
+            /* Fixed Service Area List Height */
+            .sa-text-side h2 { font-size: 2.5rem !important; }
+            .city-list { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; } /* Keeps it 2-columns on mobile! */
+            .city-list li { font-size: 0.95rem !important; }
+            .sa-map-container { height: 300px !important; } /* Shorter map so it fits perfectly */
+
+            /* Before/After & Details Fixes */
             .project-images { display: flex !important; flex-direction: column !important; gap: 15px !important; height: auto !important; }
             .ba-image-wrapper img { width: 100% !important; height: 220px !important; border-radius: 10px !important; }
             .detail-row-card { flex-direction: column; gap: 1rem; padding: 2rem; }
@@ -585,9 +586,9 @@
          PRICING SECTION (4-GRID VOLUME LAYOUT)
          ========================================================================== -->
     <section class="pricing-section" id="pricing">
-        <p class="text-green" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">PRICING</p>
-        <h2 class="section-title text-left split-text" style="font-size: 3.2rem;">Straightforward, Load-Based Pricing</h2>
-        <p class="section-subtitle text-left" style="margin: 1rem 0 0 0; color: var(--text-dark);">You pay for the space your stuff takes up in our truck — no hourly rates, no hidden fees.</p>
+        <p class="text-green" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase; text-align: center;">PRICING</p>
+        <h2 class="section-title split-text" style="font-size: 3.2rem;">Simple, Load-Based Pricing</h2>
+        <p class="section-subtitle" style="margin: 1rem auto 3rem auto; color: var(--text-dark);">You pay for the space your stuff takes up in our truck — no hourly rates, no hidden fees.</p>
 
         <div class="pricing-grid">
             <div class="price-card tilt-card premium-glass-card">
@@ -612,7 +613,9 @@
             </div>
         </div>
 
-        <a href="#quote" class="dark-btn magnetic">See Full Pricing</a>
+        <div style="text-align: center;">
+            <a href="#quote" class="dark-btn magnetic">See Full Pricing</a>
+        </div>
     </section>
 
     <!-- ==========================================================================
@@ -627,7 +630,7 @@
             </div>
 
             <div class="eco-card fade-up">
-                <h3>Where Your Stuff Actually Goes</h3>
+                <h3 style="text-align: center;">Where Your Stuff Actually Goes</h3>
                 <div class="eco-item">
                     <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"></path>
@@ -669,8 +672,8 @@
     <section class="sticky-details-section" id="faq">
         <div class="sticky-layout-container">
             <div class="sticky-sidebar">
-                <h2 class="section-title text-left split-text">Critical<br><span class="text-green">Details</span></h2>
-                <p class="section-subtitle text-left" style="margin-bottom: 30px;">Everything you need to know before our trucks roll up to your property.</p>
+                <h2 class="section-title split-text">Critical<br><span class="text-green">Details</span></h2>
+                <p class="section-subtitle" style="margin-bottom: 30px;">Everything you need to know before our trucks roll up to your property.</p>
                 <div class="sidebar-media">
                     <video src="niko-dddetails.mp4" autoplay loop muted playsinline class="sidebar-video"></video>
                 </div>
@@ -859,15 +862,16 @@
                 }
             } catch (e) { console.error("Marquee Error:", e); }
 
-            // 6. Upgraded Hero Reveal Timeline (Now includes stars and staggered trust items)
-           const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+            // 6. Upgraded Hero Reveal Timeline (Now targets container to prevent Overwrite Bugs)
+            const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
             tl.from(".hero-tag", { y: 20, opacity: 0, duration: 0.8, delay: 0.2 })
                 .from(".hero-title", { y: 30, opacity: 0, duration: 1 }, "-=0.6")
                 .from(".hero-subtitle", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
-                .from(".hero-buttons", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6") /* Now targets the safe container */
+                .from(".hero-buttons", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6") 
                 .from(".hero-trust-bar", { y: 20, opacity: 0, duration: 0.8 }, "-=0.4")
-                /* Flying Stars Restored! */
+                .from(".icon-reveal", { y: 15, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.4")
                 .from(".star", { x: 50, y: -50, rotation: 180, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.5)" }, "-=0.4");
+
             // 7. SplitType Text Animations
             try {
                 const splitTextElements = document.querySelectorAll('.split-text');
