@@ -1,2033 +1,8022 @@
 <!DOCTYPE html>
+
+
+
 <html lang="en">
 
+
+
+
+
+
+
 <head>
+
+
+
     <meta charset="UTF-8">
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
     <title> Junk Removal LLC | Master Hauling Template</title>
 
-    <!-- ==========================================================================
-         BULLETPROOF FONT LOADING (Fun & Rockish "Lilita One" Font)
-         ========================================================================== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lilita+One&display=swap" rel="stylesheet">
+
+
+
+
+
 
     <!-- ==========================================================================
-         EXTERNAL LIBRARIES (AWWWARDS-LEVEL)
+
+
+
+         BULLETPROOF FONT LOADING (Fun & Rockish "Lilita One" Font)
+
+
+
          ========================================================================== -->
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lilita+One&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+
+
+    <!-- ==========================================================================
+
+
+
+         EXTERNAL LIBRARIES (AWWWARDS-LEVEL)
+
+
+
+         ========================================================================== -->
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+
     <script src="https://unpkg.com/split-type"></script>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          MASTER CSS STYLESHEET
+
+
+
          ========================================================================== -->
+
+
+
     <style>
         /* --- 1. GLOBAL VARIABLES & RESETS (VIBRANT BRAND PALETTE) --- */
+
+
+
         :root {
+
+
+
             --primary: #113f28;
+
+
+
             --primary-light: #1e5c3e;
+
+
+
             --accent: #22c55e;
+
+
+
             --bg-canvas: #F9F8F4;
+
+
+
             --text-dark: #0f172a;
+
+
+
             --text-gray: #475569;
+
+
+
             --white: #ffffff;
+
+
+
             --nav-height: 90px;
+
+
+
         }
+
+
+
+
+
+
 
         /* --- AWWWARDS CUSTOM CURSOR --- */
+
+
+
         @media (pointer: fine) {
 
+
+
+
+
+
+
             body,
+
+
+
             a,
+
+
+
             button,
+
+
+
             input,
+
+
+
             textarea {
+
+
+
                 cursor: none !important;
+
+
+
             }
+
+
+
         }
+
+
+
+
+
+
 
         .custom-cursor {
+
+
+
             position: fixed;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 15px;
+
+
+
             height: 15px;
+
+
+
             border-radius: 50%;
+
+
+
             background: var(--accent);
+
+
+
             pointer-events: none;
+
+
+
             z-index: 9999;
+
+
+
             transform: translate(-50%, -50%);
+
+
+
             transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
+
+
+
             mix-blend-mode: difference;
+
+
+
         }
+
+
+
+
+
+
 
         .custom-cursor.hovered {
+
+
+
             width: 60px;
+
+
+
             height: 60px;
+
+
+
             background: var(--white);
+
+
+
             mix-blend-mode: difference;
+
+
+
         }
+
+
+
+
+
+
 
         * {
+
+
+
             margin: 0;
+
+
+
             padding: 0;
+
+
+
             box-sizing: border-box;
+
+
+
         }
+
+
+
+
+
+
 
         html {
+
+
+
             font-family: 'DM Sans', sans-serif;
+
+
+
             scroll-behavior: smooth;
+
+
+
             scroll-padding-top: 110px;
+
+
+
             background-color: var(--bg-canvas);
+
+
+
             color: var(--text-dark);
+
+
+
         }
+
+
+
+
+
+
 
         /* VIBRANT CHUNKY FONT FOR ALL HEADINGS AND BUTTONS */
+
+
+
         h1,
+
+
+
         h2,
+
+
+
         h3,
+
+
+
         h4,
+
+
+
         .nav-links a,
+
+
+
         .mobile-link,
+
+
+
         .hero-btn-primary,
+
+
+
         .hero-btn-secondary,
+
+
+
         .section-title,
+
+
+
         .price-amount,
+
+
+
         .price-label,
+
+
+
         .card-title,
+
+
+
         .hero-tag,
+
+
+
         .nav-btn,
+
+
+
         .submit-btn,
+
+
+
         .secondary-btn,
+
+
+
         .dark-btn {
+
+
+
             font-family: 'Lilita One', sans-serif;
+
+
+
             font-weight: 400;
+
+
+
             letter-spacing: 1px;
+
+
+
         }
+
+
+
+
+
+
 
         body {
+
+
+
             overflow-x: hidden;
+
+
+
         }
+
+
+
+
+
+
 
         section {
+
+
+
             padding: 100px 5%;
+
+
+
             position: relative;
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 1.5 LIGHT MESH AMBIENT BACKGROUND --- */
+
+
+
         .ambient-background {
+
+
+
             position: fixed;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100vw;
+
+
+
             height: 100vh;
+
+
+
             z-index: -999;
+
+
+
             background-color: var(--bg-canvas);
+
+
+
             background-image:
+
+
+
                 radial-gradient(circle at 15% 15%, rgba(34, 197, 94, 0.12) 0%, transparent 55%),
+
+
+
                 radial-gradient(circle at 85% 75%, rgba(17, 63, 40, 0.08) 0%, transparent 60%),
+
+
+
                 radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+
+
+
             overflow: hidden;
+
+
+
             pointer-events: none;
+
+
+
         }
+
+
+
+
+
+
 
         .grain-overlay {
+
+
+
             position: fixed;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100vw;
+
+
+
             height: 100vh;
+
+
+
             z-index: -998;
+
+
+
             pointer-events: none;
+
+
+
             opacity: 0.25;
+
+
+
             mix-blend-mode: multiply;
+
+
+
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+
+
         }
+
+
+
+
+
+
 
         .text-green-light {
+
+
+
             color: var(--accent);
+
+
+
         }
+
+
+
+
+
+
 
         .text-green {
+
+
+
             color: var(--primary);
+
+
+
         }
+
+
+
+
+
+
 
         .text-dark {
+
+
+
             color: var(--text-dark);
+
+
+
         }
+
+
+
+
+
+
 
         .text-white {
+
+
+
             color: var(--white);
+
+
+
         }
+
+
+
+
+
+
 
         .text-gray-light {
+
+
+
             color: #64748b;
+
+
+
         }
+
+
+
+
+
+
 
         .text-dark-gray {
+
+
+
             color: var(--text-gray);
+
+
+
         }
+
+
+
+
+
+
 
         .section-title {
+
+
+
             font-size: 3.8rem;
+
+
+
             line-height: 1.1;
+
+
+
             color: var(--primary);
+
+
+
             letter-spacing: 1px;
+
+
+
             margin-bottom: 0.5rem;
+
+
+
             text-align: center;
+
+
+
         }
+
+
+
+
+
+
 
         .section-subtitle {
+
+
+
             font-size: 1.25rem;
+
+
+
             text-align: center;
+
+
+
             max-width: 650px;
+
+
+
             margin: 0 auto 3rem auto;
+
+
+
             line-height: 1.6;
+
+
+
             color: var(--text-gray);
+
+
+
         }
+
+
+
+
+
+
 
         .text-left {
+
+
+
             text-align: left;
+
+
+
             margin-left: 0;
+
+
+
         }
+
+
+
+
+
+
 
         .interactive-bg-orb {
+
+
+
             position: fixed;
+
+
+
             top: -20vw;
+
+
+
             left: -20vw;
+
+
+
             width: 40vw;
+
+
+
             height: 40vw;
+
+
+
             background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
+
+
+
             border-radius: 50%;
+
+
+
             pointer-events: none;
+
+
+
             z-index: -997;
+
+
+
             filter: blur(60px);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 4. NAVIGATION & TOP BAR --- */
+
+
+
         .navbar {
+
+
+
             position: fixed;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100%;
+
+
+
             height: var(--nav-height);
+
+
+
             background: transparent;
+
+
+
             z-index: 2000;
+
+
+
             display: flex;
+
+
+
             justify-content: space-between;
+
+
+
             align-items: center;
+
+
+
             padding: 0 5%;
+
+
+
             transition: all 0.4s ease;
+
+
+
         }
+
+
+
+
+
+
 
         .navbar.glass-active {
+
+
+
             background: rgba(244, 247, 245, 0.95);
+
+
+
             backdrop-filter: blur(16px);
+
+
+
             border-bottom: 1px solid rgba(17, 63, 40, 0.08);
+
+
+
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+
+
+
         }
+
+
+
+
+
+
 
         .logo-container {
+
+
+
             display: flex;
+
+
+
             align-items: center;
+
+
+
             justify-content: center;
+
+
+
             background: var(--white);
+
+
+
             padding: 2px 20px;
+
+
+
             border-radius: 50px;
+
+
+
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+
+
             border: 1px solid rgba(255, 255, 255, 0.2);
+
+
+
         }
+
+
+
+
+
+
 
         .nav-logo {
+
+
+
             height: 75px;
+
+
+
             width: auto;
+
+
+
             object-fit: contain;
+
+
+
             transition: all 0.4s ease;
+
+
+
             transform: scale(1.1);
+
+
+
         }
+
+
+
+
+
+
 
         .navbar.glass-active .nav-logo {
+
+
+
             height: 55px;
+
+
+
         }
+
+
+
+
+
+
 
         .nav-links {
+
+
+
             display: flex;
+
+
+
             gap: 2rem;
+
+
+
         }
+
+
+
+
+
+
 
         .nav-links a {
+
+
+
             text-decoration: none;
+
+
+
             color: var(--white);
+
+
+
             font-size: 1.1rem;
+
+
+
             transition: color 0.3s;
+
+
+
         }
+
+
+
+
+
+
 
         .navbar.glass-active .nav-links a {
+
+
+
             color: var(--text-dark);
+
+
+
         }
+
+
+
+
+
+
 
         .nav-links a:hover {
+
+
+
             color: var(--accent) !important;
+
+
+
         }
+
+
+
+
+
+
 
         .nav-actions {
+
+
+
             display: flex;
+
+
+
             align-items: center;
+
+
+
             gap: 1.5rem;
+
+
+
         }
+
+
+
+
+
+
 
         .nav-btn,
+
+
+
         .primary-cta,
+
+
+
         .submit-btn {
+
+
+
             background: var(--accent);
+
+
+
             color: var(--text-dark);
+
+
+
             padding: 1rem 2rem;
+
+
+
             border-radius: 8px;
+
+
+
             text-decoration: none;
+
+
+
             font-size: 1.1rem;
+
+
+
             border: none;
+
+
+
             display: inline-block;
+
+
+
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
             box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+
+
+
         }
+
+
+
+
+
+
 
         .nav-btn:hover,
+
+
+
         .primary-cta:hover,
+
+
+
         .submit-btn:hover {
+
+
+
             background: var(--primary);
+
+
+
             color: var(--white);
+
+
+
             transform: translateY(-2px);
+
+
+
             box-shadow: 0 15px 25px rgba(17, 63, 40, 0.3);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- MOBILE HAMBURGER & OVERLAY --- */
+
+
+
         .hamburger {
+
+
+
             display: none;
+
+
+
             flex-direction: column;
+
+
+
             gap: 6px;
+
+
+
             cursor: pointer;
+
+
+
             z-index: 2001;
+
+
+
         }
+
+
+
+
+
+
 
         .hamburger span {
+
+
+
             display: block;
+
+
+
             width: 32px;
+
+
+
             height: 4px;
+
+
+
             background-color: var(--white);
+
+
+
             border-radius: 4px;
+
+
+
             transition: all 0.3s ease;
+
+
+
         }
+
+
+
+
+
+
 
         .navbar.glass-active .hamburger span {
+
+
+
             background-color: var(--text-dark);
+
+
+
         }
+
+
+
+
+
+
 
         .hamburger.active span:nth-child(1) {
+
+
+
             transform: translateY(10px) rotate(45deg);
+
+
+
             background-color: var(--white) !important;
+
+
+
         }
+
+
+
+
+
+
 
         .hamburger.active span:nth-child(2) {
+
+
+
             opacity: 0;
+
+
+
         }
+
+
+
+
+
+
 
         .hamburger.active span:nth-child(3) {
+
+
+
             transform: translateY(-10px) rotate(-45deg);
+
+
+
             background-color: var(--white) !important;
+
+
+
         }
+
+
+
+
+
+
 
         .mobile-menu {
+
+
+
             position: fixed;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100%;
+
+
+
             height: 100vh;
+
+
+
             background: rgba(15, 23, 42, 0.98);
+
+
+
             backdrop-filter: blur(20px);
+
+
+
             z-index: 1500;
+
+
+
             display: flex;
+
+
+
             flex-direction: column;
+
+
+
             justify-content: center;
+
+
+
             align-items: center;
+
+
+
             gap: 2.5rem;
+
+
+
             transform: translateY(-100%);
+
+
+
             transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+
+
+
         }
+
+
+
+
+
+
 
         .mobile-menu.active {
+
+
+
             transform: translateY(0);
+
+
+
         }
+
+
+
+
+
+
 
         .mobile-link {
+
+
+
             color: var(--white);
+
+
+
             font-size: 2.5rem;
+
+
+
             text-decoration: none;
+
+
+
             text-transform: uppercase;
+
+
+
             letter-spacing: 2px;
+
+
+
         }
+
+
+
+
+
+
 
         .mobile-link:hover {
+
+
+
             color: var(--accent);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 5. ASYMMETRIC HERO SECTION --- */
+
+
+
         .hero-section {
+
+
+
             height: 100vh;
+
+
+
             position: relative;
+
+
+
             display: flex;
+
+
+
             align-items: center;
+
+
+
             justify-content: flex-start;
+
+
+
             text-align: left;
+
+
+
             color: var(--white);
+
+
+
             overflow: hidden;
+
+
+
             margin-top: 0;
+
+
+
             padding-top: 90px;
+
+
+
             padding-left: 5%;
+
+
+
             padding-right: 5%;
+
+
+
         }
 
-       .hero-video {
+
+
+
+
+
+
+        .hero-video {
+
+
+
             position: absolute;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100%;
+
+
+
             height: 100%;
+
+
+
             object-fit: cover;
-            object-position: center; /* THIS IS THE FIX: Anchors the crop to the dead center */
+
+
+
+            object-position: center;
+            /* THIS IS THE FIX: Anchors the crop to the dead center */
+
+
+
             z-index: -2;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-overlay {
+
+
+
             position: absolute;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100%;
+
+
+
             height: 100%;
+
+
+
             background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.1) 100%);
+
+
+
             z-index: -1;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-content {
+
+
+
             z-index: 1;
+
+
+
             max-width: 850px;
+
+
+
             padding: 0;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-tag {
+
+
+
             color: var(--accent);
+
+
+
             font-size: 1.1rem;
+
+
+
             margin-bottom: 1.5rem;
+
+
+
             display: block;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-title {
+
+
+
             font-size: clamp(3.5rem, 6vw, 5.5rem);
+
+
+
             line-height: 1.05;
+
+
+
             margin-bottom: 20px;
+
+
+
             color: var(--white);
+
+
+
             letter-spacing: 1px;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-subtitle {
+
+
+
             font-size: 1.25rem;
+
+
+
             margin-bottom: 40px;
+
+
+
             color: #e2e8f0;
+
+
+
             line-height: 1.6;
+
+
+
             max-width: 700px;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-buttons {
+
+
+
             display: flex;
+
+
+
             gap: 1.5rem;
+
+
+
             flex-wrap: wrap;
+
+
+
             position: relative;
+
+
+
             z-index: 50;
+
+
+
             margin-bottom: 100px;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-btn-primary {
+
+
+
             background: var(--accent);
+
+
+
             color: var(--text-dark);
+
+
+
             padding: 1.2rem 2.5rem;
+
+
+
             border-radius: 8px;
+
+
+
             text-decoration: none;
+
+
+
             font-size: 1.2rem;
+
+
+
             display: inline-flex;
+
+
+
             align-items: center;
+
+
+
             justify-content: center;
+
+
+
             transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+
+
             box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+
+
+
         }
+
+
+
+
+
+
 
         .hero-btn-primary:hover {
+
+
+
             background: var(--primary);
+
+
+
             color: var(--white);
+
+
+
         }
+
+
+
+
+
+
 
         .hero-btn-secondary {
+
+
+
             background: var(--white);
+
+
+
             color: var(--primary);
+
+
+
             padding: 1.2rem 2.5rem;
+
+
+
             border-radius: 8px;
+
+
+
             text-decoration: none;
+
+
+
             font-size: 1.2rem;
+
+
+
             display: inline-flex;
+
+
+
             align-items: center;
+
+
+
             justify-content: center;
+
+
+
             transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+
+
         }
+
+
+
+
+
+
 
         .hero-btn-secondary:hover {
+
+
+
             background: var(--bg-canvas);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- HERO TRUST BAR --- */
+
+
+
         .hero-trust-bar {
+
+
+
             position: absolute;
+
+
+
             bottom: 30px;
+
+
+
             left: 50%;
+
+
+
             transform: translateX(-50%);
+
+
+
             width: 95%;
+
+
+
             max-width: 1200px;
+
+
+
             background: rgba(0, 0, 0, 0.45);
+
+
+
             backdrop-filter: blur(12px);
+
+
+
             border: 1px solid rgba(255, 255, 255, 0.15);
+
+
+
             border-radius: 20px;
+
+
+
             display: flex;
+
+
+
             justify-content: space-around;
+
+
+
             align-items: center;
+
+
+
             padding: 1.2rem 2%;
+
+
+
             z-index: 10;
+
+
+
         }
+
+
+
+
+
+
 
         .trust-item {
+
+
+
             display: flex;
+
+
+
             align-items: center;
+
+
+
             gap: 0.6rem;
+
+
+
             color: var(--white);
+
+
+
             font-weight: 700;
+
+
+
             font-size: 1rem;
+
+
+
         }
+
+
+
+
+
+
 
         .trust-item svg {
+
+
+
             width: 22px;
+
+
+
             height: 22px;
+
+
+
             color: var(--accent);
+
+
+
         }
+
+
+
+
+
+
 
         .trust-item.stars {
+
+
+
             color: #f59e0b;
+
+
+
         }
+
+
+
+
+
+
 
         .star {
+
+
+
             display: inline-block;
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 6. MARQUEE BANNER --- */
+
+
+
         .marquee-section {
+
+
+
             background: var(--primary);
+
+
+
             color: var(--white);
+
+
+
             padding: 15px 0;
+
+
+
             overflow: hidden;
+
+
+
             white-space: nowrap;
+
+
+
             font-size: 1.2rem;
+
+
+
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+
+
         }
+
+
+
+
+
+
 
         .marquee-content {
+
+
+
             display: inline-block;
+
+
+
         }
 
+
+
+
+
+
+
         .marquee-content span {
+
+
+
             padding-right: 50px;
+
+
+
+        }
+
+
+
+
+  /* ==========================================================================
+           [06.5] CUSTOM TRUCK SCRUB ANIMATION
+           ========================================================================== */
+        .custom-truck-section {
+            background: transparent;
+            padding: 40px 5% 60px 5%;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .road-track {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 120px;
+            margin: 0 auto;
+            border-bottom: 5px solid var(--text-dark); /* Solid road line */
+        }
+
+        /* Bouncing physics for the truck */
+        @keyframes cartoonBounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-4px) rotate(-1deg); }
+        }
+
+        /* Shared class to instantly strip the white backgrounds off your images */
+        .track-img {
+            position: absolute;
+            bottom: 0; /* Sits perfectly on the road */
+            mix-blend-mode: multiply; /* THE MAGIC FIX: Deletes white backgrounds */
+            z-index: 1;
+        }
+
+        .track-house {
+            left: 5%;
+            height: 90px;
+            width: auto;
+        }
+
+        .track-facility {
+            right: 5%;
+            height: 100px;
+            width: auto;
+        }
+
+        .track-truck {
+            left: 18%; /* Starts exactly just right of the house */
+            bottom: -2px; /* Touches the road */
+            height: 75px;
+            width: auto;
+            z-index: 5; /* Keeps truck in front */
+            animation: cartoonBounce 0.4s infinite ease-in-out; /* Bumpy ride physics */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .road-track { height: 90px; }
+            .track-house { height: 70px; left: 2%; }
+            .track-facility { height: 80px; right: 2%; }
+            .track-truck { height: 55px; left: 22%; }
         }
 
         /* --- GLOBAL VIBRANT CARDS --- */
+
+
+
         .premium-glass-card {
+
+
+
             background: var(--white);
+
+
+
             border: 2px solid rgba(34, 197, 94, 0.15);
+
+
+
             box-shadow: 0 15px 35px rgba(17, 63, 40, 0.05);
+
+
+
             border-radius: 24px;
+
+
+
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
         }
+
+
+
+
+
+
 
         .premium-glass-card:hover {
+
+
+
             box-shadow: 0 25px 50px rgba(34, 197, 94, 0.15);
+
+
+
             transform: translateY(-8px);
+
+
+
             border-color: var(--accent);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 7. SERVICES GRID --- */
+
+
+
         .services-section {
+
+
+
             background: transparent;
+
+
+
             position: relative;
+
+
+
             overflow: hidden;
+
+
+
         }
+
+
+
+
+
+
 
         #particles-js {
+
+
+
             position: absolute;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100%;
+
+
+
             height: 100%;
+
+
+
             z-index: 1;
+
+
+
         }
+
+
+
+
+
+
 
         .section-content-relative {
+
+
+
             position: relative;
+
+
+
             z-index: 2;
+
+
+
         }
+
+
+
+
+
+
 
         .services-grid {
+
+
+
             display: grid;
+
+
+
             grid-template-columns: repeat(3, 1fr);
+
+
+
             gap: 2rem;
+
+
+
             margin-top: 3rem;
+
+
+
             max-width: 1400px;
+
+
+
             margin-left: auto;
+
+
+
             margin-right: auto;
+
+
+
         }
+
+
+
+
+
+
 
         .service-card {
+
+
+
             padding: 2.5rem;
+
+
+
             display: flex;
+
+
+
             flex-direction: column;
+
+
+
             justify-content: flex-start;
+
+
+
         }
+
+
+
+
+
+
 
         .service-icon {
+
+
+
             width: 45px;
+
+
+
             height: 45px;
+
+
+
             margin-bottom: 1.5rem;
+
+
+
             color: var(--accent);
+
+
+
         }
+
+
+
+
+
+
 
         .card-title {
+
+
+
             font-size: 1.8rem;
+
+
+
             margin-bottom: 0.75rem;
+
+
+
             color: var(--text-dark);
+
+
+
         }
+
+
+
+
+
+
 
         .service-card p {
+
+
+
             color: var(--text-gray);
+
+
+
             line-height: 1.6;
+
+
+
             margin-bottom: 1.5rem;
+
+
+
             font-size: 1rem;
+
+
+
             flex-grow: 1;
+
+
+
         }
+
+
+
+
+
+
 
         .learn-more-link {
+
+
+
             color: var(--accent);
+
+
+
             font-weight: 700;
+
+
+
             text-decoration: none;
+
+
+
             display: inline-flex;
+
+
+
             align-items: center;
+
+
+
             gap: 5px;
+
+
+
             transition: color 0.3s;
+
+
+
         }
+
+
+
+
+
+
 
         .learn-more-link:hover {
+
+
+
             color: var(--primary);
+
+
+
         }
+
+
+
+
+
+
 
         .centered-btn-wrapper {
+
+
+
             text-align: center;
+
+
+
             margin-top: 3rem;
+
+
+
         }
+
+
+
+
+
+
 
         .secondary-btn {
+
+
+
             background: var(--accent);
+
+
+
             color: var(--text-dark);
+
+
+
             padding: 1rem 2.5rem;
+
+
+
             border-radius: 8px;
+
+
+
             text-decoration: none;
+
+
+
             font-size: 1.1rem;
+
+
+
             display: inline-block;
+
+
+
             transition: all 0.3s;
+
+
+
             box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+
+
+
         }
+
+
+
+
+
+
 
         .secondary-btn:hover {
+
+
+
             background: var(--primary);
+
+
+
             color: var(--white);
+
+
+
             box-shadow: 0 15px 25px rgba(17, 63, 40, 0.3);
+
+
+
             transform: translateY(-2px);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 7.5 CINEMATIC PARALLAX TRANSITION --- */
+
+
+
         .video-transition-section {
+
+
+
             height: 50vh;
+
+
+
             position: relative;
+
+
+
             display: flex;
+
+
+
             align-items: center;
+
+
+
             justify-content: center;
+
+
+
             overflow: hidden;
+
+
+
             margin: 4vw 2vw;
+
+
+
             border-radius: 40px;
+
+
+
             box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), 0 30px 60px rgba(0, 0, 0, 0.2);
+
+
+
         }
+
+
+
+
+
+
 
         .parallax-bg-video {
+
+
+
             position: absolute;
+
+
+
             top: -20%;
+
+
+
             left: 0;
+
+
+
             width: 100%;
+
+
+
             height: 140%;
+
+
+
             object-fit: cover;
+
+
+
             z-index: -2;
+
+
+
         }
+
+
+
+
+
+
 
         .video-transition-overlay {
+
+
+
             position: absolute;
+
+
+
             top: 0;
+
+
+
             left: 0;
+
+
+
             width: 100%;
+
+
+
             height: 100%;
+
+
+
             background: rgba(17, 63, 40, 0.6);
+
+
+
             z-index: -1;
+
+
+
         }
+
+
+
+
+
+
 
         .video-transition-text {
+
+
+
             font-size: clamp(3rem, 6vw, 5.5rem);
+
+
+
             color: var(--white);
+
+
+
             z-index: 1;
+
+
+
             text-align: center;
+
+
+
             letter-spacing: 1px;
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 8. PRICING SECTION --- */
+
+
+
         .pricing-section {
+
+
+
             background: transparent;
+
+
+
             position: relative;
+
+
+
             z-index: 2;
+
+
+
         }
+
+
+
+
+
+
 
         .pricing-grid {
+
+
+
             display: grid;
+
+
+
             grid-template-columns: repeat(4, 1fr);
+
+
+
             gap: 1.5rem;
+
+
+
             margin-top: 3rem;
+
+
+
             max-width: 1400px;
+
+
+
             margin-left: auto;
+
+
+
             margin-right: auto;
+
+
+
         }
+
+
+
+
+
+
 
         .price-card {
+
+
+
             padding: 2.5rem 2rem;
+
+
+
             display: flex;
+
+
+
             flex-direction: column;
+
+
+
         }
+
+
+
+
+
+
 
         .price-label {
+
+
+
             font-size: 1.5rem;
+
+
+
             color: var(--text-dark);
+
+
+
             margin-bottom: 0.5rem;
+
+
+
         }
+
+
+
+
+
+
 
         .price-amount {
+
+
+
             font-size: 4rem;
+
+
+
             color: var(--accent);
+
+
+
             margin-bottom: 1rem;
+
+
+
             line-height: 1;
+
+
+
         }
+
+
+
+
+
+
 
         .price-desc {
+
+
+
             color: var(--text-gray);
+
+
+
             font-size: 0.95rem;
+
+
+
             line-height: 1.5;
+
+
+
         }
+
+
+
+
+
+
 
         .dark-btn {
+
+
+
             background: var(--text-dark);
+
+
+
             color: var(--white);
+
+
+
             padding: 1rem 2rem;
+
+
+
             border-radius: 8px;
+
+
+
             text-decoration: none;
+
+
+
             font-size: 1.1rem;
+
+
+
             display: inline-block;
+
+
+
             margin-top: 3rem;
+
+
+
             transition: background 0.3s;
+
+
+
         }
+
+
+
+
+
+
 
         .dark-btn:hover {
+
+
+
             background: var(--primary);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 9. ECO-CONSCIOUS --- */
+
+
+
         .eco-section {
+
+
+
             background: linear-gradient(135deg, var(--primary) 0%, #081c10 100%);
+
+
+
             color: var(--white);
+
+
+
             position: relative;
+
+
+
             overflow: hidden;
+
+
+
             border-radius: 40px;
+
+
+
             margin: 0 2vw;
+
+
+
             box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), 0 30px 60px rgba(0, 0, 0, 0.1);
+
+
+
         }
+
+
+
+
+
+
 
         .eco-grid {
+
+
+
             display: grid;
+
+
+
             grid-template-columns: 1fr 1fr;
+
+
+
             gap: 5rem;
+
+
+
             align-items: center;
+
+
+
             max-width: 1400px;
+
+
+
             margin: 0 auto;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-text-side h2 {
+
+
+
             font-size: 3.5rem;
+
+
+
             line-height: 1.1;
+
+
+
             margin: 1rem 0 1.5rem 0;
+
+
+
             color: var(--white);
+
+
+
         }
+
+
+
+
+
+
 
         .eco-text-side p {
+
+
+
             font-size: 1.15rem;
+
+
+
             line-height: 1.7;
+
+
+
             color: #cbd5e1;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-card {
+
+
+
             background: rgba(255, 255, 255, 0.95);
+
+
+
             border-radius: 24px;
+
+
+
             padding: 3rem;
+
+
+
             color: var(--text-dark);
+
+
+
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+
+
+
         }
+
+
+
+
+
+
 
         .eco-card h3 {
+
+
+
             font-size: 2rem;
+
+
+
             margin-bottom: 2rem;
+
+
+
             color: var(--primary);
+
+
+
             text-align: center;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-item {
+
+
+
             display: flex;
+
+
+
             gap: 1.5rem;
+
+
+
             margin-bottom: 2rem;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-item:last-of-type {
+
+
+
             margin-bottom: 0;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-item-icon {
+
+
+
             width: 32px;
+
+
+
             height: 32px;
+
+
+
             color: var(--accent);
+
+
+
             flex-shrink: 0;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-item-text h4 {
+
+
+
             font-size: 1.3rem;
+
+
+
             margin-bottom: 0.3rem;
+
+
+
             color: var(--text-dark);
+
+
+
         }
+
+
+
+
+
+
 
         .eco-item-text p {
+
+
+
             font-size: 0.95rem;
+
+
+
             color: var(--text-gray);
+
+
+
             line-height: 1.5;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-stat-box {
+
+
+
             background: var(--bg-canvas);
+
+
+
             border-radius: 12px;
+
+
+
             padding: 2rem;
+
+
+
             text-align: center;
+
+
+
             margin-top: 2rem;
+
+
+
             border: 1px solid rgba(17, 63, 40, 0.05);
+
+
+
         }
+
+
+
+
+
+
 
         .eco-stat-box h4 {
+
+
+
             font-size: 4rem;
+
+
+
             color: var(--primary);
+
+
+
             line-height: 1;
+
+
+
             margin-bottom: 0.5rem;
+
+
+
         }
+
+
+
+
+
+
 
         .eco-stat-box p {
+
+
+
             font-size: 1rem;
+
+
+
             color: var(--text-gray);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 10. CRITICAL DETAILS --- */
+
+
+
         .sticky-details-section {
+
+
+
             background: transparent;
+
+
+
         }
+
+
+
+
+
+
 
         .sticky-layout-container {
+
+
+
             display: flex;
+
+
+
             gap: 5rem;
+
+
+
             align-items: flex-start;
+
+
+
         }
+
+
+
+
+
+
 
         .sticky-sidebar {
+
+
+
             flex: 0 0 40%;
+
+
+
             position: sticky;
+
+
+
             top: 130px;
+
+
+
             border-left: 4px solid var(--accent);
+
+
+
             padding-left: 2rem;
+
+
+
         }
+
+
+
+
+
+
 
         .sidebar-media {
+
+
+
             margin-top: 2rem;
+
+
+
             height: 400px;
+
+
+
             width: 100%;
+
+
+
             border-radius: 20px;
+
+
+
             overflow: hidden;
+
+
+
             position: relative;
+
+
+
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+
+
             border: 1px solid rgba(17, 63, 40, 0.1);
+
+
+
         }
+
+
+
+
+
+
 
         .sidebar-video {
+
+
+
             width: 100%;
+
+
+
             height: 100%;
+
+
+
             object-fit: cover;
+
+
+
         }
+
+
+
+
+
+
 
         .scrolling-cards {
+
+
+
             flex: 1;
+
+
+
             display: flex;
+
+
+
             flex-direction: column;
+
+
+
             gap: 2rem;
+
+
+
         }
+
+
+
+
+
+
 
         .detail-row-card {
+
+
+
             padding: 3rem;
+
+
+
             display: flex;
+
+
+
             gap: 2rem;
+
+
+
             align-items: flex-start;
+
+
+
             transition: transform 0.3s;
+
+
+
         }
+
+
+
+
+
+
 
         .detail-row-card:hover {
+
+
+
             transform: translateY(-5px);
+
+
+
         }
+
+
+
+
+
+
 
         .detail-number {
+
+
+
             font-size: 4rem;
+
+
+
             color: var(--accent);
+
+
+
             opacity: 0.5;
+
+
+
             line-height: 0.8;
+
+
+
         }
+
+
+
+
+
+
 
         .detail-content h3 {
+
+
+
             font-size: 1.8rem;
+
+
+
             color: var(--primary);
+
+
+
             margin-bottom: 1rem;
+
+
+
         }
+
+
+
+
+
+
 
         .detail-content p {
+
+
+
             color: var(--text-gray);
+
+
+
             line-height: 1.6;
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 11. MAP SECTION --- */
+
+
+
         .service-area-section {
+
+
+
             background: transparent;
+
+
+
             position: relative;
+
+
+
         }
+
+
+
+
+
+
 
         .service-area-grid {
+
+
+
             display: grid;
+
+
+
             grid-template-columns: 1fr 1fr;
+
+
+
             gap: 5rem;
+
+
+
             align-items: center;
+
+
+
             max-width: 1400px;
+
+
+
             margin: 0 auto;
+
+
+
         }
+
+
+
+
+
+
 
         .sa-text-side h2 {
+
+
+
             font-size: 3.8rem;
+
+
+
             color: var(--primary);
+
+
+
             margin: 0.5rem 0 1.5rem 0;
+
+
+
             line-height: 1.1;
+
+
+
         }
+
+
+
+
+
+
 
         .sa-text-side p.desc {
+
+
+
             font-size: 1.1rem;
+
+
+
             color: var(--text-gray);
+
+
+
             margin-bottom: 2rem;
+
+
+
             line-height: 1.6;
+
+
+
         }
+
+
+
+
+
+
 
         .city-list {
+
+
+
             display: grid;
+
+
+
             grid-template-columns: 1fr 1fr;
+
+
+
             gap: 1.2rem;
+
+
+
             list-style: none;
+
+
+
             margin-bottom: 2rem;
+
+
+
         }
+
+
+
+
+
+
 
         .city-list li {
+
+
+
             display: flex;
+
+
+
             align-items: center;
+
+
+
             gap: 10px;
+
+
+
             font-size: 1.05rem;
+
+
+
             font-weight: 600;
+
+
+
             color: var(--text-dark);
+
+
+
         }
+
+
+
+
+
+
 
         .city-list svg {
+
+
+
             width: 20px;
+
+
+
             height: 20px;
+
+
+
             color: var(--accent);
+
+
+
             flex-shrink: 0;
+
+
+
         }
+
+
+
+
+
+
 
         .sa-map-container {
+
+
+
             position: relative;
+
+
+
             height: 500px;
+
+
+
             border-radius: 24px;
+
+
+
             padding: 10px;
+
+
+
             background: var(--white);
+
+
+
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+
+
+
             border: 2px solid rgba(34, 197, 94, 0.15);
+
+
+
         }
+
+
+
+
+
+
 
         .sa-map-wrapper {
+
+
+
             width: 100%;
+
+
+
             height: 100%;
+
+
+
             border-radius: 16px;
+
+
+
             overflow: hidden;
+
+
+
             position: relative;
+
+
+
         }
+
+
+
+
+
+
 
         .sa-map-wrapper iframe {
+
+
+
             width: 100%;
+
+
+
             height: 100%;
+
+
+
             border: 0;
+
+
+
             filter: grayscale(20%) contrast(110%);
+
+
+
         }
+
+
+
+
+
+
 
         .sa-map-badge {
+
+
+
             position: absolute;
+
+
+
             bottom: 20px;
+
+
+
             left: 20px;
+
+
+
             background: var(--white);
+
+
+
             padding: 10px 20px;
+
+
+
             border-radius: 8px;
+
+
+
             font-size: 1rem;
+
+
+
             color: var(--primary);
+
+
+
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+
+
             border: 1px solid rgba(17, 63, 40, 0.05);
+
+
+
             display: flex;
+
+
+
             align-items: center;
+
+
+
             gap: 10px;
+
+
+
             z-index: 10;
+
+
+
         }
+
+
+
+
+
+
 
         .sa-map-badge::before {
+
+
+
             content: '';
+
+
+
             display: block;
+
+
+
             width: 12px;
+
+
+
             height: 12px;
+
+
+
             background: var(--accent);
+
+
+
             border-radius: 2px;
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 12. QUOTE FORM --- */
+
+
+
         .quote-banner-section {
+
+
+
             background: var(--primary);
+
+
+
             padding: 100px 5%;
+
+
+
             position: relative;
+
+
+
             overflow: hidden;
+
+
+
             border-radius: 40px;
+
+
+
             margin: 0 2vw 4vw 2vw;
+
+
+
             box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5), 0 30px 60px rgba(0, 0, 0, 0.2);
+
+
+
         }
+
+
+
+
+
+
 
         .quote-banner-grid {
+
+
+
             display: grid;
+
+
+
             grid-template-columns: 1fr 1fr;
+
+
+
             gap: 5rem;
+
+
+
             align-items: center;
+
+
+
             max-width: 1400px;
+
+
+
             margin: 0 auto;
+
+
+
         }
+
+
+
+
+
+
 
         .quote-banner-text h2 {
+
+
+
             font-size: 4rem;
+
+
+
             color: var(--white);
+
+
+
             margin-bottom: 1.5rem;
+
+
+
             line-height: 1.1;
+
+
+
         }
+
+
+
+
+
+
 
         .quote-banner-text p {
+
+
+
             font-size: 1.2rem;
+
+
+
             color: #cbd5e1;
+
+
+
             line-height: 1.6;
+
+
+
             margin-bottom: 2rem;
+
+
+
         }
+
+
+
+
+
+
 
         .form-side {
+
+
+
             padding: 3.5rem;
+
+
+
             background: var(--white);
+
+
+
             color: var(--text-dark);
+
+
+
             border-radius: 24px;
+
+
+
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+
+
+
         }
+
+
+
+
+
+
 
         .input-group {
+
+
+
             margin-bottom: 1.5rem;
+
+
+
             display: flex;
+
+
+
             flex-direction: column;
+
+
+
         }
+
+
+
+
+
+
 
         .input-group label {
+
+
+
             font-size: 1.1rem;
+
+
+
             color: var(--primary);
+
+
+
             margin-bottom: 0.5rem;
+
+
+
         }
+
+
+
+
+
+
 
         .input-group input,
+
+
+
         .input-group textarea {
+
+
+
             padding: 1.2rem;
+
+
+
             border: 2px solid #e2e8f0;
+
+
+
             border-radius: 8px;
+
+
+
             background: #f8fafc;
+
+
+
             color: var(--text-dark);
+
+
+
             outline: none;
+
+
+
             font-family: inherit;
+
+
+
             font-size: 1rem;
+
+
+
             transition: border-color 0.3s;
+
+
+
         }
+
+
+
+
+
+
 
         .input-group input:focus,
+
+
+
         .input-group textarea:focus {
+
+
+
             border-color: var(--accent);
+
+
+
         }
+
+
+
+
+
+
 
         /* --- 13. ENTERPRISE FOOTER --- */
+
+
+
         .enterprise-footer {
+
+
+
             background: #0f172a;
+
+
+
             color: #94a3b8;
+
+
+
             padding: 5rem 5% 2rem 5%;
+
+
+
         }
+
+
+
+
+
+
 
         .footer-grid {
+
+
+
             display: grid;
+
+
+
             grid-template-columns: 2fr 1fr;
+
+
+
             gap: 4rem;
+
+
+
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+
+
             padding-bottom: 3rem;
+
+
+
         }
+
+
+
+
+
+
 
         .footer-col h4 {
+
+
+
             margin-bottom: 1.5rem;
+
+
+
             font-size: 1.5rem;
+
+
+
             color: var(--white);
+
+
+
         }
+
+
+
+
+
+
 
         .footer-logo {
+
+
+
             max-width: 180px;
+
+
+
             height: auto;
+
+
+
             margin-bottom: 1.5rem;
+
+
+
             background: var(--white);
+
+
+
             padding: 12px 20px;
+
+
+
             border-radius: 50px;
+
+
+
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+
+
         }
+
+
+
+
+
+
 
         .footer-bottom {
+
+
+
             text-align: center;
+
+
+
             padding-top: 2rem;
+
+
+
             font-size: 0.9rem;
+
+
+
             opacity: 0.5;
+
+
+
         }
+
+
+
+
+
+
 
         /* ==========================================================================
+
+
+
            14. MASTER RESPONSIVENESS (FULLY OPTIMIZED FOR MOBILE)
+
+
+
            ========================================================================== */
+
+
+
         @media (max-width: 1024px) {
+
+
+
             .hero-title {
+
+
+
                 font-size: 4rem;
+
+
+
             }
+
+
+
+
+
+
 
             .nav-links {
+
+
+
                 display: none;
+
+
+
             }
+
+
+
+
+
+
 
             .hamburger {
+
+
+
                 display: flex;
+
+
+
             }
+
+
+
+
+
+
 
             .nav-btn {
+
+
+
                 display: none;
+
+
+
             }
+
+
+
+
+
+
 
             /* Hidden to make room for hamburger */
+
+
+
             .services-grid {
+
+
+
                 grid-template-columns: repeat(2, 1fr);
+
+
+
             }
+
+
+
+
+
+
 
             .pricing-grid {
+
+
+
                 grid-template-columns: repeat(2, 1fr);
+
+
+
             }
+
+
+
+
+
+
 
             .eco-grid,
+
+
+
             .service-area-grid,
+
+
+
             .quote-banner-grid {
+
+
+
                 grid-template-columns: 1fr;
+
+
+
                 gap: 3rem;
+
+
+
                 text-align: center;
+
+
+
             }
 
+
+
+
+
+
+
             .city-list {
+
+
+
                 text-align: left;
+
+
+
             }
+
+
+
+
+
+
 
             .sticky-layout-container {
+
+
+
                 flex-direction: column;
+
+
+
                 gap: 3rem;
+
+
+
             }
+
+
+
+
+
+
 
             .sticky-sidebar {
+
+
+
                 position: relative;
+
+
+
                 top: 0;
+
+
+
                 width: 100%;
+
+
+
                 border-left: none;
+
+
+
                 padding-left: 0;
+
+
+
                 text-align: center;
+
+
+
             }
+
+
+
+
+
+
 
             .hero-trust-bar {
+
+
+
                 overflow-x: auto;
+
+
+
                 justify-content: flex-start;
+
+
+
                 bottom: 15px;
+
+
+
             }
 
+
+
+
+
+
+
             .video-transition-section {
+
+
+
                 height: 40vh;
+
+
+
                 border-radius: 20px;
+
+
+
             }
+
+
+
         }
+
+
+
+
+
+
 
         @media (max-width: 768px) {
+
+
+
             section {
+
+
+
                 padding: 50px 5%;
+
+
+
             }
+
+
+
+
+
+
 
             .eco-section,
+
+
+
             .quote-banner-section {
+
+
+
                 margin: 0;
+
+
+
                 border-radius: 0;
+
+
+
                 padding: 50px 5%;
+
+
+
             }
+
+
+
+
+
+
 
             .section-title {
+
+
+
                 font-size: 2.5rem !important;
+
+
+
                 text-align: center !important;
+
+
+
             }
+
+
+
+
+
+
 
             .section-subtitle {
+
+
+
                 text-align: center !important;
+
+
+
                 font-size: 1.05rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .text-left {
+
+
+
                 text-align: center !important;
+
+
+
             }
+
+
+
+
+
+
 
             .navbar {
+
+
+
                 top: 0;
+
+
+
                 height: 70px;
+
+
+
                 padding: 8px 15px !important;
+
+
+
             }
+
+
+
+
+
+
 
             .nav-logo {
+
+
+
                 height: 55px !important;
+
+
+
             }
+
+
+
+
+
+
 
             .hero-section {
+
+
+
                 padding-top: 100px;
+
+
+
                 text-align: center;
+
+
+
                 justify-content: center;
+
+
+
             }
+
+
+
+
+
+
 
             .hero-content {
+
+
+
                 display: flex;
+
+
+
                 flex-direction: column;
+
+
+
                 align-items: center;
+
+
+
             }
+
+
+
+
+
+
 
             .hero-title {
+
+
+
                 font-size: 3rem;
+
+
+
             }
+
+
+
+
+
+
 
             .hero-buttons {
+
+
+
                 flex-direction: column;
+
+
+
                 width: 100%;
+
+
+
                 gap: 1rem;
+
+
+
                 margin-bottom: 80px;
+
+
+
             }
+
+
+
+
+
+
 
             .hero-btn-primary,
+
+
+
             .hero-btn-secondary {
+
+
+
                 width: 100%;
+
+
+
             }
+
+
+
+
+
+
 
             .hero-trust-bar {
+
+
+
                 padding: 1rem 5%;
+
+
+
                 gap: 1.5rem;
+
+
+
             }
+
+
+
+
+
+
 
             .services-grid,
+
+
+
             .pricing-grid,
+
+
+
             .footer-grid {
+
+
+
                 grid-template-columns: 1fr;
+
+
+
             }
+
+
+
+
+
+
 
             .price-amount {
+
+
+
                 font-size: 3rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .eco-text-side h2 {
+
+
+
                 font-size: 2.5rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .eco-card {
+
+
+
                 padding: 1.5rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .eco-stat-box h4 {
+
+
+
                 font-size: 2.8rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .sa-text-side h2 {
+
+
+
                 font-size: 2.5rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .city-list {
+
+
+
                 grid-template-columns: 1fr 1fr !important;
+
+
+
                 gap: 1rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .city-list li {
+
+
+
                 font-size: 0.95rem !important;
+
+
+
             }
+
+
+
+
+
+
 
             .sa-map-container {
+
+
+
                 height: 300px !important;
+
+
+
             }
+
+
+
+
+
+
 
             .detail-row-card {
+
+
+
                 flex-direction: column;
+
+
+
                 gap: 1rem;
+
+
+
                 padding: 2rem;
+
+
+
             }
+
+
+
+
+
+
 
             .video-transition-section {
+
+
+
                 margin: 0;
+
+
+
                 border-radius: 0;
+
+
+
                 height: 30vh;
+
+
+
             }
 
+
+
+
+
+
+
             .video-transition-text {
+
+
+
                 font-size: 2.2rem;
+
+
+
             }
+
+
+
         }
     </style>
+
+
+
 </head>
+
+
+
+
+
+
 
 <body>
 
+
+
+
+
+
+
     <!-- AWWWARDS CUSTOM CURSOR HTML -->
+
+
+
     <div class="custom-cursor"></div>
 
+
+
+
+
+
+
     <!-- Light Awwwards Mesh Background Layer -->
+
+
+
     <div class="ambient-background"></div>
+
+
+
     <div class="grain-overlay"></div>
+
+
+
     <div class="interactive-bg-orb"></div>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          TOP BAR & NAVIGATION (INCLUDING MOBILE HAMBURGER)
+
+
+
          ========================================================================== -->
+
+
+
     <nav class="navbar">
+
+
+
         <div class="logo-container">
+
+
+
             <img src="Niko-logo-cropped.png" alt="Niko Junk Removal Logo" class="nav-logo">
+
+
+
         </div>
+
+
+
         <!-- Desktop Links mapped perfectly -->
+
+
+
         <div class="nav-links">
+
+
+
             <a href="#home" class="hover-link">Home</a>
+
+
+
             <a href="#services" class="hover-link">Services</a>
+
+
+
             <a href="#pricing" class="hover-link">Pricing</a>
+
+
+
             <a href="#eco" class="hover-link">Our Process</a>
+
+
+
             <a href="#faq" class="hover-link">Details</a>
+
+
+
             <a href="#service-area" class="hover-link">Area</a>
+
+
+
         </div>
+
+
+
         <div class="nav-actions">
+
+
+
             <a href="#quote" class="nav-btn magnetic">Get a Quote</a>
+
+
+
             <!-- Mobile Hamburger Icon -->
+
+
+
             <div class="hamburger" id="hamburger">
+
+
+
                 <span></span>
+
+
+
                 <span></span>
+
+
+
                 <span></span>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
     </nav>
 
+
+
+
+
+
+
     <!-- FULL SCREEN MOBILE MENU -->
+
+
+
     <div class="mobile-menu" id="mobile-menu">
+
+
+
         <a href="#home" class="mobile-link">Home</a>
+
+
+
         <a href="#services" class="mobile-link">Services</a>
+
+
+
         <a href="#pricing" class="mobile-link">Pricing</a>
+
+
+
         <a href="#eco" class="mobile-link">Our Process</a>
+
+
+
         <a href="#faq" class="mobile-link">Details</a>
+
+
+
         <a href="#service-area" class="mobile-link">Area</a>
+
+
+
         <a href="#quote" class="mobile-link text-green-light">Get a Quote</a>
+
+
+
     </div>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          ASYMMETRIC HERO SECTION WITH TRUST BAR
+
+
+
          ========================================================================== -->
+
+
+
     <header class="hero-section" id="home">
+
+
+
         <video src="niko-junk-video.mp4" autoplay loop muted playsinline class="hero-video"></video>
+
+
+
         <div class="hero-overlay"></div>
+
+
+
         <div class="hero-content">
+
+
+
             <span class="hero-tag fade-up">Denver Metro Junk Removal</span>
+
+
+
             <h1 class="hero-title split-text">Denver's Premier <br><span class="text-green-light">Hauling Crew.</span>
+
+
+
             </h1>
+
+
+
             <p class="hero-subtitle fade-up">Clear, upfront pricing. Same-day service. A professional team that respects
+
+
+
                 your property.</p>
 
+
+
+
+
+
+
             <div class="hero-buttons fade-up">
+
+
+
                 <a href="#quote" class="hero-btn-primary magnetic">Get My Free Estimate</a>
+
+
+
                 <a href="tel:7207727684" class="hero-btn-secondary magnetic">Call Us Now — 720-772-7684</a>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
+
+
+
 
         <!-- BOTTOM ANCHOR TRUST BAR -->
+
+
+
         <div class="hero-trust-bar fade-up">
+
+
+
             <div class="trust-item stars">
+
+
+
                 <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
                     class="star">★</span><span class="star">★</span> 5.0/5 Reviews
+
+
+
             </div>
+
+
+
             <div class="trust-item icon-reveal">
+
+
+
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
+
+
+
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
+
+
+
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                 </svg>
+
+
+
                 Denver Owned & Operated
+
+
+
             </div>
+
+
+
             <div class="trust-item icon-reveal">
+
+
+
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
+
+
+
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z">
+
+
+
                     </path>
+
+
+
                 </svg>
+
+
+
                 Licensed & Insured
+
+
+
             </div>
+
+
+
             <div class="trust-item icon-reveal">
+
+
+
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
+
+
+
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+
+
+
                 </svg>
+
+
+
                 Same-Day Available
+
+
+
             </div>
+
+
+
             <div class="trust-item icon-reveal">
+
+
+
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
+
+
+
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z">
+
+
+
                     </path>
+
+
+
                 </svg>
+
+
+
                 Eco-Friendly Disposal
+
+
+
             </div>
+
+
+
         </div>
+
+
+
     </header>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          MARQUEE BANNER
+
+
+
          ========================================================================== -->
+
+
+
     <div class="marquee-section">
+
+
+
         <div class="marquee-content">
+
+
+
             <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
+
+
+
                 FORECLOSURE CLEANOUTS • </span>
+
+
+
             <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
+
+
+
                 FORECLOSURE CLEANOUTS • </span>
+
+
+
         </div>
+
     </div>
 
-    <!-- ==========================================================================
-         6-GRID FEATURED SERVICES SECTION 
+   <!-- ==========================================================================
+         [06.5] DYNAMIC CUSTOM TRUCK ANIMATION
          ========================================================================== -->
+    <section class="custom-truck-section">
+        <div class="road-track">
+            <img src="house-cartoon.png" alt="House" class="track-img track-house">
+            <img src="junk-truck-img.png" alt="Niko Junk Truck" class="track-img track-truck">
+            <img src="recycle-yard.png" alt="Recycling Facility" class="track-img track-facility">
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+
+
+
+         6-GRID FEATURED SERVICES SECTION 
+
+
+
+         ========================================================================== -->
+
+
+
     <section class="services-section" id="services">
+
+
+
         <div id="particles-js"></div>
+
+
+
         <div class="section-content-relative">
+
+
+
             <p class="text-green"
                 style="text-align: center; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">WHAT WE
+
+
+
                 HAUL</p>
+
+
+
             <h2 class="section-title split-text">Featured Services</h2>
+
+
+
             <p class="section-subtitle">From a single couch to a full estate cleanout — we've got you covered.</p>
 
+
+
+
+
+
+
             <div class="services-grid">
+
+
+
                 <div class="service-card tilt-card premium-glass-card">
+
+
+
                     <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <h3 class="card-title">Residential Junk Removal</h3>
+
+
+
                     <p>Furniture, appliances, garage cleanouts — we handle it all seamlessly.</p>
+
+
+
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
+
+
+
                 </div>
+
+
+
                 <div class="service-card tilt-card premium-glass-card">
+
+
+
                     <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+
+
+
                         </path>
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <h3 class="card-title">Specialty Item Removal</h3>
+
+
+
                     <p>Hot tubs, pianos, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.
+
+
+
                     </p>
+
+
+
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
+
+
+
                 </div>
+
+
+
                 <div class="service-card tilt-card premium-glass-card">
+
+
+
                     <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M5 3v4M3 11v6a2 2 0 002 2h14a2 2 0 002-2v-6M3 11h18M5 3h14a2 2 0 012 2v2M5 3a2 2 0 00-2 2v2">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <h3 class="card-title">Furniture Removal</h3>
+
+
+
                     <p>Couches, beds, desks — we'll carry it out from wherever it sits and haul it away.</p>
+
+
+
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
+
+
+
                 </div>
+
+
+
                 <div class="service-card tilt-card premium-glass-card">
+
+
+
                     <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <h3 class="card-title">Appliance Disposal</h3>
+
+
+
                     <p>Fridges, washers, and dryers safely removed and disposed of responsibly.</p>
+
+
+
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
+
+
+
                 </div>
+
+
+
                 <div class="service-card tilt-card premium-glass-card">
+
+
+
                     <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+
+
+
                     </svg>
+
+
+
                     <h3 class="card-title">Estate Cleanouts</h3>
+
+
+
                     <p>Full-property cleanouts handled with the utmost care, respect, and efficiency.</p>
+
+
+
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
+
+
+
                 </div>
+
+
+
                 <div class="service-card tilt-card premium-glass-card">
+
+
+
                     <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <h3 class="card-title">Construction Debris</h3>
+
+
+
                     <p>Drywall, lumber, concrete — we clear out messy construction and remodel sites fast.</p>
+
+
+
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
+
+
+
                 </div>
+
+
+
             </div>
+
+
+
             <div class="centered-btn-wrapper">
+
+
+
                 <a href="#quote" class="secondary-btn magnetic">Browse All Services</a>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
     </section>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          CINEMATIC PARALLAX VIDEO TRANSITION
+
+
+
          ========================================================================== -->
+
+
+
     <section class="video-transition-section">
+
+
+
         <video src="niko-transition.mp4" autoplay loop muted playsinline class="parallax-bg-video"></video>
+
+
+
         <div class="video-transition-overlay"></div>
+
+
+
         <h2 class="split-text video-transition-text">We Haul It All.</h2>
+
+
+
     </section>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          PRICING SECTION (4-GRID VOLUME LAYOUT)
+
+
+
          ========================================================================== -->
+
+
+
     <section class="pricing-section" id="pricing">
+
+
+
         <p class="text-green"
             style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase; text-align: center;">PRICING</p>
+
+
+
         <h2 class="section-title split-text" style="font-size: 3.2rem;">Simple, Load-Based Pricing</h2>
+
+
+
         <p class="section-subtitle" style="margin: 1rem auto 3rem auto; color: var(--text-dark);">You pay for the space
+
+
+
             your stuff takes up in our truck — no hourly rates, no hidden fees.</p>
 
+
+
+
+
+
+
         <div class="pricing-grid">
+
+
+
             <div class="price-card tilt-card premium-glass-card">
+
+
+
                 <h4 class="price-label">Minimum Load</h4>
+
+
+
                 <div class="price-amount">$125</div>
+
+
+
                 <p class="price-desc">A few small items (1-3 pieces)</p>
+
+
+
             </div>
+
+
+
             <div class="price-card tilt-card premium-glass-card">
+
+
+
                 <h4 class="price-label">Quarter Load</h4>
+
+
+
                 <div class="price-amount">$239</div>
+
+
+
                 <p class="price-desc">Small pile, a few bags & items (~2.75 cu yd)</p>
+
+
+
             </div>
+
+
+
             <div class="price-card tilt-card premium-glass-card">
+
+
+
                 <h4 class="price-label">Half Load</h4>
+
+
+
                 <div class="price-amount">$379</div>
+
+
+
                 <p class="price-desc">Medium haul — furniture + misc (~5.5 cu yd)</p>
+
+
+
             </div>
+
+
+
             <div class="price-card tilt-card premium-glass-card">
+
+
+
                 <h4 class="price-label">Full Load</h4>
+
+
+
                 <div class="price-amount">$654</div>
+
+
+
                 <p class="price-desc">Fill the truck — total cleanout (~10 cu yd)</p>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
+
+
+
 
         <div style="text-align: center;">
+
+
+
             <a href="#quote" class="dark-btn magnetic">See Full Pricing</a>
+
+
+
         </div>
+
+
+
     </section>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          ECO-CONSCIOUS (WHERE YOUR STUFF GOES)
+
+
+
          ========================================================================== -->
+
+
+
     <section class="eco-section" id="eco">
+
+
+
         <div class="eco-grid">
+
+
+
             <div class="eco-text-side">
+
+
+
                 <p class="text-green-light" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+
+
+
                     ECO-CONSCIOUS</p>
+
+
+
                 <h2 class="split-text">Donate First.<br>Recycle Second.<br>Landfill Last.</h2>
+
+
+
                 <p class="fade-up">Before anything goes to the landfill, we sort for donation and recycling. We work
+
+
+
                     with local Denver organizations to give your usable items a second life.</p>
+
+
+
             </div>
+
+
+
+
+
+
 
             <div class="eco-card fade-up">
+
+
+
                 <h3 style="text-align: center;">Where Your Stuff Actually Goes</h3>
+
+
+
                 <div class="eco-item">
+
+
+
                     <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <div class="eco-item-text">
+
+
+
                         <h4>Donate</h4>
+
+
+
                         <p>Usable items go to Habitat for Humanity ReStore, ARC Thrift Stores, and Denver Rescue
+
+
+
                             Mission.</p>
+
+
+
                     </div>
+
+
+
                 </div>
+
+
+
                 <div class="eco-item">
+
+
+
                     <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <div class="eco-item-text">
+
+
+
                         <h4>Recycle</h4>
+
+
+
                         <p>Metal, electronics, cardboard, and yard waste are sorted and taken to local recycling
+
+
+
                             facilities.</p>
+
+
+
                     </div>
+
+
+
                 </div>
+
+
+
                 <div class="eco-item">
+
+
+
                     <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
+
+
+
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
+
+
+
                         </path>
+
+
+
                     </svg>
+
+
+
                     <div class="eco-item-text">
+
+
+
                         <h4>Landfill</h4>
+
+
+
                         <p>Only what's genuinely left over. It costs you nothing extra — it's just how we operate.</p>
+
+
+
                     </div>
+
+
+
                 </div>
+
+
+
                 <div class="eco-stat-box">
+
+
+
                     <h4>150,000+</h4>
+
+
+
                     <p>Estimated LBS Diverted from Landfill This Year</p>
+
+
+
                 </div>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
     </section>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          CRITICAL DETAILS SECTION (STICKY LAYOUT)
+
+
+
          ========================================================================== -->
+
+
+
     <section class="sticky-details-section" id="faq">
+
+
+
         <div class="sticky-layout-container">
+
+
+
             <div class="sticky-sidebar">
+
+
+
                 <h2 class="section-title split-text">Critical<br><span class="text-green">Details</span></h2>
+
+
+
                 <p class="section-subtitle" style="margin-bottom: 30px;">Everything you need to know before our trucks
+
+
+
                     roll up to your property.</p>
+
+
+
                 <div class="sidebar-media">
+
+
+
                     <video src="niko-dddetails.mp4" autoplay loop muted playsinline class="sidebar-video"></video>
+
+
+
                 </div>
+
+
+
             </div>
+
+
+
             <div class="scrolling-cards">
+
+
+
                 <div class="detail-row-card gsap-card premium-glass-card">
+
+
+
                     <div class="detail-number">01</div>
+
+
+
                     <div class="detail-content">
+
+
+
                         <h3>Restricted Items</h3>
+
+
+
                         <p>We cannot take hazardous materials, wet paint, chemicals, asbestos, or biological waste due
+
+
+
                             to local disposal laws. Everything else goes.</p>
+
+
+
                     </div>
+
+
+
                 </div>
+
+
+
                 <div class="detail-row-card gsap-card premium-glass-card">
+
+
+
                     <div class="detail-number">02</div>
+
+
+
                     <div class="detail-content">
+
+
+
                         <h3>Transparent Estimates</h3>
+
+
+
                         <p>Our online and over-the-phone quotes are estimates. Final pricing is always confirmed onsite
+
+
+
                             before we load a single item.</p>
+
+
+
                     </div>
+
+
+
                 </div>
+
+
+
                 <div class="detail-row-card gsap-card premium-glass-card">
+
+
+
                     <div class="detail-number">03</div>
+
+
+
                     <div class="detail-content">
+
+
+
                         <h3>Contactless Hauling</h3>
+
+
+
                         <p>You do not need to be home! If your items are accessible outside in a driveway or curbside,
+
+
+
                             we can handle the job, and text you a secure online invoice.</p>
+
+
+
                     </div>
+
+
+
                 </div>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
     </section>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          UPGRADED SERVICE AREA SECTION
+
+
+
          ========================================================================== -->
+
+
+
     <section class="service-area-section" id="service-area">
+
+
+
         <div class="service-area-grid">
+
+
+
             <div class="sa-text-side fade-up">
+
+
+
                 <p class="text-green" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">SERVICE
+
+
+
                     AREA</p>
+
+
+
                 <h2>Proudly Serving Denver Metro</h2>
+
+
+
                 <p class="desc">We cover the entire Front Range and then some. Fast, reliable hauling anywhere on the
+
+
+
                     map.</p>
+
+
+
                 <ul class="city-list">
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Denver</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Lakewood</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Littleton</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Aurora</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Englewood</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Highlands Ranch</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Arvada</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Westminster</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Thornton</li>
+
+
+
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
+
+
+
                             </path>
+
+
+
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+
+
+
                         </svg> Centennial</li>
+
+
+
                 </ul>
+
+
+
                 <p style="font-size: 0.95rem; color: var(--text-gray); margin-top: 1rem;">Don't see your area? Call us
+
+
+
                     at 720-772-7684 — we cover more than listed.</p>
+
+
+
             </div>
+
+
+
             <div class="sa-map-container tilt-card fade-up">
+
+
+
                 <div class="sa-map-wrapper">
+
+
+
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.81530948967!2d-105.08643795277414!3d39.76451867160754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C%20CO!5e0!3m2!1sen!2sus!4v1707000000000!5m2!1sen!2sus"
                         allowfullscreen="" loading="lazy"></iframe>
+
+
+
                 </div>
+
+
+
                 <div class="sa-map-badge">Service Region</div>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
     </section>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          DEDICATED QUOTE FORM BANNER
+
+
+
          ========================================================================== -->
+
+
+
     <section class="quote-banner-section" id="quote">
+
+
+
         <div class="quote-banner-grid">
+
+
+
             <div class="quote-banner-text">
+
+
+
                 <h2 class="split-text">Ready to get your space back?</h2>
+
+
+
                 <p class="fade-up">Fill out the form below or call us directly. We'll give you a fast, transparent
+
+
+
                     estimate and get you on the schedule.</p>
+
+
+
                 <a href="tel:7207727684" class="secondary-btn magnetic fade-up"
                     style="background: var(--white); color: var(--primary);">📞 Call 720-772-7684</a>
+
+
+
             </div>
+
+
+
             <div class="form-side tilt-card fade-up">
+
+
+
                 <h3 class="section-title text-left text-dark" style="font-size: 2rem; margin-bottom: 2rem;">Get a Fast
+
+
+
                     Quote</h3>
+
+
+
                 <form id="demo-quote-form" class="premium-form">
+
+
+
                     <div class="input-group">
+
+
+
                         <label for="name">Full Name</label>
+
+
+
                         <input type="text" id="name" required placeholder="John Doe">
+
+
+
                     </div>
+
+
+
                     <div class="input-group">
+
+
+
                         <label for="phone">Phone Number</label>
+
+
+
                         <input type="tel" id="phone" required placeholder="(720) 555-0123">
+
+
+
                     </div>
+
+
+
                     <div class="input-group">
+
+
+
                         <label for="details">What do you need hauled away?</label>
+
+
+
                         <textarea id="details" rows="3" required placeholder="Describe your junk..."></textarea>
+
+
+
                     </div>
+
+
+
                     <button type="submit" class="submit-btn magnetic">Send Quote Request</button>
+
+
+
                 </form>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
     </section>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          ENTERPRISE FOOTER
+
+
+
          ========================================================================== -->
+
+
+
     <footer class="enterprise-footer">
+
+
+
         <div class="footer-grid">
+
+
+
             <div class="footer-col brand-col">
+
+
+
                 <img src="Niko-logo-cropped.png" alt="Niko Junk Removal Logo" class="footer-logo">
+
+
+
                 <p>Denver's premium local hauling service. Fast communication, fair prices, and heavy lifting.</p>
+
+
+
             </div>
+
+
+
             <div class="footer-col contact-col">
+
+
+
                 <h4>Contact Us</h4>
+
+
+
                 <p>📞 720-772-7684</p>
+
+
+
                 <p>📍 Denver, CO</p>
+
+
+
                 <p>🕒 Mon-Sat 7am-7pm</p>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
         <div class="footer-bottom">
+
+
+
             <p>&copy; 2026 Niko Junk Removal LLC. All Rights Reserved. Master Template Architecture.</p>
+
+
+
         </div>
+
+
+
     </footer>
 
+
+
+
+
+
+
     <!-- ==========================================================================
+
+
+
          EXACT MASTER JAVASCRIPT INJECTION
+
+
+
          ========================================================================== -->
+
+
+
     <script>
+
+
+
         document.addEventListener("DOMContentLoaded", (event) => {
 
+
+
+
+
+
+
             // 1. GSAP Plugin Registration
+
+
+
             gsap.registerPlugin(ScrollTrigger);
 
+
+
+
+
+
+
             // 2. Custom GSAP Cursor Logic
+
+
+
             const cursor = document.querySelector('.custom-cursor');
+
+
+
             if (cursor && window.matchMedia("(pointer: fine)").matches) {
+
+
+
                 const xToCursor = gsap.quickTo(cursor, "left", { duration: 0.15, ease: "power3.out" });
+
+
+
                 const yToCursor = gsap.quickTo(cursor, "top", { duration: 0.15, ease: "power3.out" });
 
+
+
+
+
+
+
                 window.addEventListener("mousemove", e => {
+
+
+
                     xToCursor(e.clientX);
+
+
+
                     yToCursor(e.clientY);
+
+
+
                 });
+
+
+
+
+
+
 
                 document.querySelectorAll('a, button, .tilt-card, .trust-item').forEach(el => {
+
+
+
                     el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+
+
+
                     el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+
+
+
                 });
+
+
+
             }
+
+
+
+
+
+
 
             // 3. Background Interactive Orb
+
+
+
             const bgOrb = document.querySelector('.interactive-bg-orb');
+
+
+
             if (bgOrb) {
+
+
+
                 const startX = window.innerWidth / 2;
+
+
+
                 const startY = window.innerHeight / 2;
+
+
+
                 gsap.set(bgOrb, { x: startX, y: startY, xPercent: -50, yPercent: -50 });
 
+
+
+
+
+
+
                 const xToOrb = gsap.quickTo(bgOrb, "x", { duration: 1.2, ease: "power3.out" });
+
+
+
                 const yToOrb = gsap.quickTo(bgOrb, "y", { duration: 1.2, ease: "power3.out" });
 
+
+
+
+
+
+
                 window.addEventListener('mousemove', (e) => {
+
+
+
                     xToOrb(e.clientX);
+
+
+
                     yToOrb(e.clientY);
+
+
+
                 });
+
+
+
             }
+
+
+
+
+
+
 
             // 4. Particles.js Configuration
+
+
+
             try {
+
+
+
                 if (document.getElementById('particles-js')) {
+
+
+
                     particlesJS("particles-js", {
+
+
+
                         particles: {
+
+
+
                             number: { value: 35, density: { enable: true, value_area: 800 } },
+
+
+
                             color: { value: "#113f28" },
+
+
+
                             shape: { type: "circle" },
+
+
+
                             opacity: { value: 0.15, random: true },
+
+
+
                             size: { value: 3, random: true },
+
+
+
                             line_linked: { enable: true, distance: 150, color: "#113f28", opacity: 0.08, width: 1 },
+
+
+
                             move: { enable: true, speed: 0.5, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+
+
+
                         },
+
+
+
                         interactivity: {
+
+
+
                             detect_on: "canvas",
+
+
+
                             events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: false }, resize: true },
+
+
+
                             modes: { grab: { distance: 200, line_linked: { opacity: 0.2 } } }
+
+
+
                         },
+
+
+
                         retina_detect: true
+
+
+
                     });
+
+
+
                 }
+
+
+
             } catch (e) { console.error("Particles Error:", e); }
 
+
+
+
+
+
+
             // 5. Marquee Banner Animation
+
+
+
             try {
+
+
+
                 const marqueeContent = document.querySelector('.marquee-content');
+
+
+
                 if (marqueeContent) {
+
+
+
                     gsap.to(marqueeContent, { xPercent: -50, ease: "none", duration: 25, repeat: -1 });
+
+
+
                 }
+
+
+
             } catch (e) { console.error("Marquee Error:", e); }
 
+
+
+
+
+
+
             // 6. Upgraded Hero Reveal Timeline
+
+
+
             const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+
+
             tl.from(".hero-tag", { y: 20, opacity: 0, duration: 0.8, delay: 0.2 })
+
+
+
                 .from(".hero-title", { y: 30, opacity: 0, duration: 1 }, "-=0.6")
+
+
+
                 .from(".hero-subtitle", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
+
+
+
                 .from(".hero-buttons", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
+
+
+
                 .from(".hero-trust-bar", { y: 20, opacity: 0, duration: 0.8 }, "-=0.4")
+
+
+
                 .from(".icon-reveal", { y: 15, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.4")
+
+
+
                 .from(".star", { x: 50, y: -50, rotation: 180, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.5)" }, "-=0.4");
 
+
+
+
+
+
+
             // 7. SplitType Text Animations
+
+
+
             try {
+
+
+
                 const splitTextElements = document.querySelectorAll('.split-text');
+
+
+
                 splitTextElements.forEach(text => {
+
+
+
                     const split = new SplitType(text, { types: 'chars, words' });
+
+
+
                     gsap.from(split.chars, {
+
+
+
                         scrollTrigger: { trigger: text, start: "top 85%" },
+
+
+
                         y: 60, opacity: 0, rotationX: -90, stagger: 0.02, duration: 0.8, ease: "back.out(1.2)"
+
+
+
                     });
+
+
+
                 });
+
+
+
             } catch (e) { console.error("Text Animation Skipped:", e); }
 
+
+
+
+
+
+
             // 8. Swiper Slider
+
+
+
             try {
+
+
+
                 const swiper = new Swiper('.ba-swiper', {
+
+
+
                     slidesPerView: 'auto',
+
+
+
                     centeredSlides: true,
+
+
+
                     spaceBetween: 40,
+
+
+
                     grabCursor: true,
+
+
+
                     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+
+
+
                     pagination: { el: '.swiper-pagination', clickable: true },
+
+
+
                     breakpoints: { 320: { slidesPerView: 1, spaceBetween: 20 }, 1024: { slidesPerView: 'auto', spaceBetween: 40 } }
+
+
+
                 });
+
+
+
             } catch (e) { console.error("Swiper Skipped:", e); }
 
+
+
+
+
+
+
             // 9. Vanilla Tilt
+
+
+
             try {
+
+
+
                 VanillaTilt.init(document.querySelectorAll(".tilt-card"), { max: 5, speed: 400, glare: true, "max-glare": 0.05 });
+
+
+
             } catch (e) { console.error("VanillaTilt Skipped:", e); }
 
+
+
+
+
+
+
             // 10. Magnetic Hover Effect
+
+
+
             document.querySelectorAll('.magnetic').forEach(btn => {
+
+
+
                 btn.addEventListener('mousemove', (e) => {
+
+
+
                     const pos = btn.getBoundingClientRect();
+
+
+
                     gsap.to(btn, { x: (e.clientX - pos.left - pos.width / 2) * 0.3, y: (e.clientY - pos.top - pos.height / 2) * 0.4, duration: 0.5, ease: 'power3.out' });
+
+
+
                 });
+
+
+
                 btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.3)' }));
+
+
+
             });
 
+
+
+
+
+
+
             // 11. Header Glass Scroll Logic
+
+
+
             const navbar = document.querySelector('.navbar');
+
+
+
             const checkScroll = () => {
+
+
+
                 if (window.scrollY > 50) {
+
+
+
                     navbar.classList.add('glass-active');
+
+
+
                 } else {
+
+
+
                     navbar.classList.remove('glass-active');
+
+
+
                 }
+
+
+
             };
+
+
+
             window.addEventListener('scroll', checkScroll);
+
+
+
             checkScroll();
 
+
+
+
+
+
+
             // 12. Mobile Hamburger Toggle Logic
+
+
+
             const hamburger = document.getElementById('hamburger');
+
+
+
             const mobileMenu = document.getElementById('mobile-menu');
+
+
+
             const mobileLinks = document.querySelectorAll('.mobile-link');
 
+
+
+
+
+
+
             if (hamburger) {
+
+
+
                 hamburger.addEventListener('click', () => {
+
+
+
                     hamburger.classList.toggle('active');
+
+
+
                     mobileMenu.classList.toggle('active');
+
+
+
                 });
 
+
+
+
+
+
+
                 mobileLinks.forEach(link => {
+
+
+
                     link.addEventListener('click', () => {
+
+
+
                         hamburger.classList.remove('active');
+
+
+
                         mobileMenu.classList.remove('active');
+
+
+
                     });
+
+
+
+                });
+
+
+
+            }
+
+
+
+
+
+
+
+            // 13. Parallax Video Effect Logic
+
+
+
+            try {
+
+
+
+                const parallaxVideo = document.querySelector('.parallax-bg-video');
+
+
+
+                if (parallaxVideo) {
+
+
+
+                    gsap.to(parallaxVideo, {
+
+
+
+                        yPercent: 20, /* Moves the video down slightly as you scroll to create depth */
+
+
+
+                        ease: "none",
+
+
+
+                        scrollTrigger: {
+
+
+
+                            trigger: ".video-transition-section",
+
+
+
+                            start: "top bottom",
+
+
+
+                            end: "bottom top",
+
+
+
+                            scrub: true
+
+
+
+                        }
+
+
+
+                    });
+
+
+
+                }
+
+
+
+            } catch (e) { console.error("Parallax Video Error:", e); }
+
+          // ==========================================================================
+            // [06.5] DYNAMIC TRUCK SCRUB ANIMATION
+            // ==========================================================================
+            const animatedTruck = document.querySelector(".track-truck");
+
+            if (animatedTruck) {
+                gsap.to(animatedTruck, {
+                    left: "75%", // Drives perfectly to the facility, regardless of screen size
+                    ease: "none", // Keeps driving speed consistent
+                    scrollTrigger: {
+                        trigger: ".custom-truck-section",
+                        start: "top 80%", // Starts driving when section enters view
+                        end: "bottom 40%", // Stops driving when section is middle of screen
+                        scrub: 1 // 1-second lag for buttery smooth tracking
+                    }
                 });
             }
 
-            // 13. Parallax Video Effect Logic
-            try {
-                const parallaxVideo = document.querySelector('.parallax-bg-video');
-                if (parallaxVideo) {
-                    gsap.to(parallaxVideo, {
-                        yPercent: 20, /* Moves the video down slightly as you scroll to create depth */
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: ".video-transition-section",
-                            start: "top bottom",
-                            end: "bottom top",
-                            scrub: true
-                        }
-                    });
-                }
-            } catch (e) { console.error("Parallax Video Error:", e); }
 
-        });
-        // 14. Cinematic Hero Video Control (Slow-mo & Custom Loop)
+
+
+
+
+            // 14. Cinematic Hero Video Control (Slow-mo & Custom Loop)
             const heroVideo = document.querySelector('.hero-video');
             if (heroVideo) {
                 // Slows the video down to 60% speed for a premium, cinematic feel
-                heroVideo.playbackRate = 0.6; 
-                
+                heroVideo.playbackRate = 0.6;
+
                 // Listens to the video's internal clock and forces a loop at 4.0 seconds
                 heroVideo.addEventListener('timeupdate', () => {
                     if (heroVideo.currentTime >= 4.0) {
@@ -2036,7 +8025,17 @@
                     }
                 });
             }
+        });
     </script>
+
+
+
 </body>
+
+
+
+
+
+
 
 </html>
