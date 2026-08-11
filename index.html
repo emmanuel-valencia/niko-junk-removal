@@ -392,13 +392,14 @@
             padding-right: 5%;
         }
 
-        .hero-video {
+       .hero-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center; /* THIS IS THE FIX: Anchors the crop to the dead center */
             z-index: -2;
         }
 
@@ -2021,6 +2022,20 @@
             } catch (e) { console.error("Parallax Video Error:", e); }
 
         });
+        // 14. Cinematic Hero Video Control (Slow-mo & Custom Loop)
+            const heroVideo = document.querySelector('.hero-video');
+            if (heroVideo) {
+                // Slows the video down to 60% speed for a premium, cinematic feel
+                heroVideo.playbackRate = 0.6; 
+                
+                // Listens to the video's internal clock and forces a loop at 4.0 seconds
+                heroVideo.addEventListener('timeupdate', () => {
+                    if (heroVideo.currentTime >= 4.0) {
+                        heroVideo.currentTime = 0; // Rewinds instantly to the beginning
+                        heroVideo.play();
+                    }
+                });
+            }
     </script>
 </body>
 
