@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junk Removal LLC | Master Hauling Template</title>
+    <title>Niko Junk Removal LLC | Master Hauling Template</title>
 
-    <!-- ==================== EXTERNAL FONTS ==================== -->
+    <!-- === [01] EXTERNAL FONTS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lilita+One&display=swap"
         rel="stylesheet">
 
-    <!-- ==================== EXTERNAL LIBRARIES ==================== -->
+    <!-- === [02] EXTERNAL LIBRARIES === -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/split-type"></script>
@@ -21,9 +21,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <!-- ==================== MASTER CSS ==================== -->
+    <!-- === [03] MASTER CSS === -->
     <style>
-        /* --- GLOBAL VARIABLES & RESETS --- */
+        /* --- 01. GLOBAL VARIABLES & RESETS --- */
         :root {
             --primary: #113f28;
             --primary-light: #1e5c3e;
@@ -58,7 +58,41 @@
             position: relative;
         }
 
-        /* --- TYPOGRAPHY --- */
+        /* --- 02. CUSTOM CURSOR --- */
+        @media (pointer: fine) {
+
+            body,
+            a,
+            button,
+            input,
+            textarea {
+                cursor: none !important;
+            }
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hovered {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            mix-blend-mode: difference;
+        }
+
+        /* --- 03. TYPOGRAPHY --- */
         h1,
         h2,
         h3,
@@ -128,41 +162,7 @@
             color: var(--text-gray);
         }
 
-        /* --- CUSTOM CURSOR --- */
-        @media (pointer: fine) {
-
-            body,
-            a,
-            button,
-            input,
-            textarea {
-                cursor: none !important;
-            }
-        }
-
-        .custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--accent);
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
-            mix-blend-mode: difference;
-        }
-
-        .custom-cursor.hovered {
-            width: 60px;
-            height: 60px;
-            background: var(--white);
-            mix-blend-mode: difference;
-        }
-
-        /* --- AMBIENT BACKGROUNDS --- */
+        /* --- 04. AMBIENT BACKGROUNDS --- */
         .ambient-background {
             position: fixed;
             top: 0;
@@ -171,10 +171,7 @@
             height: 100vh;
             z-index: -999;
             background-color: var(--bg-canvas);
-            background-image:
-                radial-gradient(circle at 15% 15%, rgba(34, 197, 94, 0.12) 0%, transparent 55%),
-                radial-gradient(circle at 85% 75%, rgba(17, 63, 40, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            background-image: radial-gradient(circle at 15% 15%, rgba(34, 197, 94, 0.12) 0%, transparent 55%), radial-gradient(circle at 85% 75%, rgba(17, 63, 40, 0.08) 0%, transparent 60%), radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
             overflow: hidden;
             pointer-events: none;
         }
@@ -205,7 +202,7 @@
             filter: blur(60px);
         }
 
-        /* --- NAVIGATION --- */
+        /* --- 05. NAVIGATION BAR --- */
         .navbar {
             position: fixed;
             top: 0;
@@ -297,14 +294,15 @@
         .nav-btn:hover,
         .primary-cta:hover,
         .submit-btn:hover,
-        .secondary-btn:hover {
+        .secondary-btn:hover,
+        .dark-btn:hover {
             background: var(--primary);
             color: var(--white);
             transform: translateY(-2px);
             box-shadow: 0 15px 25px rgba(17, 63, 40, 0.3);
         }
 
-        /* --- MOBILE MENU --- */
+        /* --- 06. MOBILE MENU --- */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -342,65 +340,39 @@
 
         .mobile-menu {
             position: fixed;
-            top: 85px;
-            /* Sits perfectly just below the mobile navbar */
-            left: 5%;
-            /* Centers the 90% width card */
-            width: 90%;
-            height: auto;
-            background: rgba(15, 23, 42, 0.95);
-            /* Dark premium glass */
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
             z-index: 1500;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1.2rem;
-            padding: 2rem 0;
-
-            /* Physics for the sleek dropdown appearance */
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-20px) scale(0.95);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 2.5rem;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
         .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
         .mobile-link {
             color: var(--white);
-            font-size: 1.4rem;
-            /* Shrunk down for a cleaner, professional app feel */
+            font-size: 2.5rem;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
-            width: 100%;
-            text-align: center;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            /* Adds sleek divider lines */
-        }
-
-        .mobile-link:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            color: var(--accent);
-            /* Highlights the Quote button */
         }
 
         .mobile-link:hover {
             color: var(--accent);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- 07. HERO SECTION --- */
         .hero-section {
             height: 100vh;
             position: relative;
@@ -552,7 +524,7 @@
             display: inline-block;
         }
 
-        /* --- MARQUEE BANNER --- */
+        /* --- 08. MARQUEE BANNER --- */
         .marquee-section {
             background: var(--primary);
             color: var(--white);
@@ -571,7 +543,7 @@
             padding-right: 50px;
         }
 
-        /* --- CUSTOM TRUCK SCRUB ANIMATION --- */
+        /* --- 09. CUSTOM TRUCK SCRUB --- */
         .custom-truck-section {
             background: transparent;
             padding: 40px 5% 60px 5%;
@@ -629,7 +601,7 @@
             animation: cartoonBounce 0.4s infinite ease-in-out;
         }
 
-        /* --- SERVICES GRID --- */
+        /* --- 10. SERVICES GRID --- */
         .services-section {
             background: transparent;
             position: relative;
@@ -681,22 +653,12 @@
             justify-content: flex-start;
         }
 
-        .service-icon {
-            width: 45px;
-            height: 45px;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-
-        /* NEW: Class for your custom cartoon image icons */
         .service-image-icon {
             width: 55px;
-            /* Slightly larger to fit custom illustrations */
             height: 55px;
             margin-bottom: 1.2rem;
             object-fit: contain;
             mix-blend-mode: multiply;
-            /* Instantly strips white backgrounds from your images */
         }
 
         .card-title {
@@ -732,7 +694,7 @@
             margin-top: 3rem;
         }
 
-        /* --- PARALLAX VIDEO SECTION --- */
+        /* --- 11. PARALLAX VIDEO --- */
         .video-transition-section {
             height: 50vh;
             position: relative;
@@ -773,7 +735,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- PRICING SECTION --- */
+        /* --- 12. PRICING SECTION --- */
         .pricing-section {
             background: transparent;
             position: relative;
@@ -815,17 +777,7 @@
             line-height: 1.5;
         }
 
-        .dark-btn {
-            background: var(--text-dark);
-            color: var(--white);
-            margin-top: 3rem;
-        }
-
-        .dark-btn:hover {
-            background: var(--primary);
-        }
-
-        /* --- ECO-CONSCIOUS --- */
+        /* --- 13. ECO-CONSCIOUS --- */
         .eco-section {
             background: linear-gradient(135deg, var(--primary) 0%, #081c10 100%);
             color: var(--white);
@@ -923,7 +875,7 @@
             color: var(--text-gray);
         }
 
-        /* --- CRITICAL DETAILS --- */
+        /* --- 14. CRITICAL DETAILS --- */
         .sticky-details-section {
             background: transparent;
         }
@@ -996,7 +948,7 @@
             line-height: 1.6;
         }
 
-        /* --- MAP SECTION --- */
+        /* --- 15. MAP SECTION --- */
         .service-area-section {
             background: transparent;
             position: relative;
@@ -1100,7 +1052,7 @@
             border-radius: 2px;
         }
 
-        /* --- QUOTE FORM --- */
+        /* --- 16. QUOTE FORM --- */
         .quote-banner-section {
             background: var(--primary);
             padding: 100px 5%;
@@ -1172,7 +1124,7 @@
             border-color: var(--accent);
         }
 
-        /* --- ENTERPRISE FOOTER --- */
+        /* --- 17. FOOTER --- */
         .enterprise-footer {
             background: #0f172a;
             color: #94a3b8;
@@ -1211,7 +1163,7 @@
         }
 
         /* ==========================================================================
-           MOBILE RESPONSIVENESS
+           18. MASTER RESPONSIVENESS (MOBILE OPTIMIZED)
            ========================================================================== */
         @media (max-width: 1024px) {
             .hero-title {
@@ -1271,6 +1223,12 @@
         }
 
         @media (max-width: 768px) {
+
+            /* FREE UP GPU MEMORY: Hide complex blur on mobile to prevent iOS Crash */
+            .interactive-bg-orb {
+                display: none !important;
+            }
+
             section {
                 padding: 50px 5%;
             }
@@ -1334,9 +1292,19 @@
                 width: 100%;
             }
 
+            /* FIXED MOBILE TRUST BAR OVERFLOW */
             .hero-trust-bar {
                 padding: 1rem 5%;
-                gap: 1.5rem;
+                gap: 2rem;
+                display: flex;
+                justify-content: flex-start;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .hero-trust-bar::-webkit-scrollbar {
+                display: none;
             }
 
             .services-grid,
@@ -1387,23 +1355,19 @@
                 height: 30vh;
             }
 
-            /* --- SERVICE CARD BREATHABILITY FIXES --- */
+            /* SERVICES BREATHABILITY FIX */
             .services-grid {
                 gap: 1.25rem !important;
             }
 
-            /* Tighter gap between cards */
             .service-card {
                 padding: 1.5rem 1.25rem !important;
-                /* Reduces massive inner spacing */
                 border-radius: 16px !important;
             }
 
             .premium-glass-card {
                 border-width: 1px !important;
-                /* Thins the border for a premium look */
                 box-shadow: 0 8px 20px rgba(17, 63, 40, 0.04) !important;
-                /* Softer shadow */
             }
 
             .service-image-icon {
@@ -1422,7 +1386,7 @@
                 margin-bottom: 1rem !important;
             }
 
-            /* Custom Truck Scrub Fixes */
+            /* TRUCK ANIMATION MOBILE SCALE */
             .road-track {
                 height: 90px;
             }
@@ -1446,14 +1410,13 @@
 </head>
 
 <body>
-
-    <!-- ==================== CUSTOM CURSOR & BACKGROUNDS ==================== -->
+    <!-- === 01. CUSTOM CURSOR & BACKGROUNDS === -->
     <div class="custom-cursor"></div>
     <div class="ambient-background"></div>
     <div class="grain-overlay"></div>
     <div class="interactive-bg-orb"></div>
 
-    <!-- ==================== NAVIGATION ==================== -->
+    <!-- === 02. NAVIGATION BAR === -->
     <nav class="navbar">
         <div class="logo-container">
             <img src="Niko-logo-cropped.png" alt="Niko Junk Removal Logo" class="nav-logo">
@@ -1474,7 +1437,7 @@
         </div>
     </nav>
 
-    <!-- ==================== MOBILE MENU ==================== -->
+    <!-- === 03. MOBILE MENU === -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="#home" class="mobile-link">Home</a>
         <a href="#services" class="mobile-link">Services</a>
@@ -1485,7 +1448,7 @@
         <a href="#quote" class="mobile-link text-green-light">Get a Quote</a>
     </div>
 
-    <!-- ==================== HERO SECTION ==================== -->
+    <!-- === 04. HERO SECTION === -->
     <header class="hero-section" id="home">
         <video src="niko-junk-video.mp4" autoplay loop muted playsinline class="hero-video"></video>
         <div class="hero-overlay"></div>
@@ -1495,7 +1458,6 @@
             </h1>
             <p class="hero-subtitle fade-up">Clear, upfront pricing. Same-day service. A professional team that respects
                 your property.</p>
-
             <div class="hero-buttons fade-up">
                 <a href="#quote" class="hero-btn-primary magnetic">Get My Free Estimate</a>
                 <a href="tel:7207727684" class="hero-btn-secondary magnetic">Call Us Now — 720-772-7684</a>
@@ -1541,7 +1503,7 @@
         </div>
     </header>
 
-    <!-- ==================== MARQUEE BANNER ==================== -->
+    <!-- === 05. MARQUEE BANNER === -->
     <div class="marquee-section">
         <div class="marquee-content">
             <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
@@ -1551,7 +1513,7 @@
         </div>
     </div>
 
-    <!-- ==================== CUSTOM TRUCK SCRUB ANIMATION ==================== -->
+    <!-- === 06. CUSTOM TRUCK ANIMATION === -->
     <section class="custom-truck-section">
         <div class="road-track">
             <img src="house-cartoon.png" alt="House" class="track-img track-house">
@@ -1560,59 +1522,69 @@
         </div>
     </section>
 
-   <div class="services-grid">
-                <div class="service-card liquid-hover premium-glass-card">
-                    <!-- Swap the src with your actual custom cartoon PNG -->
+    <!-- === 07. SERVICES GRID === -->
+    <section class="services-section" id="services">
+        <div id="particles-js"></div>
+        <div class="section-content-relative">
+            <p class="text-green"
+                style="text-align: center; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">WHAT WE
+                HAUL</p>
+            <h2 class="section-title split-text">Featured Services</h2>
+            <p class="section-subtitle">From a single couch to a full estate cleanout — we've got you covered.</p>
+
+            <div class="services-grid">
+                <div class="service-card tilt-card premium-glass-card">
                     <img src="icon-residential.png" alt="Residential Junk" class="service-image-icon">
                     <h3 class="card-title">Residential Junk Removal</h3>
                     <p>Furniture, appliances, garage cleanouts — we handle it all seamlessly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                
-                <div class="service-card liquid-hover premium-glass-card">
+                <div class="service-card tilt-card premium-glass-card">
                     <img src="icon-specialty.png" alt="Specialty Items" class="service-image-icon">
                     <h3 class="card-title">Specialty Item Removal</h3>
-                    <p>Hot tubs, pianos, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.</p>
+                    <p>Hot tubs, pianos, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.
+                    </p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                
-                <div class="service-card liquid-hover premium-glass-card">
+                <div class="service-card tilt-card premium-glass-card">
                     <img src="icon-furniture.png" alt="Furniture Removal" class="service-image-icon">
                     <h3 class="card-title">Furniture Removal</h3>
                     <p>Couches, beds, desks — we'll carry it out from wherever it sits and haul it away.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                
-                <div class="service-card liquid-hover premium-glass-card">
+                <div class="service-card tilt-card premium-glass-card">
                     <img src="icon-appliance.png" alt="Appliance Disposal" class="service-image-icon">
                     <h3 class="card-title">Appliance Disposal</h3>
                     <p>Fridges, washers, and dryers safely removed and disposed of responsibly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                
-                <div class="service-card liquid-hover premium-glass-card">
+                <div class="service-card tilt-card premium-glass-card">
                     <img src="icon-estate.png" alt="Estate Cleanouts" class="service-image-icon">
                     <h3 class="card-title">Estate Cleanouts</h3>
                     <p>Full-property cleanouts handled with the utmost care, respect, and efficiency.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                
-                <div class="service-card liquid-hover premium-glass-card">
+                <div class="service-card tilt-card premium-glass-card">
                     <img src="icon-construction.png" alt="Construction Debris" class="service-image-icon">
                     <h3 class="card-title">Construction Debris</h3>
                     <p>Drywall, lumber, concrete — we clear out messy construction and remodel sites fast.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
             </div>
+            <div class="centered-btn-wrapper">
+                <a href="#quote" class="secondary-btn magnetic">Browse All Services</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- ==================== PARALLAX VIDEO SECTION ==================== -->
+    <!-- === 08. PARALLAX VIDEO === -->
     <section class="video-transition-section">
         <video src="junk-frontyard.mp4" autoplay loop muted playsinline class="parallax-bg-video"></video>
         <div class="video-transition-overlay"></div>
         <h2 class="split-text video-transition-text">We Haul It All.</h2>
     </section>
 
-    <!-- ==================== PRICING SECTION ==================== -->
+    <!-- === 09. PRICING SECTION === -->
     <section class="pricing-section" id="pricing">
         <p class="text-green"
             style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase; text-align: center;">PRICING</p>
@@ -1647,7 +1619,7 @@
         </div>
     </section>
 
-    <!-- ==================== ECO-CONSCIOUS ==================== -->
+    <!-- === 10. ECO-CONSCIOUS === -->
     <section class="eco-section" id="eco">
         <div class="eco-grid">
             <div class="eco-text-side">
@@ -1657,7 +1629,6 @@
                 <p class="fade-up">Before anything goes to the landfill, we sort for donation and recycling. We work
                     with local Denver organizations to give your usable items a second life.</p>
             </div>
-
             <div class="eco-card fade-up">
                 <h3 style="text-align: center;">Where Your Stuff Actually Goes</h3>
                 <div class="eco-item">
@@ -1706,7 +1677,7 @@
         </div>
     </section>
 
-    <!-- ==================== CRITICAL DETAILS ==================== -->
+    <!-- === 11. CRITICAL DETAILS === -->
     <section class="sticky-details-section" id="faq">
         <div class="sticky-layout-container">
             <div class="sticky-sidebar">
@@ -1746,7 +1717,7 @@
         </div>
     </section>
 
-    <!-- ==================== SERVICE AREA ==================== -->
+    <!-- === 12. SERVICE AREA === -->
     <section class="service-area-section" id="service-area">
         <div class="service-area-grid">
             <div class="sa-text-side fade-up">
@@ -1841,7 +1812,7 @@
         </div>
     </section>
 
-    <!-- ==================== QUOTE FORM ==================== -->
+    <!-- === 13. QUOTE FORM === -->
     <section class="quote-banner-section" id="quote">
         <div class="quote-banner-grid">
             <div class="quote-banner-text">
@@ -1873,7 +1844,7 @@
         </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
+    <!-- === 14. FOOTER === -->
     <footer class="enterprise-footer">
         <div class="footer-grid">
             <div class="footer-col brand-col">
@@ -1892,14 +1863,14 @@
         </div>
     </footer>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
+    <!-- === 15. MASTER JAVASCRIPT === -->
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
 
-            // 1. GSAP Plugin Registration
+            // 01. GSAP REGISTRATION
             gsap.registerPlugin(ScrollTrigger);
 
-            // 2. Custom GSAP Cursor Logic
+            // 02. CUSTOM CURSOR LOGIC
             const cursor = document.querySelector('.custom-cursor');
             if (cursor && window.matchMedia("(pointer: fine)").matches) {
                 const xToCursor = gsap.quickTo(cursor, "left", { duration: 0.15, ease: "power3.out" });
@@ -1916,7 +1887,7 @@
                 });
             }
 
-            // 3. Background Interactive Orb
+            // 03. BACKGROUND ORB PARALLAX
             const bgOrb = document.querySelector('.interactive-bg-orb');
             if (bgOrb) {
                 const startX = window.innerWidth / 2;
@@ -1932,7 +1903,7 @@
                 });
             }
 
-            // 4. Particles.js Configuration
+            // 04. PARTICLES.JS
             try {
                 if (document.getElementById('particles-js')) {
                     particlesJS("particles-js", {
@@ -1955,7 +1926,7 @@
                 }
             } catch (e) { console.error("Particles Error:", e); }
 
-            // 5. Marquee Banner Animation
+            // 05. MARQUEE BANNER
             try {
                 const marqueeContent = document.querySelector('.marquee-content');
                 if (marqueeContent) {
@@ -1963,7 +1934,7 @@
                 }
             } catch (e) { console.error("Marquee Error:", e); }
 
-            // 6. Upgraded Hero Reveal Timeline
+            // 06. HERO REVEAL TIMELINE
             const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
             tl.from(".hero-tag", { y: 20, opacity: 0, duration: 0.8, delay: 0.2 })
                 .from(".hero-title", { y: 30, opacity: 0, duration: 1 }, "-=0.6")
@@ -1973,7 +1944,7 @@
                 .from(".icon-reveal", { y: 15, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.4")
                 .from(".star", { x: 50, y: -50, rotation: 180, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.5)" }, "-=0.4");
 
-            // 7. SplitType Text Animations
+            // 07. SPLIT-TEXT ANIMATIONS
             try {
                 const splitTextElements = document.querySelectorAll('.split-text');
                 splitTextElements.forEach(text => {
@@ -1985,12 +1956,27 @@
                 });
             } catch (e) { console.error("Text Animation Skipped:", e); }
 
-            // 8. Vanilla Tilt
+            // 08. TRUCK SCRUB ANIMATION
+            const animatedTruck = document.querySelector(".track-truck");
+            if (animatedTruck) {
+                gsap.to(animatedTruck, {
+                    left: "75%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".custom-truck-section",
+                        start: "top 80%",
+                        end: "bottom 40%",
+                        scrub: 1
+                    }
+                });
+            }
+
+            // 09. VANILLA TILT
             try {
                 VanillaTilt.init(document.querySelectorAll(".tilt-card"), { max: 5, speed: 400, glare: true, "max-glare": 0.05 });
             } catch (e) { console.error("VanillaTilt Skipped:", e); }
 
-            // 9. Magnetic Hover Effect
+            // 10. MAGNETIC HOVER EFFECT
             document.querySelectorAll('.magnetic').forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const pos = btn.getBoundingClientRect();
@@ -1999,7 +1985,7 @@
                 btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.3)' }));
             });
 
-            // 10. Header Glass Scroll Logic
+            // 11. NAVBAR GLASS SCROLL
             const navbar = document.querySelector('.navbar');
             const checkScroll = () => {
                 if (window.scrollY > 50) {
@@ -2011,7 +1997,7 @@
             window.addEventListener('scroll', checkScroll);
             checkScroll();
 
-            // 11. Mobile Hamburger Toggle Logic
+            // 12. MOBILE MENU TOGGLE
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -2030,12 +2016,12 @@
                 });
             }
 
-            // 12. Parallax Video Effect Logic
+            // 13. PARALLAX VIDEO EFFECT
             try {
                 const parallaxVideo = document.querySelector('.parallax-bg-video');
                 if (parallaxVideo) {
                     gsap.to(parallaxVideo, {
-                        yPercent: 20, /* Moves the video down slightly as you scroll to create depth */
+                        yPercent: 20,
                         ease: "none",
                         scrollTrigger: {
                             trigger: ".video-transition-section",
@@ -2047,22 +2033,7 @@
                 }
             } catch (e) { console.error("Parallax Video Error:", e); }
 
-            // 13. Dynamic Truck Scrub Animation
-            const animatedTruck = document.querySelector(".track-truck");
-            if (animatedTruck) {
-                gsap.to(animatedTruck, {
-                    left: "75%",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ".custom-truck-section",
-                        start: "top 80%",
-                        end: "bottom 40%",
-                        scrub: 1
-                    }
-                });
-            }
-
-            // 14. Cinematic Hero Video Control (Slow-mo & Custom Loop)
+            // 14. CINEMATIC HERO VIDEO LOOP
             const heroVideo = document.querySelector('.hero-video');
             if (heroVideo) {
                 heroVideo.playbackRate = 0.6;
@@ -2073,7 +2044,7 @@
                     }
                 });
             }
-        }); 
+        });
     </script>
 </body>
 
