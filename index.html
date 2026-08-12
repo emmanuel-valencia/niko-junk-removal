@@ -228,29 +228,26 @@
 
         .logo-container {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Stops the browser from pushing it off the top of the screen */
             justify-content: center;
-            background: rgba(15, 23, 42, 0.95);
-            /* Premium Dark Slate Blue */
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 16px;
-            /* Soft, modern edges */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent; /* Completely destroys the box */
+            padding: 10px 0 0 0; /* Drops it slightly down from the very top */
+            border: none;
+            box-shadow: none;
+            height: 100%;
         }
 
         .nav-logo {
-            height: 125px;
-            /* Massively increased for desktop */
+            height: 140px; /* Massive, Awwwards-tier scale */
             width: auto;
             object-fit: contain;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.6)); /* Makes the Grizzly physically float over the video */
+            transform-origin: top left;
         }
 
         .navbar.glass-active .nav-logo {
-            height: 90px;
-            /* Smooth scale down when scrolling */
+            height: 85px; /* Shrinks the logo cleanly so it doesn't block the screen when the user scrolls down */
         }
 
         .nav-links {
@@ -1301,25 +1298,24 @@
                 font-size: 1.05rem !important;
             }
 
-            /* NAVBAR & DEAD-CENTER LOGO */
-            .navbar {
-                top: 0;
-                height: 90px;
-                padding: 8px 15px !important;
-                justify-content: flex-end;
-            }
-
+            /* NAVBAR & OVERLAPPING FLOATING LOGO */
+            .navbar { top: 0; height: 90px; padding: 8px 15px !important; justify-content: flex-end; }
+            
             .logo-container {
                 position: absolute;
                 left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                /* Locks it dead center on the screen */
-                padding: 6px 16px;
+                top: 0; /* Pins it to the ceiling so it never gets cropped */
+                transform: translateX(-50%); /* Centers it horizontally without pulling it up */
+                padding: 10px 0 0 0;
             }
-
-            .nav-logo {
-                height: 80px !important;
+            
+            .nav-logo { 
+                height: 115px !important; /* Huge mobile badge */
+                transform-origin: top center;
+            }
+            
+            .navbar.glass-active .nav-logo {
+                height: 70px !important; /* Shrinks cleanly on mobile scroll */
             }
 
             /* Much larger on mobile */
