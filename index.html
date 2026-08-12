@@ -31,17 +31,12 @@
         :root {
             /* NEW RUGGED GRIZZLY JUNK COLOR PALETTE */
             --primary: #1F140A;
-            /* Deep Grizzly Black/Brown */
             --primary-light: #3A2613;
-            /* Warm Timber */
             --accent: #D35400;
-            /* Burnt Rust Orange - Richer and darker */
             --bg-canvas: #F6F4F0;
-            /* Clean Bone White */
+            --bg-alt: #E8E3D9; /* NEW: Rugged Tan for alternating contrast */
             --text-dark: #120B05;
-            /* Near Black */
             --text-gray: #594A3C;
-            /* Earthy Gray */
             --white: #ffffff;
             --nav-height: 90px;
         }
@@ -266,8 +261,16 @@
             transform-origin: top left;
         }
 
-        .navbar.glass-active .nav-logo {
+       .navbar.glass-active .nav-logo {
             height: 85px;
+            /* THE FIX: Kills the heavy shadow when the white glass navbar is active */
+            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.15)); 
+        }
+
+        /* THE CONTRAST FIX: Alternates sections to Rugged Tan so your white cards pop */
+        .services-section, 
+        .sticky-details-section {
+            background-color: var(--bg-alt);
         }
 
         .nav-links {
@@ -1055,12 +1058,12 @@
             border: 2px solid rgba(211, 84, 0, 0.15);
         }
 
-        .sa-map-wrapper {
+       .sa-map-wrapper iframe {
             width: 100%;
             height: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
+            border: 0;
+            /* Removed CSS filter to prevent iOS graphics crash */
+            transform: translateZ(0); /* Forces hardware acceleration */
         }
 
         .sa-map-wrapper iframe {
@@ -1328,8 +1331,8 @@
 
             .navbar.glass-active .nav-logo {
                 height: 70px !important;
+                filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1)) !important;
             }
-
             .hero-section {
                 padding-top: 100px;
                 text-align: center;
@@ -1878,7 +1881,7 @@
                 <div class="sa-map-wrapper">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.81530948967!2d-105.08643795277414!3d39.76451867160754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C%20CO!5e0!3m2!1sen!2sus!4v1707000000000!5m2!1sen!2sus"
-                        allowfullscreen="" loading="lazy"></iframe>
+                        allowfullscreen=""></iframe>
                 </div>
                 <div class="sa-map-badge">Service Region</div>
             </div>
