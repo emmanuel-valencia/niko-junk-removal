@@ -340,13 +340,16 @@
             background-color: var(--white) !important;
         }
 
-      .mobile-menu {
+        .mobile-menu {
             position: fixed;
-            top: 85px; /* Sits perfectly just below the mobile navbar */
-            left: 5%; /* Centers the 90% width card */
+            top: 85px;
+            /* Sits perfectly just below the mobile navbar */
+            left: 5%;
+            /* Centers the 90% width card */
             width: 90%;
             height: auto;
-            background: rgba(15, 23, 42, 0.95); /* Dark premium glass */
+            background: rgba(15, 23, 42, 0.95);
+            /* Dark premium glass */
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
@@ -358,7 +361,7 @@
             align-items: center;
             gap: 1.2rem;
             padding: 2rem 0;
-            
+
             /* Physics for the sleek dropdown appearance */
             opacity: 0;
             visibility: hidden;
@@ -374,22 +377,25 @@
 
         .mobile-link {
             color: var(--white);
-            font-size: 1.4rem; /* Shrunk down for a cleaner, professional app feel */
+            font-size: 1.4rem;
+            /* Shrunk down for a cleaner, professional app feel */
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             width: 100%;
             text-align: center;
             padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Adds sleek divider lines */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            /* Adds sleek divider lines */
         }
 
         .mobile-link:last-child {
             border-bottom: none;
             padding-bottom: 0;
-            color: var(--accent); /* Highlights the Quote button */
+            color: var(--accent);
+            /* Highlights the Quote button */
         }
-        
+
         .mobile-link:hover {
             color: var(--accent);
         }
@@ -680,6 +686,17 @@
             height: 45px;
             margin-bottom: 1.5rem;
             color: var(--accent);
+        }
+
+        /* NEW: Class for your custom cartoon image icons */
+        .service-image-icon {
+            width: 55px;
+            /* Slightly larger to fit custom illustrations */
+            height: 55px;
+            margin-bottom: 1.2rem;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            /* Instantly strips white backgrounds from your images */
         }
 
         .card-title {
@@ -1370,6 +1387,41 @@
                 height: 30vh;
             }
 
+            /* --- SERVICE CARD BREATHABILITY FIXES --- */
+            .services-grid {
+                gap: 1.25rem !important;
+            }
+
+            /* Tighter gap between cards */
+            .service-card {
+                padding: 1.5rem 1.25rem !important;
+                /* Reduces massive inner spacing */
+                border-radius: 16px !important;
+            }
+
+            .premium-glass-card {
+                border-width: 1px !important;
+                /* Thins the border for a premium look */
+                box-shadow: 0 8px 20px rgba(17, 63, 40, 0.04) !important;
+                /* Softer shadow */
+            }
+
+            .service-image-icon {
+                width: 45px !important;
+                height: 45px !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .card-title {
+                font-size: 1.4rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.95rem !important;
+                margin-bottom: 1rem !important;
+            }
+
             /* Custom Truck Scrub Fixes */
             .road-track {
                 height: 90px;
@@ -1508,91 +1560,50 @@
         </div>
     </section>
 
-    <!-- ==================== SERVICES SECTION ==================== -->
-    <section class="services-section" id="services">
-        <div id="particles-js"></div>
-        <div class="section-content-relative">
-            <p class="text-green"
-                style="text-align: center; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">WHAT WE
-                HAUL</p>
-            <h2 class="section-title split-text">Featured Services</h2>
-            <p class="section-subtitle">From a single couch to a full estate cleanout — we've got you covered.</p>
-
-            <div class="services-grid">
-                <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                        </path>
-                    </svg>
+   <div class="services-grid">
+                <div class="service-card liquid-hover premium-glass-card">
+                    <!-- Swap the src with your actual custom cartoon PNG -->
+                    <img src="icon-residential.png" alt="Residential Junk" class="service-image-icon">
                     <h3 class="card-title">Residential Junk Removal</h3>
                     <p>Furniture, appliances, garage cleanouts — we handle it all seamlessly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                        </path>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
-                        </path>
-                    </svg>
+                
+                <div class="service-card liquid-hover premium-glass-card">
+                    <img src="icon-specialty.png" alt="Specialty Items" class="service-image-icon">
                     <h3 class="card-title">Specialty Item Removal</h3>
-                    <p>Hot tubs, pianos, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.
-                    </p>
+                    <p>Hot tubs, pianos, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M5 3v4M3 11v6a2 2 0 002 2h14a2 2 0 002-2v-6M3 11h18M5 3h14a2 2 0 012 2v2M5 3a2 2 0 00-2 2v2">
-                        </path>
-                    </svg>
+                
+                <div class="service-card liquid-hover premium-glass-card">
+                    <img src="icon-furniture.png" alt="Furniture Removal" class="service-image-icon">
                     <h3 class="card-title">Furniture Removal</h3>
                     <p>Couches, beds, desks — we'll carry it out from wherever it sits and haul it away.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
-                        </path>
-                    </svg>
+                
+                <div class="service-card liquid-hover premium-glass-card">
+                    <img src="icon-appliance.png" alt="Appliance Disposal" class="service-image-icon">
                     <h3 class="card-title">Appliance Disposal</h3>
                     <p>Fridges, washers, and dryers safely removed and disposed of responsibly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                    </svg>
+                
+                <div class="service-card liquid-hover premium-glass-card">
+                    <img src="icon-estate.png" alt="Estate Cleanouts" class="service-image-icon">
                     <h3 class="card-title">Estate Cleanouts</h3>
                     <p>Full-property cleanouts handled with the utmost care, respect, and efficiency.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
-                <div class="service-card tilt-card premium-glass-card">
-                    <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                        </path>
-                    </svg>
+                
+                <div class="service-card liquid-hover premium-glass-card">
+                    <img src="icon-construction.png" alt="Construction Debris" class="service-image-icon">
                     <h3 class="card-title">Construction Debris</h3>
                     <p>Drywall, lumber, concrete — we clear out messy construction and remodel sites fast.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
             </div>
-            <div class="centered-btn-wrapper">
-                <a href="#quote" class="secondary-btn magnetic">Browse All Services</a>
-            </div>
-        </div>
-    </section>
 
     <!-- ==================== PARALLAX VIDEO SECTION ==================== -->
     <section class="video-transition-section">
