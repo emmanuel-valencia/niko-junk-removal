@@ -41,13 +41,13 @@
             box-sizing: border-box;
         }
 
-        html { 
-            font-family: 'DM Sans', sans-serif; 
-            scroll-behavior: smooth; 
+        html {
+            font-family: 'DM Sans', sans-serif;
+            scroll-behavior: smooth;
             /* THE FIX: Dynamically links the scroll stop point to the exact height of the navbar */
-            scroll-padding-top: var(--nav-height); 
-            background-color: var(--bg-canvas); 
-            color: var(--text-dark); 
+            scroll-padding-top: var(--nav-height);
+            background-color: var(--bg-canvas);
+            color: var(--text-dark);
         }
 
         body {
@@ -226,27 +226,31 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
         }
 
-       .logo-container { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: transparent; /* Strips the white pill background */
-            padding: 0; 
-            border-radius: 0; 
-            box-shadow: none; 
-            border: none; 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 23, 42, 0.95);
+            /* Premium Dark Slate Blue */
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 16px;
+            /* Soft, modern edges */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .nav-logo { 
-            height: 110px; /* Massively increases the Grizzly Logo size */
-            width: auto; 
-            object-fit: contain; 
-            transition: all 0.4s ease; 
-            transform: scale(1.1); 
+
+        .nav-logo {
+            height: 125px;
+            /* Massively increased for desktop */
+            width: auto;
+            object-fit: contain;
+            transition: all 0.4s ease;
         }
-        
-        .navbar.glass-active .nav-logo { 
-            height: 85px; /* Keeps it slightly smaller when scrolling so it doesn't hog the screen */
+
+        .navbar.glass-active .nav-logo {
+            height: 90px;
+            /* Smooth scale down when scrolling */
         }
 
         .nav-links {
@@ -339,13 +343,16 @@
             background-color: var(--white) !important;
         }
 
-       .mobile-menu {
+        .mobile-menu {
             position: fixed;
-            top: 85px; /* Sits perfectly just below the mobile navbar */
-            left: 5%; /* Centers the 90% width card */
+            top: 85px;
+            /* Sits perfectly just below the mobile navbar */
+            left: 5%;
+            /* Centers the 90% width card */
             width: 90%;
             height: auto;
-            background: rgba(15, 23, 42, 0.95); /* Dark premium glass */
+            background: rgba(15, 23, 42, 0.95);
+            /* Dark premium glass */
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
@@ -357,7 +364,7 @@
             align-items: center;
             gap: 1.2rem;
             padding: 2rem 0;
-            
+
             /* Physics for the sleek dropdown appearance */
             opacity: 0;
             visibility: hidden;
@@ -373,22 +380,25 @@
 
         .mobile-link {
             color: var(--white);
-            font-size: 1.4rem; /* Shrunk down for a cleaner, professional app feel */
+            font-size: 1.4rem;
+            /* Shrunk down for a cleaner, professional app feel */
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             width: 100%;
             text-align: center;
             padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Adds sleek divider lines */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            /* Adds sleek divider lines */
         }
 
         .mobile-link:last-child {
             border-bottom: none;
             padding-bottom: 0;
-            color: var(--accent); /* Highlights the Quote button */
+            color: var(--accent);
+            /* Highlights the Quote button */
         }
-        
+
         .mobile-link:hover {
             color: var(--accent);
         }
@@ -1251,9 +1261,14 @@
             }
 
             /* FREE UP GPU MEMORY: Hide complex blur on mobile to prevent iOS Crash */
-            .interactive-bg-orb { display: none !important; }
-            
-            section { padding: 50px 5%; }
+            .interactive-bg-orb {
+                display: none !important;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
             /* ... the rest of your mobile CSS ... */
 
             /* FREE UP GPU MEMORY: Hide complex blur on mobile to prevent iOS Crash */
@@ -1263,7 +1278,7 @@
 
             section {
                 padding: 50px 5%;
-            } 
+            }
 
             .eco-section,
             .quote-banner-section {
@@ -1286,15 +1301,28 @@
                 font-size: 1.05rem !important;
             }
 
+            /* NAVBAR & DEAD-CENTER LOGO */
             .navbar {
                 top: 0;
-                height: 70px;
+                height: 90px;
                 padding: 8px 15px !important;
+                justify-content: flex-end;
+            }
+
+            .logo-container {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                /* Locks it dead center on the screen */
+                padding: 6px 16px;
             }
 
             .nav-logo {
-                height: 55px !important;
+                height: 80px !important;
             }
+
+            /* Much larger on mobile */
 
             .hero-section {
                 padding-top: 100px;
@@ -1311,20 +1339,27 @@
             .hero-title {
                 font-size: 3rem;
             }
-            .hero-video {
-            object-position: 85% center !important; 
-           }
 
+            .hero-video {
+                object-position: 85% center !important;
+            }
+
+            /* BUTTON ALIGNMENT & GSAP OVERRIDE FIX */
             .hero-buttons {
                 flex-direction: column;
                 width: 100%;
                 gap: 1rem;
                 margin-bottom: 80px;
+                align-items: center;
+                overflow-x: hidden;
             }
 
             .hero-btn-primary,
             .hero-btn-secondary {
-                width: 100%;
+                width: 100% !important;
+                margin: 0 !important;
+                transform: translate(0px, 0px) !important;
+                /* FORCES GSAP to release the magnetic glitch on touch */
             }
 
             /* FIXED MOBILE TRUST BAR OVERFLOW */
@@ -1488,14 +1523,15 @@
         <video src="niko-junk-video.mp4" autoplay loop muted playsinline class="hero-video"></video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-tag fade-up">   </span>
+            <span class="hero-tag fade-up"> </span>
             <h1 class="hero-title split-text">Denver's Best<br><span class="text-green-light">Hauling Crew.</span>
             </h1>
             <p class="hero-subtitle fade-up">Clear, upfront pricing. Same-day service. A professional team that respects
                 your property.</p>
             <div class="hero-buttons fade-up">
                 <a href="#quote" class="hero-btn-primary magnetic">Get My Free Estimate</a>
-                <a href="sms:7207727684?body=Hey!%20How%20much%20would%20it%20cost%20to%20junk%20this?%20[Insert%20Picture]" class="hero-btn-secondary magnetic">📸 Text Us A Picture</a>
+                <a href="sms:7207727684?body=Hey!%20How%20much%20would%20it%20cost%20to%20junk%20this?%20[Insert%20Picture]"
+                    class="hero-btn-secondary magnetic">📸 Text Us A Picture</a>
             </div>
         </div>
 
