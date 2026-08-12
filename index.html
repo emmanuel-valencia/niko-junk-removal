@@ -261,20 +261,18 @@
             height: 100%;
         }
 
-        .nav-logo {
-            height: 140px;
-            width: auto;
-            object-fit: contain;
+       .nav-logo {
+            height: 140px; width: auto; object-fit: contain;
             transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
-            filter: drop-shadow(0px 0px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.9));
-            transform-origin: top left;
-            transform: translateZ(0);
-            will-change: filter, height;
+            /* THE FIX: A dense 2px Bone White stroke to block transparency, plus a soft Industrial Orange glowing aura */
+            filter: drop-shadow(0px 0px 2px rgba(246, 244, 240, 1)) drop-shadow(0px 0px 25px rgba(230, 126, 34, 0.5));
+            transform-origin: top left; transform: translateZ(0); will-change: filter, height;
         }
 
-        .navbar.glass-active .nav-logo {
-            height: 85px;
-            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.5));
+        .navbar.glass-active .nav-logo { 
+            height: 85px; 
+            /* Shrinks the glow cleanly and adds a dark anchor shadow when the glass header drops down */
+            filter: drop-shadow(0px 0px 2px rgba(246, 244, 240, 1)) drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.8)); 
         }
 
         .services-section,
@@ -1203,11 +1201,10 @@
             color: var(--text-dark);
         }
 
-        .footer-logo {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.1));
+       .footer-logo { 
+            max-width: 180px; height: auto; margin-bottom: 1.5rem; 
+            /* Mirrors the protective white stroke and soft orange glow for the dark footer */
+            filter: drop-shadow(0px 0px 2px rgba(246, 244, 240, 1)) drop-shadow(0px 0px 15px rgba(230, 126, 34, 0.3)); 
         }
 
         .footer-bottom {
