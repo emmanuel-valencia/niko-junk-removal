@@ -41,12 +41,13 @@
             box-sizing: border-box;
         }
 
-        html {
-            font-family: 'DM Sans', sans-serif;
-            scroll-behavior: smooth;
-            scroll-padding-top: 110px;
-            background-color: var(--bg-canvas);
-            color: var(--text-dark);
+        html { 
+            font-family: 'DM Sans', sans-serif; 
+            scroll-behavior: smooth; 
+            /* THE FIX: Dynamically links the scroll stop point to the exact height of the navbar */
+            scroll-padding-top: var(--nav-height); 
+            background-color: var(--bg-canvas); 
+            color: var(--text-dark); 
         }
 
         body {
@@ -1244,6 +1245,17 @@
 
         @media (max-width: 768px) {
 
+            /* THE FIX: Updates the variable math for mobile screens */
+            :root {
+                --nav-height: 70px;
+            }
+
+            /* FREE UP GPU MEMORY: Hide complex blur on mobile to prevent iOS Crash */
+            .interactive-bg-orb { display: none !important; }
+            
+            section { padding: 50px 5%; }
+            /* ... the rest of your mobile CSS ... */
+            
             /* FREE UP GPU MEMORY: Hide complex blur on mobile to prevent iOS Crash */
             .interactive-bg-orb {
                 display: none !important;
