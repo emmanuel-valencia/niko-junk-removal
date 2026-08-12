@@ -61,9 +61,18 @@
             color: var(--text-dark);
         }
 
-        body {
+      body {
             overflow-x: hidden;
-            /* Restores the bone white canvas for the rest of the site */
+            /* THE FIX: Forces Apple's algorithm to recognize the site as natively "Dark" at the top */
+            background-color: var(--primary); 
+        }
+
+        /* THE BYPASS: Repaints your white canvas ONLY on the sections that need it below the video */
+        .custom-truck-section,
+        .services-section,
+        .pricing-section,
+        .sticky-details-section,
+        .service-area-section {
             background-color: var(--bg-canvas);
         }
 
