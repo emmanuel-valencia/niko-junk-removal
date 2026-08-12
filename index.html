@@ -593,9 +593,10 @@
             padding-right: 50px;
         }
 
-        /* === [03.9] CUSTOM TRUCK SCRUB === */
+       /* === [03.9] CUSTOM TRUCK SCRUB === */
         .custom-truck-section {
-            background: transparent;
+            /* THE FIX: Added a warm timber radial spotlight to backlight the dark images */
+            background: radial-gradient(ellipse at center, var(--primary-light) 0%, var(--bg-canvas) 70%);
             padding: 40px 5% 60px 5%;
             position: relative;
             overflow: hidden;
@@ -608,27 +609,21 @@
             max-width: 1000px;
             height: 120px;
             margin: 0 auto;
-            border-bottom: 5px solid rgba(255, 255, 255, 0.2);
+            /* Lightened the road line so it shows up beautifully in Dark Mode */
+            border-bottom: 5px solid rgba(255, 255, 255, 0.15); 
         }
 
         @keyframes cartoonBounce {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-4px) rotate(-1deg);
-            }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-4px) rotate(-1deg); }
         }
 
-        /* Removed buggy multiply blend mode for dark backgrounds */
         .track-img {
             position: absolute;
             bottom: 0;
             z-index: 1;
-            filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
+            /* THE FIX: Removed 'mix-blend-mode' and added a subtle soft glow so the truck pops */
+            filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
         }
 
         .track-house {
@@ -752,7 +747,7 @@
             margin-top: 3rem;
         }
 
-        /* === [03.11] PARALLAX VIDEO === */
+       /* === [03.11] PARALLAX VIDEO === */
         .video-transition-section {
             height: 50vh;
             position: relative;
@@ -763,6 +758,8 @@
             margin: 4vw 2vw;
             border-radius: 40px;
             box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.5);
+            /* THE MAGIC FIX: Traps the video z-index so it doesn't drop behind the dark body background */
+            isolation: isolate; 
         }
 
         .parallax-bg-video {
@@ -1596,7 +1593,7 @@
     <section class="custom-truck-section">
         <div class="road-track">
             <img src="house-cartoon.png" alt="House" class="track-img track-house">
-            <img src="junk-truck-img.png" alt="Grizzly Junk Truck" class="track-img track-truck">
+            <img src="junk-trunk-img.png"Grizzly Junk Truck" class="track-img track-truck">
             <img src="recycle-yard.png" alt="Recycling Facility" class="track-img track-facility">
         </div>
     </section>
