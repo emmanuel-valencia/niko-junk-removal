@@ -52,19 +52,17 @@
             box-sizing: border-box;
         }
 
-        html {
+     html {
             font-family: 'DM Sans', sans-serif;
             scroll-behavior: smooth;
             scroll-padding-top: var(--nav-height);
-            /* THE FIX: Tricks iOS into painting the notch and overscroll bounce dark brown */
-            background-color: var(--primary);
+            /* Restores the proper clean canvas background */
+            background-color: var(--bg-canvas);
             color: var(--text-dark);
         }
 
-      body {
+        body {
             overflow-x: hidden;
-            /* THE FIX: Forces Apple's algorithm to recognize the site as natively "Dark" at the top */
-            background-color: var(--primary); 
         }
 
         /* THE BYPASS: Repaints your white canvas ONLY on the sections that need it below the video */
