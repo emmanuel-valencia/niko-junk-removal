@@ -248,7 +248,8 @@
             width: auto;
             object-fit: contain;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.6));
+            /* THE MAGIC: Dual-layer contour glow. A soft bone-white halo to separate the dark ink from the video, and a heavy black shadow for 3D depth */
+            filter: drop-shadow(0px 0px 18px rgba(246, 244, 240, 0.7)) drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.8));
             transform-origin: top left;
         }
 
@@ -1171,7 +1172,7 @@
             color: var(--white);
         }
 
-        .footer-logo {
+       .footer-logo {
             max-width: 180px;
             height: auto;
             margin-bottom: 1.5rem;
@@ -1179,7 +1180,8 @@
             padding: 0;
             border-radius: 0;
             box-shadow: none;
-            filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+            /* Applies a slightly softer contour glow for the dark footer */
+            filter: drop-shadow(0px 0px 15px rgba(246, 244, 240, 0.4));
         }
 
         .footer-bottom {
