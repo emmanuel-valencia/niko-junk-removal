@@ -34,7 +34,8 @@
             --primary-light: #3A2613;
             --accent: #D35400;
             --bg-canvas: #F6F4F0;
-            --bg-alt: #E8E3D9; /* NEW: Rugged Tan for alternating contrast */
+            --bg-alt: #E8E3D9;
+            /* NEW: Rugged Tan for alternating contrast */
             --text-dark: #120B05;
             --text-gray: #594A3C;
             --white: #ffffff;
@@ -47,7 +48,7 @@
             box-sizing: border-box;
         }
 
-     html {
+        html {
             font-family: 'DM Sans', sans-serif;
             scroll-behavior: smooth;
             scroll-padding-top: var(--nav-height);
@@ -234,11 +235,15 @@
             transition: all 0.4s ease;
         }
 
+        /* THE FIX: Consolidated glass-active blocks & forced GPU rendering */
         .navbar.glass-active {
             background: rgba(246, 244, 240, 0.95);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(31, 20, 10, 0.08);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateZ(0);
+            will-change: backdrop-filter;
         }
 
         .logo-container {
@@ -256,19 +261,17 @@
             height: 140px;
             width: auto;
             object-fit: contain;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            /* THE FIX: Killed 'transition: all' which causes massive Chrome lag */
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
             filter: drop-shadow(0px 0px 18px rgba(246, 244, 240, 0.7)) drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.8));
             transform-origin: top left;
-        }
-
-       .navbar.glass-active .nav-logo {
-            height: 85px;
-            /* THE FIX: Kills the heavy shadow when the white glass navbar is active */
-            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.15)); 
+            /* THE FIX: Forces Chrome GPU rendering for the heavy shadow math */
+            transform: translateZ(0);
+            will-change: filter, height;
         }
 
         /* THE CONTRAST FIX: Alternates sections to Rugged Tan so your white cards pop */
-        .services-section, 
+        .services-section,
         .sticky-details-section {
             background-color: var(--bg-alt);
         }
@@ -419,7 +422,6 @@
         .hero-section {
             height: 100vh;
             height: 100dvh;
-            /* Modern iOS viewport stretch */
             position: relative;
             display: flex;
             align-items: center;
@@ -432,7 +434,7 @@
             padding-left: 5%;
             padding-right: 5%;
             isolation: isolate;
-            /* THE MAGIC FIX: Traps the video z-index so it doesn't drop behind the body background */
+            /* THE MAGIC FIX: Traps the video z-index */
         }
 
         .hero-video {
@@ -1058,19 +1060,12 @@
             border: 2px solid rgba(211, 84, 0, 0.15);
         }
 
-       .sa-map-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            /* Removed CSS filter to prevent iOS graphics crash */
-            transform: translateZ(0); /* Forces hardware acceleration */
-        }
-
+        /* THE FIX: Consolidated map iframe to remove grayscale filter which crashes iOS, kept GPU acceleration */
         .sa-map-wrapper iframe {
             width: 100%;
             height: 100%;
             border: 0;
-            filter: grayscale(20%) contrast(110%);
+            transform: translateZ(0);
         }
 
         .sa-map-badge {
@@ -1333,6 +1328,7 @@
                 height: 70px !important;
                 filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1)) !important;
             }
+
             .hero-section {
                 padding-top: 100px;
                 text-align: center;
