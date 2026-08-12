@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grizzly Junk Removal LLC | Master Hauling Template</title>
+    <title>Grizzly Junk Co. | Denver's Premier Hauling</title>
 
     <!-- === [01] EXTERNAL FONTS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,14 +23,21 @@
 
     <!-- === [03] MASTER CSS === -->
     <style>
-        /* --- 01. GLOBAL VARIABLES & RESETS --- */
+        /* === [03.1] GLOBAL VARIABLES & RESETS === */
         :root {
-            --primary: #113f28;
-            --primary-light: #1e5c3e;
-            --accent: #22c55e;
-            --bg-canvas: #F9F8F4;
-            --text-dark: #0f172a;
-            --text-gray: #475569;
+            /* NEW GRIZZLY JUNK COLOR PALETTE */
+            --primary: #2A1605;
+            /* Deep Timber Brown */
+            --primary-light: #4A2A0D;
+            /* Warm Bear Brown */
+            --accent: #FF6B00;
+            /* High-Vis Safety Orange */
+            --bg-canvas: #F5F2EC;
+            /* Rugged Canvas White */
+            --text-dark: #1A1108;
+            /* Heavy Charcoal/Brown */
+            --text-gray: #5A4D41;
+            /* Warm Stone Gray */
             --white: #ffffff;
             --nav-height: 90px;
         }
@@ -44,7 +51,6 @@
         html {
             font-family: 'DM Sans', sans-serif;
             scroll-behavior: smooth;
-            /* THE FIX: Dynamically links the scroll stop point to the exact height of the navbar */
             scroll-padding-top: var(--nav-height);
             background-color: var(--bg-canvas);
             color: var(--text-dark);
@@ -59,7 +65,7 @@
             position: relative;
         }
 
-        /* --- 02. CUSTOM CURSOR --- */
+        /* === [03.2] CUSTOM CURSOR === */
         @media (pointer: fine) {
 
             body,
@@ -93,7 +99,7 @@
             mix-blend-mode: difference;
         }
 
-        /* --- 03. TYPOGRAPHY --- */
+        /* === [03.3] TYPOGRAPHY === */
         h1,
         h2,
         h3,
@@ -116,11 +122,11 @@
             letter-spacing: 1px;
         }
 
-        .text-green-light {
+        .text-accent {
             color: var(--accent);
         }
 
-        .text-green {
+        .text-primary {
             color: var(--primary);
         }
 
@@ -163,7 +169,7 @@
             color: var(--text-gray);
         }
 
-        /* --- 04. AMBIENT BACKGROUNDS --- */
+        /* === [03.4] AMBIENT BACKGROUNDS === */
         .ambient-background {
             position: fixed;
             top: 0;
@@ -172,7 +178,7 @@
             height: 100vh;
             z-index: -999;
             background-color: var(--bg-canvas);
-            background-image: radial-gradient(circle at 15% 15%, rgba(34, 197, 94, 0.12) 0%, transparent 55%), radial-gradient(circle at 85% 75%, rgba(17, 63, 40, 0.08) 0%, transparent 60%), radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            background-image: radial-gradient(circle at 15% 15%, rgba(255, 107, 0, 0.08) 0%, transparent 55%), radial-gradient(circle at 85% 75%, rgba(42, 22, 5, 0.08) 0%, transparent 60%), radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
             overflow: hidden;
             pointer-events: none;
         }
@@ -196,14 +202,14 @@
             left: -20vw;
             width: 40vw;
             height: 40vw;
-            background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.12) 0%, transparent 60%);
             border-radius: 50%;
             pointer-events: none;
             z-index: -997;
             filter: blur(60px);
         }
 
-        /* --- 05. NAVIGATION BAR --- */
+        /* === [03.5] NAVIGATION BAR === */
         .navbar {
             position: fixed;
             top: 0;
@@ -220,34 +226,34 @@
         }
 
         .navbar.glass-active {
-            background: rgba(244, 247, 245, 0.95);
+            background: rgba(245, 242, 236, 0.95);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(17, 63, 40, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(42, 22, 5, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .logo-container {
             display: flex;
-            align-items: flex-start; /* Stops the browser from pushing it off the top of the screen */
+            align-items: flex-start;
             justify-content: center;
-            background: transparent; /* Completely destroys the box */
-            padding: 10px 0 0 0; /* Drops it slightly down from the very top */
+            background: transparent;
+            padding: 10px 0 0 0;
             border: none;
             box-shadow: none;
             height: 100%;
         }
 
         .nav-logo {
-            height: 140px; /* Massive, Awwwards-tier scale */
+            height: 140px;
             width: auto;
             object-fit: contain;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.6)); /* Makes the Grizzly physically float over the video */
+            filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.6));
             transform-origin: top left;
         }
 
         .navbar.glass-active .nav-logo {
-            height: 85px; /* Shrinks the logo cleanly so it doesn't block the screen when the user scrolls down */
+            height: 85px;
         }
 
         .nav-links {
@@ -282,7 +288,7 @@
         .secondary-btn,
         .dark-btn {
             background: var(--accent);
-            color: var(--text-dark);
+            color: var(--white);
             padding: 1rem 2rem;
             border-radius: 8px;
             text-decoration: none;
@@ -290,7 +296,7 @@
             border: none;
             display: inline-block;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.25);
         }
 
         .nav-btn:hover,
@@ -301,10 +307,10 @@
             background: var(--primary);
             color: var(--white);
             transform: translateY(-2px);
-            box-shadow: 0 15px 25px rgba(17, 63, 40, 0.3);
+            box-shadow: 0 15px 25px rgba(42, 22, 5, 0.3);
         }
 
-        /* --- 06. MOBILE MENU --- */
+        /* === [03.6] MOBILE MENU (FLOATING) === */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -343,17 +349,14 @@
         .mobile-menu {
             position: fixed;
             top: 85px;
-            /* Sits perfectly just below the mobile navbar */
             left: 5%;
-            /* Centers the 90% width card */
             width: 90%;
             height: auto;
-            background: rgba(15, 23, 42, 0.95);
-            /* Dark premium glass */
+            background: rgba(26, 17, 8, 0.98);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             z-index: 1500;
             display: flex;
             flex-direction: column;
@@ -361,8 +364,6 @@
             align-items: center;
             gap: 1.2rem;
             padding: 2rem 0;
-
-            /* Physics for the sleek dropdown appearance */
             opacity: 0;
             visibility: hidden;
             transform: translateY(-20px) scale(0.95);
@@ -378,7 +379,6 @@
         .mobile-link {
             color: var(--white);
             font-size: 1.4rem;
-            /* Shrunk down for a cleaner, professional app feel */
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -386,21 +386,19 @@
             text-align: center;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            /* Adds sleek divider lines */
         }
 
         .mobile-link:last-child {
             border-bottom: none;
             padding-bottom: 0;
             color: var(--accent);
-            /* Highlights the Quote button */
         }
 
         .mobile-link:hover {
             color: var(--accent);
         }
 
-        /* --- 07. HERO SECTION --- */
+        /* === [03.7] HERO SECTION === */
         .hero-section {
             height: 100vh;
             position: relative;
@@ -433,7 +431,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.1) 100%);
+            background: linear-gradient(90deg, rgba(26, 17, 8, 0.9) 0%, rgba(26, 17, 8, 0.5) 50%, rgba(26, 17, 8, 0.1) 100%);
             z-index: -1;
         }
 
@@ -477,7 +475,7 @@
 
         .hero-btn-primary {
             background: var(--accent);
-            color: var(--text-dark);
+            color: var(--white);
             padding: 1.2rem 2.5rem;
             border-radius: 8px;
             text-decoration: none;
@@ -485,8 +483,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
         }
 
         .hero-btn-primary:hover {
@@ -504,11 +502,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .hero-btn-secondary:hover {
-            background: var(--bg-canvas);
+            background: #eaeaea;
         }
 
         .hero-trust-bar {
@@ -552,10 +550,10 @@
             display: inline-block;
         }
 
-        /* --- 08. MARQUEE BANNER --- */
+        /* === [03.8] MARQUEE BANNER === */
         .marquee-section {
             background: var(--primary);
-            color: var(--white);
+            color: var(--accent);
             padding: 15px 0;
             overflow: hidden;
             white-space: nowrap;
@@ -571,7 +569,7 @@
             padding-right: 50px;
         }
 
-        /* --- 09. CUSTOM TRUCK SCRUB --- */
+        /* === [03.9] CUSTOM TRUCK SCRUB === */
         .custom-truck-section {
             background: transparent;
             padding: 40px 5% 60px 5%;
@@ -629,7 +627,7 @@
             animation: cartoonBounce 0.4s infinite ease-in-out;
         }
 
-        /* --- 10. SERVICES GRID --- */
+        /* === [03.10] SERVICES GRID === */
         .services-section {
             background: transparent;
             position: relative;
@@ -662,14 +660,14 @@
 
         .premium-glass-card {
             background: var(--white);
-            border: 2px solid rgba(34, 197, 94, 0.15);
-            box-shadow: 0 15px 35px rgba(17, 63, 40, 0.05);
+            border: 2px solid rgba(255, 107, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(42, 22, 5, 0.05);
             border-radius: 24px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .premium-glass-card:hover {
-            box-shadow: 0 25px 50px rgba(34, 197, 94, 0.15);
+            box-shadow: 0 25px 50px rgba(255, 107, 0, 0.15);
             transform: translateY(-8px);
             border-color: var(--accent);
         }
@@ -722,7 +720,7 @@
             margin-top: 3rem;
         }
 
-        /* --- 11. PARALLAX VIDEO --- */
+        /* === [03.11] PARALLAX VIDEO === */
         .video-transition-section {
             height: 50vh;
             position: relative;
@@ -751,7 +749,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(17, 63, 40, 0.6);
+            background: rgba(42, 22, 5, 0.6);
             z-index: -1;
         }
 
@@ -763,7 +761,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- 12. PRICING SECTION --- */
+        /* === [03.12] PRICING SECTION === */
         .pricing-section {
             background: transparent;
             position: relative;
@@ -805,9 +803,9 @@
             line-height: 1.5;
         }
 
-        /* --- 13. ECO-CONSCIOUS --- */
+        /* --- [03.13] ECO-CONSCIOUS --- */
         .eco-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #081c10 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1108 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -835,7 +833,7 @@
         .eco-text-side p {
             font-size: 1.15rem;
             line-height: 1.7;
-            color: #cbd5e1;
+            color: #e7e5df;
         }
 
         .eco-card {
@@ -888,12 +886,12 @@
             padding: 2rem;
             text-align: center;
             margin-top: 2rem;
-            border: 1px solid rgba(17, 63, 40, 0.05);
+            border: 1px solid rgba(42, 22, 5, 0.05);
         }
 
         .eco-stat-box h4 {
             font-size: 4rem;
-            color: var(--primary);
+            color: var(--accent);
             line-height: 1;
             margin-bottom: 0.5rem;
         }
@@ -903,7 +901,7 @@
             color: var(--text-gray);
         }
 
-        /* --- 14. CRITICAL DETAILS --- */
+        /* === [03.14] CRITICAL DETAILS === */
         .sticky-details-section {
             background: transparent;
         }
@@ -930,7 +928,7 @@
             overflow: hidden;
             position: relative;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(17, 63, 40, 0.1);
+            border: 1px solid rgba(42, 22, 5, 0.1);
         }
 
         .sidebar-video {
@@ -976,7 +974,7 @@
             line-height: 1.6;
         }
 
-        /* --- 15. MAP SECTION --- */
+        /* === [03.15] MAP SECTION === */
         .service-area-section {
             background: transparent;
             position: relative;
@@ -1036,7 +1034,7 @@
             padding: 10px;
             background: var(--white);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-            border: 2px solid rgba(34, 197, 94, 0.15);
+            border: 2px solid rgba(255, 107, 0, 0.15);
         }
 
         .sa-map-wrapper {
@@ -1064,7 +1062,7 @@
             font-size: 1rem;
             color: var(--primary);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(17, 63, 40, 0.05);
+            border: 1px solid rgba(42, 22, 5, 0.05);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -1080,7 +1078,7 @@
             border-radius: 2px;
         }
 
-        /* --- 16. QUOTE FORM --- */
+        /* === [03.16] QUOTE FORM === */
         .quote-banner-section {
             background: var(--primary);
             padding: 100px 5%;
@@ -1109,7 +1107,7 @@
 
         .quote-banner-text p {
             font-size: 1.2rem;
-            color: #cbd5e1;
+            color: #e7e5df;
             line-height: 1.6;
             margin-bottom: 2rem;
         }
@@ -1152,9 +1150,9 @@
             border-color: var(--accent);
         }
 
-        /* --- 17. FOOTER --- */
+        /* === [03.17] FOOTER === */
         .enterprise-footer {
-            background: #0f172a;
+            background: #1a1108;
             color: #94a3b8;
             padding: 5rem 5% 2rem 5%;
         }
@@ -1177,10 +1175,11 @@
             max-width: 180px;
             height: auto;
             margin-bottom: 1.5rem;
-            background: var(--white);
-            padding: 12px 20px;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
         }
 
         .footer-bottom {
@@ -1190,9 +1189,7 @@
             opacity: 0.5;
         }
 
-        /* ==========================================================================
-           18. MASTER RESPONSIVENESS (MOBILE OPTIMIZED)
-           ========================================================================== */
+        /* === [03.18] MOBILE RESPONSIVENESS === */
         @media (max-width: 1024px) {
             .hero-title {
                 font-size: 4rem;
@@ -1251,24 +1248,10 @@
         }
 
         @media (max-width: 768px) {
-
-            /* THE FIX: Updates the variable math for mobile screens */
             :root {
                 --nav-height: 70px;
             }
 
-            /* FREE UP GPU MEMORY: Hide complex blur on mobile to prevent iOS Crash */
-            .interactive-bg-orb {
-                display: none !important;
-            }
-
-            section {
-                padding: 50px 5%;
-            }
-
-            /* ... the rest of your mobile CSS ... */
-
-            /* FREE UP GPU MEMORY: Hide complex blur on mobile to prevent iOS Crash */
             .interactive-bg-orb {
                 display: none !important;
             }
@@ -1298,27 +1281,30 @@
                 font-size: 1.05rem !important;
             }
 
-            /* NAVBAR & OVERLAPPING FLOATING LOGO */
-            .navbar { top: 0; height: 90px; padding: 8px 15px !important; justify-content: flex-end; }
-            
+            /* Navbar & Centered Logo */
+            .navbar {
+                top: 0;
+                height: 90px;
+                padding: 8px 15px !important;
+                justify-content: flex-end;
+            }
+
             .logo-container {
                 position: absolute;
                 left: 50%;
-                top: 0; /* Pins it to the ceiling so it never gets cropped */
-                transform: translateX(-50%); /* Centers it horizontally without pulling it up */
+                top: 0;
+                transform: translateX(-50%);
                 padding: 10px 0 0 0;
             }
-            
-            .nav-logo { 
-                height: 115px !important; /* Huge mobile badge */
+
+            .nav-logo {
+                height: 115px !important;
                 transform-origin: top center;
             }
-            
-            .navbar.glass-active .nav-logo {
-                height: 70px !important; /* Shrinks cleanly on mobile scroll */
-            }
 
-            /* Much larger on mobile */
+            .navbar.glass-active .nav-logo {
+                height: 70px !important;
+            }
 
             .hero-section {
                 padding-top: 100px;
@@ -1340,7 +1326,6 @@
                 object-position: 85% center !important;
             }
 
-            /* BUTTON ALIGNMENT & GSAP OVERRIDE FIX */
             .hero-buttons {
                 flex-direction: column;
                 width: 100%;
@@ -1355,10 +1340,8 @@
                 width: 100% !important;
                 margin: 0 !important;
                 transform: translate(0px, 0px) !important;
-                /* FORCES GSAP to release the magnetic glitch on touch */
             }
 
-            /* FIXED MOBILE TRUST BAR OVERFLOW */
             .hero-trust-bar {
                 padding: 1rem 5%;
                 gap: 2rem;
@@ -1421,7 +1404,7 @@
                 height: 30vh;
             }
 
-            /* SERVICES BREATHABILITY FIX */
+            /* Services Grid Breathability */
             .services-grid {
                 gap: 1.25rem !important;
             }
@@ -1433,7 +1416,7 @@
 
             .premium-glass-card {
                 border-width: 1px !important;
-                box-shadow: 0 8px 20px rgba(17, 63, 40, 0.04) !important;
+                box-shadow: 0 8px 20px rgba(42, 22, 5, 0.04) !important;
             }
 
             .service-image-icon {
@@ -1452,7 +1435,7 @@
                 margin-bottom: 1rem !important;
             }
 
-            /* TRUCK ANIMATION MOBILE SCALE */
+            /* Truck Scrub Adjustments */
             .road-track {
                 height: 90px;
             }
@@ -1476,16 +1459,16 @@
 </head>
 
 <body>
-    <!-- === 01. CUSTOM CURSOR & BACKGROUNDS === -->
+    <!-- === [01] CUSTOM CURSOR & BACKGROUNDS === -->
     <div class="custom-cursor"></div>
     <div class="ambient-background"></div>
     <div class="grain-overlay"></div>
     <div class="interactive-bg-orb"></div>
 
-    <!-- === 02. NAVIGATION BAR === -->
+    <!-- === [02] NAVIGATION BAR === -->
     <nav class="navbar">
         <div class="logo-container">
-            <img src="grizzly-logo.png" alt="Niko Junk Removal Logo" class="nav-logo">
+            <img src="grizzly-logo.png" alt="Grizzly Junk Co Logo" class="nav-logo">
         </div>
         <div class="nav-links">
             <a href="#home" class="hover-link">Home</a>
@@ -1503,7 +1486,7 @@
         </div>
     </nav>
 
-    <!-- === 03. MOBILE MENU === -->
+    <!-- === [03] MOBILE MENU === -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="#home" class="mobile-link">Home</a>
         <a href="#services" class="mobile-link">Services</a>
@@ -1511,17 +1494,16 @@
         <a href="#eco" class="mobile-link">Our Process</a>
         <a href="#faq" class="mobile-link">Details</a>
         <a href="#service-area" class="mobile-link">Area</a>
-        <a href="#quote" class="mobile-link text-green-light">Get a Quote</a>
+        <a href="#quote" class="mobile-link text-accent">Get a Quote</a>
     </div>
 
-    <!-- === 04. HERO SECTION === -->
+    <!-- === [04] HERO SECTION === -->
     <header class="hero-section" id="home">
         <video src="niko-junk-video.mp4" autoplay loop muted playsinline class="hero-video"></video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-tag fade-up"> </span>
-            <h1 class="hero-title split-text">Denver's Best<br><span class="text-green-light">Hauling Crew.</span>
-            </h1>
+            <h1 class="hero-title split-text">Denver's Best<br><span class="text-accent">Hauling Crew.</span></h1>
             <p class="hero-subtitle fade-up">Clear, upfront pricing. Same-day service. A professional team that respects
                 your property.</p>
             <div class="hero-buttons fade-up">
@@ -1570,7 +1552,7 @@
         </div>
     </header>
 
-    <!-- === 05. MARQUEE BANNER === -->
+    <!-- === [05] MARQUEE BANNER === -->
     <div class="marquee-section">
         <div class="marquee-content">
             <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
@@ -1580,20 +1562,20 @@
         </div>
     </div>
 
-    <!-- === 06. CUSTOM TRUCK ANIMATION === -->
+    <!-- === [06] CUSTOM TRUCK ANIMATION === -->
     <section class="custom-truck-section">
         <div class="road-track">
             <img src="house-cartoon.png" alt="House" class="track-img track-house">
-            <img src="junk-truck-img.png" alt="Niko Junk Truck" class="track-img track-truck">
+            <img src="junk-truck-img.png" alt="Grizzly Junk Truck" class="track-img track-truck">
             <img src="recycle-yard.png" alt="Recycling Facility" class="track-img track-facility">
         </div>
     </section>
 
-    <!-- === 07. SERVICES GRID === -->
+    <!-- === [07] SERVICES GRID === -->
     <section class="services-section" id="services">
         <div id="particles-js"></div>
         <div class="section-content-relative">
-            <p class="text-green"
+            <p class="text-primary"
                 style="text-align: center; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">WHAT WE
                 HAUL</p>
             <h2 class="section-title split-text">Our Services</h2>
@@ -1644,16 +1626,16 @@
         </div>
     </section>
 
-    <!-- === 08. PARALLAX VIDEO === -->
+    <!-- === [08] PARALLAX VIDEO === -->
     <section class="video-transition-section">
         <video src="junk-frontyard.mp4" autoplay loop muted playsinline class="parallax-bg-video"></video>
         <div class="video-transition-overlay"></div>
         <h2 class="split-text video-transition-text">We Haul It All.</h2>
     </section>
 
-    <!-- === 09. PRICING SECTION === -->
+    <!-- === [09] PRICING SECTION === -->
     <section class="pricing-section" id="pricing">
-        <p class="text-green"
+        <p class="text-primary"
             style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase; text-align: center;">PRICING</p>
         <h2 class="section-title split-text" style="font-size: 3.2rem;">Simple, Load-Based Pricing</h2>
         <p class="section-subtitle" style="margin: 1rem auto 3rem auto; color: var(--text-dark);">You pay for the space
@@ -1686,11 +1668,11 @@
         </div>
     </section>
 
-    <!-- === 10. ECO-CONSCIOUS === -->
+    <!-- === [10] ECO-CONSCIOUS === -->
     <section class="eco-section" id="eco">
         <div class="eco-grid">
             <div class="eco-text-side">
-                <p class="text-green-light" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+                <p class="text-accent" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
                     ECO-CONSCIOUS</p>
                 <h2 class="split-text">Donate First.<br>Recycle Second.<br>Landfill Last.</h2>
                 <p class="fade-up">Before anything goes to the landfill, we sort for donation and recycling. We work
@@ -1744,11 +1726,11 @@
         </div>
     </section>
 
-    <!-- === 11. CRITICAL DETAILS === -->
+    <!-- === [11] CRITICAL DETAILS === -->
     <section class="sticky-details-section" id="faq">
         <div class="sticky-layout-container">
             <div class="sticky-sidebar">
-                <h2 class="section-title split-text">Critical<br><span class="text-green">Details</span></h2>
+                <h2 class="section-title split-text">Critical<br><span class="text-primary">Details</span></h2>
                 <p class="section-subtitle" style="margin-bottom: 30px;">Everything you need to know before our trucks
                     roll up to your property.</p>
                 <div class="sidebar-media">
@@ -1784,12 +1766,12 @@
         </div>
     </section>
 
-    <!-- === 12. SERVICE AREA === -->
+    <!-- === [12] SERVICE AREA === -->
     <section class="service-area-section" id="service-area">
         <div class="service-area-grid">
             <div class="sa-text-side fade-up">
-                <p class="text-green" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">SERVICE
-                    AREA</p>
+                <p class="text-primary" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+                    SERVICE AREA</p>
                 <h2>Proudly Serving Denver Metro</h2>
                 <p class="desc">We cover the entire Front Range and then some. Fast, reliable hauling anywhere on the
                     map.</p>
@@ -1879,7 +1861,7 @@
         </div>
     </section>
 
-    <!-- === 13. QUOTE FORM === -->
+    <!-- === [13] QUOTE FORM === -->
     <section class="quote-banner-section" id="quote">
         <div class="quote-banner-grid">
             <div class="quote-banner-text">
@@ -1911,11 +1893,11 @@
         </div>
     </section>
 
-    <!-- === 14. FOOTER === -->
+    <!-- === [14] FOOTER === -->
     <footer class="enterprise-footer">
         <div class="footer-grid">
             <div class="footer-col brand-col">
-                <img src="Niko-logo-cropped.png" alt="Niko Junk Removal Logo" class="footer-logo">
+                <img src="grizzly-logo.png" alt="Grizzly Junk Co Logo" class="footer-logo">
                 <p>Denver's premium local hauling service. Fast communication, fair prices, and heavy lifting.</p>
             </div>
             <div class="footer-col contact-col">
@@ -1926,11 +1908,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Niko Junk Removal LLC. All Rights Reserved. Master Template Architecture.</p>
+            <p>&copy; 2026 Grizzly Junk Co. All Rights Reserved. Master Template Architecture.</p>
         </div>
     </footer>
 
-    <!-- === 15. MASTER JAVASCRIPT === -->
+    <!-- === [15] MASTER JAVASCRIPT === -->
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
 
@@ -1976,11 +1958,11 @@
                     particlesJS("particles-js", {
                         particles: {
                             number: { value: 35, density: { enable: true, value_area: 800 } },
-                            color: { value: "#113f28" },
+                            color: { value: "#2A1605" },
                             shape: { type: "circle" },
                             opacity: { value: 0.15, random: true },
                             size: { value: 3, random: true },
-                            line_linked: { enable: true, distance: 150, color: "#113f28", opacity: 0.08, width: 1 },
+                            line_linked: { enable: true, distance: 150, color: "#2A1605", opacity: 0.08, width: 1 },
                             move: { enable: true, speed: 0.5, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
                         },
                         interactivity: {
