@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <!-- === iOS STATUS BAR & NOTCH BLEED OVERRIDES === -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="#050A15">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Grizzly Junk | Denver's Premier Hauling</title>
@@ -13,38 +13,34 @@
     <!-- === [01] EXTERNAL FONTS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lilita+One&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- === [02] EXTERNAL LIBRARIES === -->
-    <!-- Removed CPU-heavy SplitType library to guarantee flawless 60FPS Chrome performance -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <!-- === [03] MASTER CSS === -->
     <style>
         /* === [03.1] GLOBAL VARIABLES & RESETS === */
         :root {
-            /* NEW RUGGED GRIZZLY JUNK DARK MODE */
-            --primary: #E67E22;
-            /* Industrial Orange */
-            --primary-light: #F39C12;
-            /* Warning Gold */
-            --accent: #D35400;
-            /* Burnt Orange */
-            --bg-canvas: #121212;
-            /* Asphalt Black */
-            --bg-alt: #1A1A1A;
-            /* Heavy Iron Gray */
-            --text-dark: #F5F5F5;
-            /* Crisp White (Re-mapped for Dark Mode) */
-            --text-gray: #A3A3A3;
-            /* Steel Gray */
-            --white: #ffffff;
+            /* HIGH-END TECH NEON THEME */
+            --primary: #00F0FF;
+            /* Electric Tech Cyan */
+            --primary-light: #66FBFF;
+            --accent: #7000FF;
+            /* Deep Purple */
+            --bg-canvas: #050505;
+            /* Base Dark */
+
+            --grid-line: rgba(255, 255, 255, 0.05);
+            /* Architectural Grid Lines */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+
+            --text-dark: #FFFFFF;
+            --text-gray: #A1A1AA;
             --nav-height: 90px;
         }
 
@@ -57,7 +53,6 @@
         html {
             font-family: 'DM Sans', sans-serif;
             scroll-behavior: smooth;
-            scroll-padding-top: var(--nav-height);
             background-color: var(--bg-canvas);
             color: var(--text-dark);
         }
@@ -65,22 +60,78 @@
         body {
             overflow-x: hidden;
             background-color: var(--bg-canvas);
-        }
-
-        .custom-truck-section,
-        .services-section,
-        .pricing-section,
-        .sticky-details-section,
-        .service-area-section {
-            background-color: var(--bg-canvas);
-        }
-
-        section {
-            padding: 100px 5%;
             position: relative;
         }
 
-        /* === [03.2] CUSTOM CURSOR === */
+        /* === [03.2] ARCHITECTURAL GRID BACKGROUND === */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 100px 100px;
+            background-position: center center;
+            z-index: -998;
+            pointer-events: none;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.08;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        section {
+            padding: 120px 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* === RICH GRADIENT ROOM BACKGROUNDS === */
+        .hero-section {
+            background: linear-gradient(180deg, #050A15 0%, #050505 100%);
+        }
+
+        .services-section {
+            background: linear-gradient(135deg, #090B10 0%, #0D1528 100%);
+        }
+
+        .pricing-section {
+            background: linear-gradient(135deg, #0A1929 0%, #050505 100%);
+        }
+
+        .eco-section {
+            background: linear-gradient(135deg, #06281E 0%, #050505 100%);
+        }
+
+        .sticky-details-section {
+            background: linear-gradient(135deg, #150A21 0%, #050505 100%);
+        }
+
+        .service-area-section {
+            background: linear-gradient(135deg, #1D0A14 0%, #050505 100%);
+        }
+
+        .quote-banner-section {
+            background: linear-gradient(135deg, #300C0C 0%, #050505 100%);
+        }
+
+        .enterprise-footer {
+            background: #030303;
+        }
+
+        /* === [03.3] CUSTOM CURSOR === */
         @media (pointer: fine) {
 
             body,
@@ -96,69 +147,54 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 15px;
-            height: 15px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
             border-radius: 50%;
-            background: var(--primary);
             pointer-events: none;
             z-index: 9999;
             transform: translate(-50%, -50%);
-            transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s;
-            mix-blend-mode: difference;
+            transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, border-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-cursor::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
         }
 
         .custom-cursor.hovered {
-            width: 60px;
-            height: 60px;
-            background: var(--white);
-            mix-blend-mode: difference;
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 240, 255, 0.1);
+            border-color: transparent;
+            backdrop-filter: blur(4px);
         }
 
-        /* === [03.3] TYPOGRAPHY === */
+        /* === [03.4] TYPOGRAPHY === */
         h1,
         h2,
         h3,
-        h4,
-        .nav-links a,
-        .mobile-link,
-        .hero-btn-primary,
-        .hero-btn-secondary,
-        .section-title,
-        .price-amount,
-        .price-label,
-        .card-title,
-        .hero-tag,
-        .nav-btn,
-        .submit-btn,
-        .secondary-btn,
-        .dark-btn {
-            font-family: 'Lilita One', sans-serif;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .text-accent {
-            color: var(--accent);
+        h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            color: var(--text-dark);
         }
 
         .text-primary {
             color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
         }
 
         .text-dark {
             color: var(--text-dark);
-        }
-
-        .text-white {
-            color: var(--white);
-        }
-
-        .text-gray-light {
-            color: #A3A3A3;
-        }
-
-        .text-dark-gray {
-            color: var(--text-gray);
         }
 
         .text-left {
@@ -167,61 +203,21 @@
         }
 
         .section-title {
-            font-size: 3.8rem;
+            font-size: 4.5rem;
             line-height: 1.1;
-            color: var(--primary);
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             text-align: center;
             max-width: 650px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 4rem auto;
             line-height: 1.6;
             color: var(--text-gray);
-        }
-
-        /* === [03.4] AMBIENT BACKGROUNDS === */
-        .ambient-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -999;
-            background-color: var(--bg-canvas);
-            background-image: radial-gradient(circle at 15% 15%, rgba(230, 126, 34, 0.05) 0%, transparent 55%), radial-gradient(circle at 85% 75%, rgba(211, 84, 0, 0.05) 0%, transparent 60%);
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .grain-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -998;
-            pointer-events: none;
-            opacity: 0.15;
-            mix-blend-mode: overlay;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        .interactive-bg-orb {
-            position: fixed;
-            top: -20vw;
-            left: -20vw;
-            width: 40vw;
-            height: 40vw;
-            background: radial-gradient(circle, rgba(230, 126, 34, 0.08) 0%, transparent 60%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -997;
-            filter: blur(60px);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
         }
 
         /* === [03.5] NAVIGATION BAR === */
@@ -238,62 +234,57 @@
             align-items: center;
             padding: 0 5%;
             transition: all 0.4s ease;
+            border-bottom: 1px solid transparent;
         }
 
         .navbar.glass-active {
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transform: translateZ(0);
-            will-change: backdrop-filter;
+            background: rgba(2, 2, 3, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--grid-line);
         }
 
         .logo-container {
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            background: transparent;
             padding: 10px 0 0 0;
-            border: none;
-            box-shadow: none;
             height: 100%;
+            position: relative;
         }
 
-       .nav-logo {
-            height: 140px; width: auto; object-fit: contain;
-            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
-            /* THE FIX: A dense 2px Bone White stroke to block transparency, plus a soft Industrial Orange glowing aura */
-            filter: drop-shadow(0px 0px 2px rgba(246, 244, 240, 1)) drop-shadow(0px 0px 25px rgba(230, 126, 34, 0.5));
-            transform-origin: top left; transform: translateZ(0); will-change: filter, height;
+        .nav-logo {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            transition: height 0.4s ease;
+            filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.4));
+            transform-origin: left center;
+            z-index: 2;
         }
 
-        .navbar.glass-active .nav-logo { 
-            height: 85px; 
-            /* Shrinks the glow cleanly and adds a dark anchor shadow when the glass header drops down */
-            filter: drop-shadow(0px 0px 2px rgba(246, 244, 240, 1)) drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.8)); 
-        }
-
-        .services-section,
-        .sticky-details-section {
-            background-color: var(--bg-alt);
+        .navbar.glass-active .nav-logo {
+            height: 60px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--primary) !important;
+            text-shadow: 0 0 10px var(--primary);
         }
 
         .nav-actions {
@@ -302,34 +293,87 @@
             gap: 1.5rem;
         }
 
+        /* ALL BUTTONS COMPLETELY RESTORED AND STYLED */
         .nav-btn,
-        .primary-cta,
         .submit-btn,
-        .secondary-btn,
-        .dark-btn {
-            background: var(--primary);
-            color: #000000;
+        .dark-btn,
+        .secondary-btn {
+            background: transparent;
+            color: var(--primary);
             padding: 1rem 2rem;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 1.1rem;
-            border: none;
-            display: inline-block;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.15);
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 0 0 var(--primary), 0 0 15px rgba(0, 240, 255, 0.2);
         }
 
         .nav-btn:hover,
-        .primary-cta:hover,
         .submit-btn:hover,
-        .secondary-btn:hover,
-        .dark-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 25px rgba(230, 126, 34, 0.25);
+        .dark-btn:hover,
+        .secondary-btn:hover {
+            color: #000;
+            box-shadow: inset 0 0 0 50px var(--primary), 0 0 25px rgba(0, 240, 255, 0.6);
         }
 
-        /* === [03.6] MOBILE MENU (FLOATING) === */
+        /* The specific Hero Buttons you mentioned were missing */
+        .hero-btn-primary {
+            background: var(--primary);
+            color: #000;
+            padding: 1.2rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            border: 1px solid var(--primary);
+        }
+
+        .hero-btn-primary:hover {
+            background: #FFF;
+            border-color: #FFF;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
+        }
+
+        .hero-btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-dark);
+            padding: 1.2rem 2.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-btn-secondary:hover {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+
+        /* === [03.6] MOBILE MENU === */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -341,14 +385,14 @@
         .hamburger span {
             display: block;
             width: 32px;
-            height: 4px;
-            background-color: var(--text-dark);
+            height: 3px;
+            background-color: var(--primary);
             border-radius: 4px;
             transition: all 0.3s ease;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: translateY(10px) rotate(45deg);
+            transform: translateY(9px) rotate(45deg);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -356,61 +400,47 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: translateY(-10px) rotate(-45deg);
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         .mobile-menu {
             position: fixed;
-            top: 85px;
-            left: 5%;
-            width: 90%;
-            height: auto;
-            background: rgba(26, 26, 26, 0.98);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 10, 21, 0.98);
+            backdrop-filter: blur(20px);
             z-index: 1500;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1.2rem;
-            padding: 2rem 0;
+            gap: 2rem;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-20px) scale(0.95) translateZ(0);
-            transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform, opacity;
+            transform: translateY(-20px);
+            transition: all 0.4s ease;
         }
 
         .mobile-menu.active {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
         .mobile-link {
             color: var(--text-dark);
-            font-size: 1.4rem;
+            font-size: 2rem;
+            font-weight: 900;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            width: 100%;
-            text-align: center;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .mobile-link:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            color: var(--primary);
+            letter-spacing: -1px;
         }
 
         .mobile-link:hover {
             color: var(--primary);
+            text-shadow: 0 0 15px var(--primary);
         }
 
         /* === [03.7] HERO SECTION === */
@@ -420,15 +450,12 @@
             position: relative;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            text-align: left;
-            color: var(--text-dark);
+            justify-content: center;
+            text-align: center;
             overflow: hidden;
             margin-top: 0;
-            padding-top: 90px;
-            padding-left: 5%;
-            padding-right: 5%;
             isolation: isolate;
+            border-bottom: 1px solid var(--grid-line);
         }
 
         .hero-video {
@@ -439,7 +466,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            z-index: -2;
+            z-index: -3;
         }
 
         .hero-overlay {
@@ -448,86 +475,43 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.6) 50%, rgba(15, 15, 15, 0.2) 100%);
-            z-index: -1;
+            background: linear-gradient(90deg, rgba(2, 2, 3, 0.95) 0%, rgba(2, 2, 3, 0.7) 50%, rgba(2, 2, 3, 0.4) 100%);
+            z-index: -2;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.5;
         }
 
         .hero-content {
-            z-index: 1;
+            z-index: 10;
             max-width: 850px;
             padding: 0;
-        }
-
-        .hero-tag {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            display: block;
+            position: relative;
         }
 
         .hero-title {
-            font-size: clamp(3.5rem, 6vw, 5.5rem);
-            line-height: 1.05;
-            margin-bottom: 20px;
+            font-size: clamp(4rem, 8vw, 6.5rem);
+            line-height: 0.95;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
             color: var(--text-dark);
-            letter-spacing: 1px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            color: #A3A3A3;
-            line-height: 1.6;
-            max-width: 700px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
             position: relative;
             z-index: 50;
-            margin-bottom: 100px;
-        }
-
-        .hero-btn-primary {
-            background: var(--primary);
-            color: #000000;
-            padding: 1.2rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.2);
-        }
-
-        .hero-btn-primary:hover {
-            background: var(--primary-light);
-            color: #000000;
-        }
-
-        .hero-btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-dark);
-            padding: 1.2rem 2.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .hero-btn-secondary:hover {
-            background: var(--primary);
-            color: #000000;
-            border-color: var(--primary);
         }
 
         .hero-trust-bar {
@@ -537,9 +521,9 @@
             transform: translateX(-50%);
             width: 95%;
             max-width: 1200px;
-            background: rgba(26, 26, 26, 0.6);
+            background: rgba(10, 12, 20, 0.6);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--grid-line);
             border-radius: 20px;
             display: flex;
             justify-content: space-around;
@@ -564,23 +548,27 @@
         }
 
         .trust-item.stars {
-            color: #F39C12;
+            color: #00F0FF;
         }
 
         .star {
             display: inline-block;
         }
 
-        /* === [03.8] MARQUEE BANNER === */
+        /* === [03.8] MARQUEE BANNER FIX === */
         .marquee-section {
             background: var(--primary);
             color: #000000;
             padding: 15px 0;
             overflow: hidden;
             white-space: nowrap;
+            /* CRITICAL FIX: Stops text from stacking */
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 900;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .marquee-content {
@@ -591,14 +579,15 @@
             padding-right: 50px;
         }
 
-       /* === [03.9] CUSTOM TRUCK SCRUB === */
+        /* === [03.9] CUSTOM TRUCK SCRUB FIX (ADDED GLOW) === */
         .custom-truck-section {
-            /* THE FIX: Added a warm timber radial spotlight to backlight the dark images */
-            background: radial-gradient(ellipse at center, var(--primary-light) 0%, var(--bg-canvas) 70%);
+            /* Added a massive glowing cyan radial gradient behind the truck so it pops */
+            background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
             padding: 40px 5% 60px 5%;
             position: relative;
             overflow: hidden;
             width: 100%;
+            border-bottom: 1px solid var(--grid-line);
         }
 
         .road-track {
@@ -607,21 +596,27 @@
             max-width: 1000px;
             height: 120px;
             margin: 0 auto;
-            /* Lightened the road line so it shows up beautifully in Dark Mode */
-            border-bottom: 5px solid rgba(255, 255, 255, 0.15); 
+            border-bottom: 5px solid rgba(255, 255, 255, 0.15);
         }
 
         @keyframes cartoonBounce {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-4px) rotate(-1deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-4px) rotate(-1deg);
+            }
         }
 
+        /* Added a white glow drop-shadow to the images so they don't get lost in the dark */
         .track-img {
             position: absolute;
             bottom: 0;
             z-index: 1;
-            /* THE FIX: Removed 'mix-blend-mode' and added a subtle soft glow so the truck pops */
-            filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
+            filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.15));
         }
 
         .track-house {
@@ -646,19 +641,12 @@
         }
 
         /* === [03.10] SERVICES GRID === */
-        .services-section {
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-content-relative {
@@ -666,86 +654,80 @@
             z-index: 2;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .premium-glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-radius: 24px;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-            transform: translateZ(0);
-            will-change: transform, box-shadow;
-            backdrop-filter: blur(10px);
-        }
-
-        .premium-glass-card:hover {
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            transform: translateY(-8px);
-            border-color: rgba(230, 126, 34, 0.5);
-        }
-
-        .service-card {
-            padding: 2.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 3rem 2.5rem;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
         }
 
-        /* Premium App-Style Icon Boxes to protect images in Dark Mode */
+        .premium-glass-card:hover {
+            border-color: var(--primary);
+            background: rgba(0, 240, 255, 0.05);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
         .service-image-icon {
-            width: 65px;
-            height: 65px;
-            margin-bottom: 1.5rem;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 2rem;
             object-fit: contain;
-            background: #EAEAEA;
-            padding: 12px;
-            border-radius: 14px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+            transition: all 0.3s;
+        }
+
+        .premium-glass-card:hover .service-image-icon {
+            filter: drop-shadow(0 0 15px var(--primary));
         }
 
         .card-title {
             font-size: 1.8rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             color: var(--text-dark);
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
-        .service-card p {
+        .premium-glass-card p {
             color: var(--text-gray);
             line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
             flex-grow: 1;
+            font-weight: 500;
         }
 
         .learn-more-link {
             color: var(--primary);
+            font-family: monospace;
+            font-size: 0.9rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             transition: color 0.3s;
         }
 
         .learn-more-link:hover {
-            color: var(--primary-light);
+            color: #FFFFFF;
+            text-shadow: 0 0 10px #FFF;
         }
 
         .centered-btn-wrapper {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 5rem;
         }
 
-       /* === [03.11] PARALLAX VIDEO === */
+        /* === [03.11] PARALLAX VIDEO SECTION === */
         .video-transition-section {
             height: 50vh;
             position: relative;
@@ -755,9 +737,9 @@
             overflow: hidden;
             margin: 4vw 2vw;
             border-radius: 40px;
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.5);
-            /* THE MAGIC FIX: Traps the video z-index so it doesn't drop behind the dark body background */
-            isolation: isolate; 
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--grid-line);
+            isolation: isolate;
         }
 
         .parallax-bg-video {
@@ -768,6 +750,7 @@
             height: 140%;
             object-fit: cover;
             z-index: -2;
+            opacity: 0.5;
         }
 
         .video-transition-overlay {
@@ -776,7 +759,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(18, 18, 18, 0.7);
+            background: linear-gradient(0deg, rgba(5, 5, 5, 0.9) 0%, transparent 50%, rgba(5, 5, 5, 0.9) 100%);
             z-index: -1;
         }
 
@@ -785,63 +768,53 @@
             color: var(--text-dark);
             z-index: 1;
             text-align: center;
-            letter-spacing: 1px;
+            letter-spacing: -2px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
         /* === [03.12] PRICING SECTION === */
-        .pricing-section {
-            background: transparent;
-            position: relative;
-            z-index: 2;
-        }
-
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            margin-top: 3rem;
             max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
         .price-card {
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            padding: 4rem 2rem;
         }
 
         .price-label {
             font-size: 1.5rem;
             color: var(--text-dark);
-            margin-bottom: 0.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .price-amount {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
             line-height: 1;
+            letter-spacing: -2px;
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
         }
 
         .price-desc {
             color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 500;
         }
 
         /* --- [03.13] ECO-CONSCIOUS --- */
-        .eco-section {
-            background: linear-gradient(135deg, #1A1A1A 0%, #050505 100%);
-            color: var(--text-dark);
-            position: relative;
-            overflow: hidden;
-            border-radius: 40px;
-            margin: 0 2vw;
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
         .eco-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -852,42 +825,38 @@
         }
 
         .eco-text-side h2 {
-            font-size: 3.5rem;
+            text-align: left;
+            font-size: 4.5rem;
+            margin: 1rem 0 2rem 0;
             line-height: 1.1;
-            margin: 1rem 0 1.5rem 0;
-            color: var(--text-dark);
+            letter-spacing: -2px;
+            text-transform: uppercase;
         }
 
         .eco-text-side p {
             font-size: 1.15rem;
             line-height: 1.7;
             color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-weight: 500;
         }
 
         .eco-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 3rem;
-            color: var(--text-dark);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            padding: 4rem;
         }
 
         .eco-card h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
             text-align: center;
+            text-transform: uppercase;
         }
 
         .eco-item {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .eco-item:last-of-type {
-            margin-bottom: 0;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .eco-item-icon {
@@ -898,47 +867,45 @@
         }
 
         .eco-item-text h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
             color: var(--text-dark);
         }
 
         .eco-item-text p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-gray);
-            line-height: 1.5;
+            line-height: 1.6;
+            font-weight: 500;
         }
 
         .eco-stat-box {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: 2rem;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            padding: 3rem;
             text-align: center;
-            margin-top: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 3rem;
         }
 
         .eco-stat-box h4 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--primary);
             line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .eco-stat-box p {
-            font-size: 1rem;
-            color: var(--text-gray);
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
         }
 
         /* === [03.14] CRITICAL DETAILS === */
-        .sticky-details-section {
-            background: transparent;
-        }
-
         .sticky-layout-container {
             display: flex;
             gap: 5rem;
             align-items: flex-start;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .sticky-sidebar {
@@ -949,6 +916,10 @@
             padding-left: 2rem;
         }
 
+        .sticky-sidebar h2 {
+            text-align: left;
+        }
+
         .sidebar-media {
             margin-top: 2rem;
             height: 400px;
@@ -956,14 +927,15 @@
             border-radius: 20px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--grid-line);
         }
 
         .sidebar-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0.8;
         }
 
         .scrolling-cards {
@@ -976,7 +948,7 @@
         .detail-row-card {
             padding: 3rem;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: flex-start;
         }
 
@@ -985,25 +957,24 @@
             color: var(--primary);
             opacity: 0.3;
             line-height: 0.8;
+            font-weight: 900;
         }
 
         .detail-content h3 {
             font-size: 1.8rem;
-            color: var(--primary);
+            color: var(--text-dark);
             margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .detail-content p {
             color: var(--text-gray);
             line-height: 1.6;
+            font-weight: 500;
+            font-size: 1.05rem;
         }
 
-        /* === [03.15] MAP SECTION === */
-        .service-area-section {
-            background: transparent;
-            position: relative;
-        }
-
+        /* === [03.15] SERVICE AREA (MAP) === */
         .service-area-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1014,34 +985,40 @@
         }
 
         .sa-text-side h2 {
-            font-size: 3.8rem;
-            color: var(--primary);
-            margin: 0.5rem 0 1.5rem 0;
-            line-height: 1.1;
+            text-align: left;
+            font-size: 4.5rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+            text-transform: uppercase;
         }
 
         .sa-text-side p.desc {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-gray);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             line-height: 1.6;
+            font-weight: 500;
         }
 
         .city-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
+            gap: 1.5rem;
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .city-list li {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-            font-weight: 600;
+            gap: 12px;
+            font-size: 1.1rem;
             color: var(--text-dark);
+            font-weight: 700;
+            font-family: monospace;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .city-list svg {
@@ -1052,24 +1029,22 @@
         }
 
         .sa-map-container {
+            height: 600px;
+            padding: 0;
+            border: 1px solid var(--glass-border);
             position: relative;
-            height: 500px;
-            border-radius: 24px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         .sa-map-wrapper {
             width: 100%;
             height: 100%;
-            border-radius: 16px;
             overflow: hidden;
             position: relative;
         }
 
-        /* THE MAP FIX: Anchors the map perfectly to the edges and Hardware Accelerates it */
+        /* Map Dark Mode Filter */
         .sa-map-wrapper iframe {
             position: absolute;
             top: 0;
@@ -1077,147 +1052,163 @@
             width: 100%;
             height: 100%;
             border: 0;
-            transform: translateZ(0);
+            filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(120%) sepia(40%);
         }
 
         .sa-map-badge {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: #1A1A1A;
-            padding: 10px 20px;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(2, 2, 3, 0.9);
+            border: 1px solid var(--primary);
+            padding: 12px 24px;
+            font-weight: 700;
             border-radius: 8px;
-            font-size: 1rem;
-            color: var(--text-dark);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--text-dark);
             z-index: 10;
+            font-family: monospace;
         }
 
         .sa-map-badge::before {
             content: '';
             display: block;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: var(--primary);
             border-radius: 2px;
+            box-shadow: 0 0 10px var(--primary);
         }
 
         /* === [03.16] QUOTE FORM === */
-        .quote-banner-section {
-            background: #181818;
-            padding: 100px 5%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 40px;
-            margin: 0 2vw 4vw 2vw;
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
         .quote-banner-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            gap: 6rem;
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .quote-banner-text h2 {
-            font-size: 4rem;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
+            text-align: left;
+            font-size: 4.5rem;
             line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
         }
 
         .quote-banner-text p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-gray);
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
         }
 
         .form-side {
-            padding: 3.5rem;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 4rem;
+        }
+
+        .form-side h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
             color: var(--text-dark);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .input-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             flex-direction: column;
         }
 
         .input-group label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .input-group input,
         .input-group textarea {
             padding: 1.2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.5);
             color: var(--text-dark);
-            outline: none;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border-radius: 8px;
         }
 
         .input-group input:focus,
         .input-group textarea:focus {
             border-color: var(--primary);
+            background: rgba(0, 240, 255, 0.05);
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            cursor: none;
         }
 
         /* === [03.17] FOOTER === */
-        .enterprise-footer {
-            background: #0A0A0A;
-            color: var(--text-gray);
-            padding: 5rem 5% 2rem 5%;
-        }
-
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 3rem;
+            padding-bottom: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            max-width: 180px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2));
         }
 
         .footer-col h4 {
-            margin-bottom: 1.5rem;
             font-size: 1.5rem;
             color: var(--text-dark);
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
-       .footer-logo { 
-            max-width: 180px; height: auto; margin-bottom: 1.5rem; 
-            /* Mirrors the protective white stroke and soft orange glow for the dark footer */
-            filter: drop-shadow(0px 0px 2px rgba(246, 244, 240, 1)) drop-shadow(0px 0px 15px rgba(230, 126, 34, 0.3)); 
+        .footer-col p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 4rem;
             font-size: 0.9rem;
+            font-family: monospace;
             opacity: 0.5;
         }
 
         /* === [03.18] MOBILE RESPONSIVENESS === */
         @media (max-width: 1024px) {
             .hero-title {
-                font-size: 4rem;
+                font-size: 4.5rem;
             }
 
             .nav-links,
@@ -1238,11 +1229,7 @@
             .service-area-grid,
             .quote-banner-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-
-            .city-list {
+                gap: 4rem;
                 text-align: left;
             }
 
@@ -1257,169 +1244,104 @@
                 width: 100%;
                 border-left: none;
                 padding-left: 0;
-                text-align: center;
-            }
-
-            .hero-trust-bar {
-                overflow-x: auto;
-                justify-content: flex-start;
-                bottom: 15px;
-            }
-
-            .video-transition-section {
-                height: 40vh;
-                border-radius: 20px;
             }
         }
 
         @media (max-width: 768px) {
             :root {
-                --nav-height: 70px;
-            }
-
-            /* FREE UP GPU MEMORY: Hides Canvas particles to stop zoom-crashes */
-            .interactive-bg-orb,
-            .grain-overlay,
-            .ambient-background,
-            #particles-js {
-                display: none !important;
+                --nav-height: 75px;
             }
 
             section {
-                padding: 50px 5%;
-            }
-
-            .eco-section,
-            .quote-banner-section {
-                margin: 0;
-                border-radius: 0;
-                padding: 50px 5%;
-                border: none;
+                padding: 80px 5%;
             }
 
             .section-title {
-                font-size: 2.5rem !important;
-                text-align: center !important;
-            }
-
-            .section-subtitle,
-            .text-left {
-                text-align: center !important;
+                font-size: 3rem !important;
             }
 
             .section-subtitle {
-                font-size: 1.05rem !important;
+                font-size: 1rem !important;
+                margin-bottom: 3rem;
             }
 
             .navbar {
-                top: 0;
-                height: calc(90px + env(safe-area-inset-top)) !important;
-                padding: calc(8px + env(safe-area-inset-top)) 15px 8px 15px !important;
-                justify-content: flex-end;
+                height: calc(75px + env(safe-area-inset-top)) !important;
+                padding: calc(10px + env(safe-area-inset-top)) 20px 10px 20px !important;
+                justify-content: space-between;
             }
 
             .logo-container {
-                position: absolute;
-                left: 50%;
-                top: calc(10px + env(safe-area-inset-top));
-                transform: translateX(-50%);
                 padding: 0;
             }
 
-            .nav-logo {
-                height: 115px !important;
-                transform-origin: top center;
+            .logo-container::before {
+                display: none;
             }
 
-            .navbar.glass-active .nav-logo {
-                height: 70px !important;
-                filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5)) !important;
+            /* Hide large backglow on mobile */
+            .nav-logo {
+                height: 45px !important;
             }
 
             .hero-section {
                 padding-top: 100px;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .hero-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
             }
 
             .hero-title {
-                font-size: 3rem;
+                font-size: 3.5rem;
+                letter-spacing: -1px;
             }
 
-            .hero-video {
-                object-position: 85% center !important;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 width: 100%;
                 gap: 1rem;
-                margin-bottom: 80px;
-                align-items: center;
-                overflow-x: hidden;
             }
 
             .hero-btn-primary,
             .hero-btn-secondary {
                 width: 100% !important;
                 margin: 0 !important;
-                transform: translate(0px, 0px) !important;
-            }
-
-            .hero-trust-bar {
-                padding: 1rem 5%;
-                gap: 2rem;
-                display: flex;
-                justify-content: flex-start;
-                overflow-x: auto;
-                white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .hero-trust-bar::-webkit-scrollbar {
-                display: none;
             }
 
             .services-grid,
             .pricing-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .price-amount {
-                font-size: 3rem !important;
+                font-size: 4rem !important;
             }
 
             .eco-text-side h2,
-            .sa-text-side h2 {
-                font-size: 2.5rem !important;
+            .sa-text-side h2,
+            .quote-banner-text h2 {
+                font-size: 3rem !important;
+                letter-spacing: -1px;
             }
 
-            .eco-card {
-                padding: 1.5rem !important;
+            .eco-card,
+            .form-side {
+                padding: 2.5rem 1.5rem !important;
             }
 
             .eco-stat-box h4 {
-                font-size: 2.8rem !important;
+                font-size: 3.5rem !important;
             }
 
             .city-list {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 1rem !important;
-            }
-
-            .city-list li {
-                font-size: 0.95rem !important;
+                grid-template-columns: 1fr !important;
             }
 
             .sa-map-container {
-                height: 300px !important;
+                height: 400px !important;
             }
 
             .detail-row-card {
@@ -1433,61 +1355,14 @@
                 border-radius: 0;
                 height: 30vh;
             }
-
-            .services-grid {
-                gap: 1.25rem !important;
-            }
-
-            .service-card {
-                padding: 1.5rem 1.25rem !important;
-                border-radius: 16px !important;
-            }
-
-            .service-image-icon {
-                width: 55px !important;
-                height: 55px !important;
-                margin-bottom: 0.8rem !important;
-                padding: 8px !important;
-            }
-
-            .card-title {
-                font-size: 1.4rem !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            .service-card p {
-                font-size: 0.95rem !important;
-                margin-bottom: 1rem !important;
-            }
-
-            .road-track {
-                height: 90px;
-            }
-
-            .track-house {
-                height: 70px;
-                left: 2%;
-            }
-
-            .track-facility {
-                height: 80px;
-                right: 2%;
-            }
-
-            .track-truck {
-                height: 55px;
-                left: 22%;
-            }
         }
     </style>
 </head>
 
 <body>
-    <!-- === [01] CUSTOM CURSOR & BACKGROUNDS === -->
+    <!-- === BACKGROUND ARCHITECTURE === -->
     <div class="custom-cursor"></div>
-    <div class="ambient-background"></div>
     <div class="grain-overlay"></div>
-    <div class="interactive-bg-orb"></div>
 
     <!-- === [02] NAVIGATION BAR === -->
     <nav class="navbar">
@@ -1495,12 +1370,12 @@
             <img src="grizzly-logo.png" alt="Grizzly Junk Co Logo" class="nav-logo">
         </div>
         <div class="nav-links">
-            <a href="#home" class="hover-link">Home</a>
-            <a href="#services" class="hover-link">Services</a>
-            <a href="#pricing" class="hover-link">Pricing</a>
-            <a href="#eco" class="hover-link">Our Process</a>
-            <a href="#faq" class="hover-link">Details</a>
-            <a href="#service-area" class="hover-link">Area</a>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#eco">Our Process</a>
+            <a href="#faq">Details</a>
+            <a href="#service-area">Area</a>
         </div>
         <div class="nav-actions">
             <a href="#quote" class="nav-btn magnetic">Get a Quote</a>
@@ -1525,6 +1400,8 @@
     <header class="hero-section" id="home">
         <video src="niko-junk-video.mp4" autoplay loop muted playsinline class="hero-video"></video>
         <div class="hero-overlay"></div>
+
+        <div id="particles-js"></div>
         <div class="hero-content">
             <span class="hero-tag fade-up"> </span>
             <h1 class="hero-title split-text">Denver's Best<br><span class="text-primary">Hauling Crew.</span></h1>
@@ -1576,7 +1453,7 @@
         </div>
     </header>
 
-    <!-- === [05] MARQUEE BANNER === -->
+    <!-- === [05] MARQUEE BANNER FIX === -->
     <div class="marquee-section">
         <div class="marquee-content">
             <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
@@ -1590,67 +1467,66 @@
     <section class="custom-truck-section">
         <div class="road-track">
             <img src="house-cartoon.png" alt="House" class="track-img track-house">
-            <img src="junk-trunk-img.png"Grizzly Junk Truck" class="track-img track-truck">
+            <img src="junk-trunk-img.png" alt="Grizzly Junk Truck" class="track-img track-truck">
             <img src="recycle-yard.png" alt="Recycling Facility" class="track-img track-facility">
         </div>
     </section>
 
     <!-- === [07] SERVICES GRID === -->
     <section class="services-section" id="services">
-        <div id="particles-js"></div>
         <div class="section-content-relative">
-            <p class="text-primary"
-                style="text-align: center; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">WHAT WE
+            <p class="section-subtitle"
+                style="color: var(--primary); font-family: monospace; font-weight: 700; letter-spacing: 2px;">WHAT WE
                 HAUL</p>
             <h2 class="section-title split-text">Our Services</h2>
             <p class="section-subtitle">From a single couch to a full property cleanout — we've got you covered.</p>
 
             <div class="services-grid">
                 <div class="service-card tilt-card premium-glass-card">
-                    <img src="houze-junk.png" alt="Residential Junk" class="service-image-icon">
+                    <img src="houze-junk.png" alt="Residential" class="service-image-icon">
                     <h3 class="card-title">Residential Junk Removal</h3>
                     <p>Garage cleanouts, storages, — we handle it all seamlessly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
                 <div class="service-card tilt-card premium-glass-card">
-                    <img src="piano-junk.png" alt="Specialty Items" class="service-image-icon">
+                    <img src="piano-junk.png" alt="Specialty" class="service-image-icon">
                     <h3 class="card-title">Specialty Item Removal</h3>
                     <p>Pianos, hot tubs, safes, swing sets — we handle the heavy, awkward jobs other haulers turn down.
                     </p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
                 <div class="service-card tilt-card premium-glass-card">
-                    <img src="couch-junk.png" alt="Furniture Removal" class="service-image-icon">
+                    <img src="couch-junk.png" alt="Furniture" class="service-image-icon">
                     <h3 class="card-title">Furniture Removal</h3>
                     <p>Couches, beds, desks — we'll carry it out from wherever it sits and haul it away.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
                 <div class="service-card tilt-card premium-glass-card">
-                    <img src="appliance.png" alt="Appliance Disposal" class="service-image-icon">
+                    <img src="appliance.png" alt="Appliance" class="service-image-icon">
                     <h3 class="card-title">Appliance Disposal</h3>
                     <p>Washers, fridges and dryers safely removed and disposed of responsibly.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
                 <div class="service-card tilt-card premium-glass-card">
-                    <img src="estate.png" alt="Estate Cleanouts" class="service-image-icon">
+                    <img src="estate.png" alt="Estate" class="service-image-icon">
                     <h3 class="card-title">Estate Cleanouts</h3>
                     <p>Full-property cleanouts handled with the utmost care, respect, and efficiency.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
                 <div class="service-card tilt-card premium-glass-card">
-                    <img src="lumber.png" alt="Construction Debris" class="service-image-icon">
+                    <img src="lumber.png" alt="Debris" class="service-image-icon">
                     <h3 class="card-title">Construction Debris</h3>
                     <p>Lumber, carpet, drywall, concrete — we clear out messy construction and remodel sites fast.</p>
                     <a href="#quote" class="learn-more-link">Learn More &rarr;</a>
                 </div>
             </div>
             <div class="centered-btn-wrapper">
-                <a href="#quote" class="secondary-btn magnetic">Browse All Services</a>
+                <a href="#quote" class="nav-btn magnetic">Browse All Services</a>
             </div>
         </div>
     </section>
 
-    <!-- === [08] PARALLAX VIDEO === -->
+    <!-- === [08] RESTORED PARALLAX VIDEO SECTION === -->
     <section class="video-transition-section">
         <video src="junk-frontyard.mp4" autoplay loop muted playsinline class="parallax-bg-video"></video>
         <div class="video-transition-overlay"></div>
@@ -1659,11 +1535,11 @@
 
     <!-- === [09] PRICING SECTION === -->
     <section class="pricing-section" id="pricing">
-        <p class="text-primary"
-            style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase; text-align: center;">PRICING</p>
-        <h2 class="section-title split-text" style="font-size: 3.2rem;">Simple, Load-Based Pricing</h2>
-        <p class="section-subtitle" style="margin: 1rem auto 3rem auto; color: var(--text-gray);">You pay for the space
-            your stuff takes up in our truck — no hourly rates, no hidden fees.</p>
+        <p class="section-subtitle"
+            style="color: var(--primary); font-family: monospace; font-weight: 700; letter-spacing: 2px;">PRICING</p>
+        <h2 class="section-title split-text">Simple, Load-Based Pricing</h2>
+        <p class="section-subtitle">You pay for the space your stuff takes up in our truck — no hourly rates, no hidden
+            fees.</p>
 
         <div class="pricing-grid">
             <div class="price-card tilt-card premium-glass-card">
@@ -1687,8 +1563,8 @@
                 <p class="price-desc">Fill the truck — total cleanout (~10 cu yd)</p>
             </div>
         </div>
-        <div style="text-align: center;">
-            <a href="#quote" class="dark-btn magnetic">See Full Pricing</a>
+        <div class="centered-btn-wrapper">
+            <a href="#quote" class="nav-btn magnetic">See Full Pricing</a>
         </div>
     </section>
 
@@ -1696,14 +1572,20 @@
     <section class="eco-section" id="eco">
         <div class="eco-grid">
             <div class="eco-text-side">
-                <p class="text-primary" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+                <p class="section-subtitle"
+                    style="text-align: left; color: var(--primary); margin-bottom: 1rem; font-family: monospace; font-weight: 700; letter-spacing: 2px;">
                     ECO-CONSCIOUS</p>
-                <h2 class="split-text">Donate First.<br>Recycle Second.<br>Landfill Last.</h2>
+                <h2 class="split-text">Donate First.<br>Recycle Second.<br><span class="text-primary">Landfill
+                        Last.</span></h2>
                 <p class="fade-up">Before anything goes to the landfill, we sort for donation and recycling. We work
                     with local Denver organizations to give your usable items a second life.</p>
+                <div class="eco-stat-box fade-up tilt-card">
+                    <h4>150,000+</h4>
+                    <p style="color:var(--text-dark); margin:0;">Estimated LBS Diverted from Landfill This Year</p>
+                </div>
             </div>
-            <div class="eco-card fade-up">
-                <h3 style="text-align: center;">Where Your Stuff Actually Goes</h3>
+            <div class="eco-card premium-glass-card fade-up">
+                <h3>Where Your Stuff Actually Goes</h3>
                 <div class="eco-item">
                     <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -1730,33 +1612,29 @@
                             facilities.</p>
                     </div>
                 </div>
-                <div class="eco-item">
-                    <svg class="eco-item-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
+                <div class="eco-item" style="margin-bottom:0;">
+                    <svg class="eco-item-icon" fill="none" stroke="var(--text-gray)" stroke-width="1.5"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
                         </path>
                     </svg>
                     <div class="eco-item-text">
-                        <h4>Landfill</h4>
+                        <h4 style="color:var(--text-gray)">Landfill</h4>
                         <p>Only what's genuinely left over. It costs you nothing extra — it's just how we operate.</p>
                     </div>
-                </div>
-                <div class="eco-stat-box">
-                    <h4>150,000+</h4>
-                    <p>Estimated LBS Diverted from Landfill This Year</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- === [11] CRITICAL DETAILS === -->
+    <!-- === [11] RESTORED CRITICAL DETAILS === -->
     <section class="sticky-details-section" id="faq">
         <div class="sticky-layout-container">
             <div class="sticky-sidebar">
                 <h2 class="section-title split-text">Critical<br><span class="text-primary">Details</span></h2>
-                <p class="section-subtitle" style="margin-bottom: 30px;">Everything you need to know before our trucks
-                    roll up to your property.</p>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 30px;">Everything you need to know
+                    before our trucks roll up to your property.</p>
                 <div class="sidebar-media">
                     <video src="niko-dddetails.mp4" autoplay loop muted playsinline class="sidebar-video"></video>
                 </div>
@@ -1794,7 +1672,8 @@
     <section class="service-area-section" id="service-area">
         <div class="service-area-grid">
             <div class="sa-text-side fade-up">
-                <p class="text-primary" style="font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+                <p class="section-subtitle"
+                    style="text-align: left; color: var(--primary); margin-bottom: 1rem; font-family: monospace; font-weight: 700; letter-spacing: 2px;">
                     SERVICE AREA</p>
                 <h2>Proudly Serving Denver Metro</h2>
                 <p class="desc">We cover the entire Front Range and then some. Fast, reliable hauling anywhere on the
@@ -1841,13 +1720,6 @@
                             </path>
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
-                        </svg> Highlands Ranch</li>
-                    <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
                         </svg> Arvada</li>
                     <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -1874,7 +1746,7 @@
                 <p style="font-size: 0.95rem; color: var(--text-gray); margin-top: 1rem;">Don't see your area? Call us
                     at 303-913-0327 — We cover more than listed.</p>
             </div>
-            <div class="sa-map-container tilt-card fade-up">
+            <div class="sa-map-container premium-glass-card fade-up">
                 <div class="sa-map-wrapper">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.81530948967!2d-105.08643795277414!3d39.76451867160754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C%20CO!5e0!3m2!1sen!2sus!4v1707000000000!5m2!1sen!2sus"
@@ -1889,15 +1761,13 @@
     <section class="quote-banner-section" id="quote">
         <div class="quote-banner-grid">
             <div class="quote-banner-text">
-                <h2 class="split-text">Ready to get your space back?</h2>
+                <h2 class="split-text">Ready to get your <span class="text-primary">space back?</span></h2>
                 <p class="fade-up">Fill out the form below or call us directly. We'll give you a fast, transparent
                     estimate and get you on the schedule.</p>
-                <a href="tel:7207727684" class="secondary-btn magnetic fade-up"
-                    style="background: var(--orange); color: var(--text-dark);">📞 Call 303-913-0327</a>
+                <a href="tel:7207727684" class="nav-btn magnetic fade-up">📞 Call 303-913-0327</a>
             </div>
-            <div class="form-side tilt-card fade-up">
-                <h3 class="section-title text-left text-dark" style="font-size: 2rem; margin-bottom: 2rem;">Get a Fast
-                    Quote</h3>
+            <div class="form-side premium-glass-card fade-up tilt-card">
+                <h3>Get a Fast Quote</h3>
                 <form id="demo-quote-form" class="premium-form">
                     <div class="input-group">
                         <label for="name">Full Name</label>
@@ -1911,7 +1781,7 @@
                         <label for="details">What do you need hauled away?</label>
                         <textarea id="details" rows="3" required placeholder="Describe your junk..."></textarea>
                     </div>
-                    <button type="submit" class="submit-btn magnetic">Send Quote Request</button>
+                    <button type="submit" class="nav-btn magnetic" style="width:100%;">Send Quote Request</button>
                 </form>
             </div>
         </div>
@@ -1921,113 +1791,83 @@
     <footer class="enterprise-footer">
         <div class="footer-grid">
             <div class="footer-col brand-col">
-                <img src="grizzly-logo.png" alt="Grizzly Junk Co Logo" class="footer-logo">
-                <p>Denver's premium local hauling service. Fast communication, fair prices, and heavy lifting.</p>
+                <div class="footer-logo-container">
+                    <img src="grizzly-logo.png" alt="Grizzly Junk Co Logo" class="footer-logo">
+                </div>
+                <p>Denver's premium local hauling service.</p>
+                <p>Fast communication, fair prices, and heavy lifting.</p>
             </div>
             <div class="footer-col contact-col">
-                <h4>Contact Us</h4>
+                <h4 class="text-primary">Contact Us</h4>
                 <p>📞 303-913-0327</p>
                 <p>📍 Denver, CO</p>
                 <p>🕒 Mon-Sat 7am-7pm</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Grizzly Junk Co. All Rights Reserved. Master Template Architecture.</p>
+            <p>Grizzly Junk Co © 2026 // Custom Web Architecture.</p>
         </div>
     </footer>
 
     <!-- === [15] MASTER JAVASCRIPT === -->
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
-
-            // 01. GSAP REGISTRATION
             gsap.registerPlugin(ScrollTrigger);
 
-            // 02. CUSTOM CURSOR LOGIC
+            // CURSOR
             const cursor = document.querySelector('.custom-cursor');
             if (cursor && window.matchMedia("(pointer: fine)").matches) {
                 const xToCursor = gsap.quickTo(cursor, "left", { duration: 0.15, ease: "power3.out" });
                 const yToCursor = gsap.quickTo(cursor, "top", { duration: 0.15, ease: "power3.out" });
 
                 window.addEventListener("mousemove", e => {
-                    xToCursor(e.clientX);
-                    yToCursor(e.clientY);
+                    xToCursor(e.clientX); yToCursor(e.clientY);
                 });
 
-                document.querySelectorAll('a, button, .tilt-card, .trust-item').forEach(el => {
+                document.querySelectorAll('a, button, .tilt-card').forEach(el => {
                     el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
                     el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
                 });
             }
 
-            // 03. BACKGROUND ORB PARALLAX
-            const bgOrb = document.querySelector('.interactive-bg-orb');
-            if (bgOrb) {
-                const startX = window.innerWidth / 2;
-                const startY = window.innerHeight / 2;
-                gsap.set(bgOrb, { x: startX, y: startY, xPercent: -50, yPercent: -50 });
-
-                const xToOrb = gsap.quickTo(bgOrb, "x", { duration: 1.2, ease: "power3.out" });
-                const yToOrb = gsap.quickTo(bgOrb, "y", { duration: 1.2, ease: "power3.out" });
-
-                window.addEventListener('mousemove', (e) => {
-                    xToOrb(e.clientX);
-                    yToOrb(e.clientY);
-                });
-            }
-
-            // 04. PARTICLES.JS
+            // PARTICLES 
             try {
                 if (document.getElementById('particles-js')) {
                     particlesJS("particles-js", {
                         particles: {
-                            number: { value: 35, density: { enable: true, value_area: 800 } },
-                            color: { value: "#E67E22" },
+                            number: { value: 60, density: { enable: true, value_area: 800 } },
+                            color: { value: ["#00F0FF", "#7000FF", "#0044FF"] },
                             shape: { type: "circle" },
-                            opacity: { value: 0.15, random: true },
-                            size: { value: 3, random: true },
-                            line_linked: { enable: true, distance: 150, color: "#E67E22", opacity: 0.08, width: 1 },
-                            move: { enable: true, speed: 0.5, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+                            opacity: { value: 0.8, random: true },
+                            size: { value: 4, random: true },
+                            line_linked: { enable: false },
+                            move: { enable: true, speed: 1, direction: "top", random: false, straight: true, out_mode: "out", bounce: false }
                         },
-                        interactivity: {
-                            detect_on: "canvas",
-                            events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: false }, resize: true },
-                            modes: { grab: { distance: 200, line_linked: { opacity: 0.2 } } }
-                        },
+                        interactivity: { detect_on: "canvas", events: { onhover: { enable: false }, onclick: { enable: false }, resize: true } },
                         retina_detect: true
                     });
                 }
             } catch (e) { console.error("Particles Error:", e); }
 
-            // 05. MARQUEE BANNER
-            try {
-                const marqueeContent = document.querySelector('.marquee-content');
-                if (marqueeContent) {
-                    gsap.to(marqueeContent, { xPercent: -50, ease: "none", duration: 25, repeat: -1 });
-                }
-            } catch (e) { console.error("Marquee Error:", e); }
-
-            // 06. HERO REVEAL TIMELINE
+            // ANIMATIONS
             const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-            tl.from(".hero-tag", { y: 20, opacity: 0, duration: 0.8, delay: 0.2 })
-                .from(".hero-title", { y: 30, opacity: 0, duration: 1 }, "-=0.6")
-                .from(".hero-subtitle", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
-                .from(".hero-buttons", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
+            tl.from(".hero-title", { y: 50, opacity: 0, duration: 1.2, delay: 0.2 })
+                .from(".hero-subtitle", { y: 20, opacity: 0, duration: 1 }, "-=0.8")
+                .from(".hero-buttons", { y: 20, opacity: 0, duration: 1 }, "-=0.8")
                 .from(".hero-trust-bar", { y: 20, opacity: 0, duration: 0.8 }, "-=0.4")
                 .from(".icon-reveal", { y: 15, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.4")
                 .from(".star", { x: 50, y: -50, rotation: 180, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.5)" }, "-=0.4");
 
-            // 07. HIGH-PERFORMANCE TEXT ANIMATIONS (NO SPLIT-TYPE)
             try {
                 gsap.utils.toArray('.split-text').forEach(text => {
-                    gsap.from(text, {
-                        scrollTrigger: { trigger: text, start: "top 85%" },
-                        y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
-                    });
+                    gsap.from(text, { scrollTrigger: { trigger: text, start: "top 85%" }, y: 40, opacity: 0, duration: 0.8, ease: "power3.out" });
                 });
-            } catch (e) { console.error("Text Animation Skipped:", e); }
+                gsap.utils.toArray('.fade-up').forEach(item => {
+                    gsap.from(item, { scrollTrigger: { trigger: item, start: "top 90%" }, y: 30, opacity: 0, duration: 0.8 });
+                });
+            } catch (e) { console.error("Animation Error:", e); }
 
-            // 08. TRUCK SCRUB ANIMATION
+            // TRUCK SCRUB ANIMATION
             const animatedTruck = document.querySelector(".track-truck");
             if (animatedTruck) {
                 gsap.to(animatedTruck, {
@@ -2042,12 +1882,17 @@
                 });
             }
 
-            // 09. VANILLA TILT
+            // MARQUEE
             try {
-                VanillaTilt.init(document.querySelectorAll(".tilt-card"), { max: 5, speed: 400, glare: true, "max-glare": 0.05 });
-            } catch (e) { console.error("VanillaTilt Skipped:", e); }
+                const marqueeContent = document.querySelector('.marquee-content');
+                if (marqueeContent) {
+                    gsap.to(marqueeContent, { xPercent: -50, ease: "none", duration: 25, repeat: -1 });
+                }
+            } catch (e) { console.error("Marquee Error:", e); }
 
-            // 10. MAGNETIC HOVER EFFECT
+            // TILT & MAGNETIC
+            try { VanillaTilt.init(document.querySelectorAll(".tilt-card"), { max: 3, speed: 400, glare: true, "max-glare": 0.1 }); } catch (e) { }
+
             document.querySelectorAll('.magnetic').forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const pos = btn.getBoundingClientRect();
@@ -2056,38 +1901,22 @@
                 btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.3)' }));
             });
 
-            // 11. NAVBAR GLASS SCROLL
+            // NAV GLASS
             const navbar = document.querySelector('.navbar');
-            const checkScroll = () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('glass-active');
-                } else {
-                    navbar.classList.remove('glass-active');
-                }
-            };
-            window.addEventListener('scroll', checkScroll);
-            checkScroll();
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('glass-active'); else navbar.classList.remove('glass-active');
+            });
 
-            // 12. MOBILE MENU TOGGLE
+            // MOBILE MENU
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
-
             if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    hamburger.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                });
-
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                    });
-                });
+                hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); });
+                mobileLinks.forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); mobileMenu.classList.remove('active'); }); });
             }
 
-            // 13. PARALLAX VIDEO EFFECT
+            // PARALLAX VIDEO ANIMATION LOGIC RESTORED
             try {
                 const parallaxVideo = document.querySelector('.parallax-bg-video');
                 if (parallaxVideo) {
@@ -2104,7 +1933,7 @@
                 }
             } catch (e) { console.error("Parallax Video Error:", e); }
 
-            // 14. CINEMATIC HERO VIDEO LOOP
+            // HERO VIDEO SPEED LOGIC RESTORED
             const heroVideo = document.querySelector('.hero-video');
             if (heroVideo) {
                 heroVideo.playbackRate = 0.6;
