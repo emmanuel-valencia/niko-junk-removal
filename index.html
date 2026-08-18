@@ -35,7 +35,6 @@
             /* Base Dark */
 
             --grid-line: rgba(255, 255, 255, 0.05);
-            /* Architectural Grid Lines */
             --glass-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
 
@@ -293,7 +292,7 @@
             gap: 1.5rem;
         }
 
-        /* ALL BUTTONS COMPLETELY RESTORED AND STYLED */
+        /* BUTTONS */
         .nav-btn,
         .submit-btn,
         .dark-btn,
@@ -323,7 +322,6 @@
             box-shadow: inset 0 0 0 50px var(--primary), 0 0 25px rgba(0, 240, 255, 0.6);
         }
 
-        /* The specific Hero Buttons you mentioned were missing */
         .hero-btn-primary {
             background: var(--primary);
             color: #000;
@@ -405,18 +403,23 @@
 
         .mobile-menu {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(5, 10, 21, 0.98);
+            top: 95px;
+            left: 5%;
+            width: 90%;
+            height: auto;
+            background: rgba(10, 15, 25, 0.98);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
             z-index: 1500;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: 1.2rem;
+            padding: 2rem 0;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-20px);
@@ -431,11 +434,21 @@
 
         .mobile-link {
             color: var(--text-dark);
-            font-size: 2rem;
-            font-weight: 900;
+            font-size: 1.4rem;
+            font-weight: 700;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: 1px;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-link:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            color: var(--primary);
         }
 
         .mobile-link:hover {
@@ -514,6 +527,7 @@
             z-index: 50;
         }
 
+        /* Trust Bar */
         .hero-trust-bar {
             position: absolute;
             bottom: 30px;
@@ -562,7 +576,6 @@
             padding: 15px 0;
             overflow: hidden;
             white-space: nowrap;
-            /* CRITICAL FIX: Stops text from stacking */
             font-size: 1.2rem;
             font-weight: 900;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -579,10 +592,10 @@
             padding-right: 50px;
         }
 
-        /* === [03.9] CUSTOM TRUCK SCRUB FIX (ADDED GLOW) === */
+        /* === [03.9] CUSTOM TRUCK SCRUB FIX (ADDED GLOW & MOBILE SCALING) === */
         .custom-truck-section {
-            /* Added a massive glowing cyan radial gradient behind the truck so it pops */
-            background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.15) 0%, rgba(5, 5, 5, 1) 70%);
+            /* Added a bright cyan spotlight to illuminate the dark background */
+            background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.25) 0%, rgba(5, 5, 5, 1) 70%);
             padding: 40px 5% 60px 5%;
             position: relative;
             overflow: hidden;
@@ -611,30 +624,30 @@
             }
         }
 
-        /* Added a white glow drop-shadow to the images so they don't get lost in the dark */
+        /* Added a white glow to the images so they don't fade into the background */
         .track-img {
             position: absolute;
             bottom: 0;
             z-index: 1;
-            filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.15));
+            filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.3)) brightness(1.1);
         }
 
         .track-house {
-            left: 5%;
-            height: 90px;
+            left: 2%;
+            height: 80px;
             width: auto;
         }
 
         .track-facility {
-            right: 5%;
-            height: 100px;
+            right: 2%;
+            height: 90px;
             width: auto;
         }
 
         .track-truck {
             left: 18%;
             bottom: -2px;
-            height: 75px;
+            height: 60px;
             width: auto;
             z-index: 5;
             animation: cartoonBounce 0.4s infinite ease-in-out;
@@ -1044,7 +1057,6 @@
             position: relative;
         }
 
-        /* Map Dark Mode Filter */
         .sa-map-wrapper iframe {
             position: absolute;
             top: 0;
@@ -1247,9 +1259,10 @@
             }
         }
 
+        /* EXACT MOBILE FIXES PER YOUR SCREENSHOTS */
         @media (max-width: 768px) {
             :root {
-                --nav-height: 75px;
+                --nav-height: 85px;
             }
 
             section {
@@ -1265,25 +1278,31 @@
                 margin-bottom: 3rem;
             }
 
+            /* Logo & Nav Centering Fix */
             .navbar {
-                height: calc(75px + env(safe-area-inset-top)) !important;
+                height: calc(85px + env(safe-area-inset-top)) !important;
                 padding: calc(10px + env(safe-area-inset-top)) 20px 10px 20px !important;
                 justify-content: space-between;
             }
 
             .logo-container {
+                position: absolute;
+                left: 50%;
+                top: calc(10px + env(safe-area-inset-top));
+                transform: translateX(-50%);
                 padding: 0;
             }
 
-            .logo-container::before {
-                display: none;
-            }
-
-            /* Hide large backglow on mobile */
             .nav-logo {
-                height: 45px !important;
+                height: 100px !important;
+                transform-origin: top center;
             }
 
+            .navbar.glass-active .nav-logo {
+                height: 60px !important;
+            }
+
+            /* Mobile Buttons & Text */
             .hero-section {
                 padding-top: 100px;
             }
@@ -1291,6 +1310,7 @@
             .hero-title {
                 font-size: 3.5rem;
                 letter-spacing: -1px;
+                margin-bottom: 20px;
             }
 
             .hero-subtitle {
@@ -1301,12 +1321,47 @@
                 flex-direction: column;
                 width: 100%;
                 gap: 1rem;
+                margin-bottom: 60px;
             }
 
             .hero-btn-primary,
             .hero-btn-secondary {
                 width: 100% !important;
                 margin: 0 !important;
+                font-size: 1.1rem;
+            }
+
+            /* Trust Bar Scrolling Fix */
+            .hero-trust-bar {
+                padding: 1rem 5%;
+                gap: 2rem;
+                display: flex;
+                justify-content: flex-start;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+                width: 100%;
+                border-radius: 12px;
+            }
+
+            .hero-trust-bar::-webkit-scrollbar {
+                display: none;
+            }
+
+            /* Smaller Custom Truck Images on Mobile to Increase Travel Distance */
+            .track-house {
+                height: 55px !important;
+                left: 2%;
+            }
+
+            .track-facility {
+                height: 65px !important;
+                right: 2%;
+            }
+
+            .track-truck {
+                height: 45px !important;
+                left: 18%;
             }
 
             .services-grid,
@@ -1362,7 +1417,8 @@
 <body>
     <!-- === BACKGROUND ARCHITECTURE === -->
     <div class="custom-cursor"></div>
-    <div class="grain-overlay"></div>
+    <div class="cyber-grid"></div>
+    <div class="cyber-glow"></div>
 
     <!-- === [02] NAVIGATION BAR === -->
     <nav class="navbar">
@@ -1453,7 +1509,7 @@
         </div>
     </header>
 
-    <!-- === [05] MARQUEE BANNER FIX === -->
+    <!-- === [05] MARQUEE BANNER === -->
     <div class="marquee-section">
         <div class="marquee-content">
             <span>RESIDENTIAL CLEANOUTS • COMMERCIAL HAULING • APPLIANCE REMOVAL • YARD WASTE • CONSTRUCTION DEBRIS •
@@ -1748,6 +1804,7 @@
             </div>
             <div class="sa-map-container premium-glass-card fade-up">
                 <div class="sa-map-wrapper">
+                    <!-- AWWARDS MAP HACK -->
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.81530948967!2d-105.08643795277414!3d39.76451867160754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C%20CO!5e0!3m2!1sen!2sus!4v1707000000000!5m2!1sen!2sus"
                         allowfullscreen=""></iframe>
