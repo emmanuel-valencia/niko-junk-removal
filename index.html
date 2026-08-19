@@ -78,6 +78,18 @@
             pointer-events: none;
         }
 
+        .cyber-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 150vw;
+            height: 150vh;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.04) 0%, transparent 60%);
+            transform: translate(-50%, -50%);
+            z-index: -997;
+            pointer-events: none;
+        }
+
         .grain-overlay {
             position: fixed;
             top: 0;
@@ -253,7 +265,7 @@
         }
 
         .nav-logo {
-            height: 80px;
+            height: 130px;
             width: auto;
             object-fit: contain;
             transition: height 0.4s ease;
@@ -263,7 +275,7 @@
         }
 
         .navbar.glass-active .nav-logo {
-            height: 60px;
+            height: 90px;
         }
 
         .nav-links {
@@ -1460,17 +1472,18 @@
         <div id="particles-js"></div>
         <div class="hero-content">
             <span class="hero-tag fade-up"> </span>
-            <h1 class="hero-title split-text">Denver's Best<br><span class="text-primary">Hauling Crew.</span></h1>
-            <p class="hero-subtitle fade-up">Clear, upfront pricing. Same-day service. A professional team that respects
+            <!-- REMOVED SPLIT TEXT TO FIX THE DOUBLE ANIMATION GLITCH -->
+            <h1 class="hero-title">Denver's Best<br><span class="text-primary">Hauling Crew.</span></h1>
+            <p class="hero-subtitle">Clear, upfront pricing. Same-day service. A professional team that respects
                 your property.</p>
-            <div class="hero-buttons fade-up">
+            <div class="hero-buttons">
                 <a href="#quote" class="hero-btn-primary magnetic">Get My Free Estimate</a>
                 <a href="sms:3039130327?body=Hey!%20How%20much%20would%20it%20cost%20to%20junk%20this?%20[Insert%20Picture]"
                     class="hero-btn-secondary magnetic">📸 Text Us A Picture</a>
             </div>
         </div>
 
-        <div class="hero-trust-bar fade-up">
+        <div class="hero-trust-bar">
             <div class="trust-item stars">
                 <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
                     class="star">★</span><span class="star">★</span> 5.0/5 Reviews
@@ -1906,14 +1919,14 @@
                 }
             } catch (e) { console.error("Particles Error:", e); }
 
-            // ANIMATIONS
-            const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-            tl.from(".hero-title", { y: 50, opacity: 0, duration: 1.2, delay: 0.2 })
-                .from(".hero-subtitle", { y: 20, opacity: 0, duration: 1 }, "-=0.8")
-                .from(".hero-buttons", { y: 20, opacity: 0, duration: 1 }, "-=0.8")
-                .from(".hero-trust-bar", { y: 20, opacity: 0, duration: 0.8 }, "-=0.4")
-                .from(".icon-reveal", { y: 15, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.4")
-                .from(".star", { x: 50, y: -50, rotation: 180, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.5)" }, "-=0.4");
+            // AWWWARDS CINEMATIC ANIMATIONS (Smooth Blur Reveals)
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            tl.from(".hero-title", { y: 40, opacity: 0, filter: "blur(12px)", duration: 1.8, delay: 0.3 })
+                .from(".hero-subtitle", { y: 20, opacity: 0, filter: "blur(8px)", duration: 1.5 }, "-=1.2")
+                .from(".hero-buttons", { y: 20, opacity: 0, duration: 1.2 }, "-=1.0")
+                .from(".hero-trust-bar", { y: 20, opacity: 0, duration: 1 }, "-=0.8")
+                .from(".icon-reveal", { y: 15, opacity: 0, duration: 0.8, stagger: 0.15 }, "-=0.6")
+                .from(".star", { x: 20, y: -20, rotation: 90, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.2)" }, "-=0.6");
 
             try {
                 gsap.utils.toArray('.split-text').forEach(text => {
